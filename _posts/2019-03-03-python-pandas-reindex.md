@@ -1,5 +1,5 @@
 ---
-title: How to deal with data type of lists/numpy array in Python
+title: Do not forget to reset index of pandas DataFrame
 image: /assets/img/blog/python_logo.png
 description: >
   Python skills 
