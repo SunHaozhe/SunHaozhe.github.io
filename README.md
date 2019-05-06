@@ -1,3 +1,6 @@
+[Go to ](https://sunhaozhe.github.io/)
+https://sunhaozhe.github.io/
+
 # Hydejack
 
 The "Best Jekyll Theme by a Mile".
