@@ -1,5 +1,5 @@
 ---
-title: Multinomial distribution & categorical distribution
+title: Python slicing
 description: >
   Python skills
 ---
