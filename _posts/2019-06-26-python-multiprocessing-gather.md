@@ -81,4 +81,4 @@ All subprocesses done.
  299. 319.]
 ```
 
-This experiment is run on a Linux-4.9.125-linuxkit-x86_64-with-Ubuntu-18.04-bionic (indeed, in a docker Virtual Machine).
+This experiment was run on Linux-4.9.125-linuxkit-x86_64-with-Ubuntu-18.04-bionic (indeed, in a docker Virtual Machine).
