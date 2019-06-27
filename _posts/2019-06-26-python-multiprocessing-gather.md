@@ -4,7 +4,7 @@ description: >
   Python skills
 ---
 
-This experiment was run on Linux-4.9.125-linuxkit-x86_64-with-Ubuntu-18.04-bionic (indeed, in a docker Virtual Machine) with Python 3.6.8, the system had 4 physical cores with 4 hyperthread, thus 8 logical cores.
+This experiment was run on Linux-4.9.125-linuxkit-x86_64-with-Ubuntu-18.04-bionic (indeed, in a docker Virtual Machine) with Python 3.6.8, the system had 4 physical cores with 4 hyperthreads, thus 8 logical cores.
 
 An incorrect way to do:
 ```
