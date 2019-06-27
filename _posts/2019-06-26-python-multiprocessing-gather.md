@@ -8,7 +8,7 @@ description: >
 import multiprocessing, os
 import numpy as np
 
-def worker(seed):
+def worker(seed, **kwargs):
 	print("begin worker", seed)
 	res = seed * 2
 	print("end worker", seed)
@@ -22,16 +22,17 @@ pool = multiprocessing.Pool(processes=nb_processes)
 
 random_seeds = [10 * i for i in range(1, nb_processes + 1)]
 
+kwargs = {"attribute1": 0, "attribute2": 3}
+
 array1 = np.zeros(nb_processes)
 array2 = np.zeros(nb_processes)
 
 for i, seed in enumerate(random_seeds):
-	array1[i], array2[i] = pool.apply_async(worker, (seed,)).get()
+	array1[i], array2[i] = pool.apply_async(worker, (seed,), kwargs).get()
 
 print('Waiting for all subprocesses done...')
 pool.close()
 pool.join()
-
 print('All subprocesses done.')
 
 print(array1)
@@ -81,4 +82,4 @@ All subprocesses done.
  299. 319.]
 ```
 
-This experiment was run on Linux-4.9.125-linuxkit-x86_64-with-Ubuntu-18.04-bionic (indeed, in a docker Virtual Machine).
+This experiment was run on Linux-4.9.125-linuxkit-x86_64-with-Ubuntu-18.04-bionic (indeed, in a docker Virtual Machine) with Python 3.6.8.
