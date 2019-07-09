@@ -4,6 +4,8 @@ description: >
   Python skills
 ---
 
+Experiments using Python 3.7.3
+
 ```
 zip([1, 2, 3], [4, 5, 6])
 
