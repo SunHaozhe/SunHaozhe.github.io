@@ -12,6 +12,7 @@ description: >
 | quadrillion | -        | 千万亿(千兆)       | 10^15               |
 | quintillion | trillion | 百亿亿 (百京)      | 10^18               |
 
+For English and French:
 
 The long scales (长级差制) and short scales (短级差制) are two of several large-number naming systems for integer powers 
 of ten that use the same words with different meanings. The long scale is based on powers of 
@@ -22,11 +23,11 @@ one million, whereas the short scale is based on powers of one thousand.
 
 * The traditional long scale is used by most Continental European countries and by most other 
 countries whose languages derive from Continental Europe (with the notable exceptions of Albania, 
-Greece, Romania,[57] and Brazil). These countries use a word similar to billion to mean 1012. Some 
-use a word similar to milliard to mean 109, while others use a word or phrase equivalent to thousand 
+Greece, Romania,[57] and Brazil). These countries use a word similar to billion to mean 10^12. Some 
+use a word similar to milliard to mean 10^9, while others use a word or phrase equivalent to thousand 
 millions.
 
-For Chinese, 
+For Chinese:
 
 References:
 * https://www.zhihu.com/question/36719368 
