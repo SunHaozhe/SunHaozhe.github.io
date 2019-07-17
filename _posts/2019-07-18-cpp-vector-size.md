@@ -23,6 +23,8 @@ if(data.size() - 2 > 0){
     cout << "data.size() - 2 = " << data.size() - 2 << endl;
 }
 
+cout << "(int) data.size() - 2 = " << (int) data.size() - 2 << endl;
+
 Out:
 
 8 4
@@ -30,6 +32,7 @@ typeid(data.size()).name() = m
 data.size() = 0
 data.size() - 1 = 18446744073709551615
 data.size() - 2 = 18446744073709551614
+(int) data.size() - 2 = -2
 ```
 
 Uses of typeid in C++:
