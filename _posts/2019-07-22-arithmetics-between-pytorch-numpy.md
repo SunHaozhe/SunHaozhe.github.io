@@ -86,7 +86,7 @@ Out:
 tensor([ 2, 48, 45])
 ```
 
-According to (Can’t call numpy() on Variable that requires grad)[https://discuss.pytorch.org/t/cant-call-numpy-on-variable-that-requires-grad/20763]:
+According to [Can’t call numpy() on Variable that requires grad](https://discuss.pytorch.org/t/cant-call-numpy-on-variable-that-requires-grad/20763):
 
 Moving to numpy will break the computation graph and so no gradient will be computed. If you don’t actually need gradients, then you can explicitly `.detach()` the Tensor that requires `grad` to get a tensor with the same content that does not require `grad`. This other Tensor can then be converted to a numpy array.
 
