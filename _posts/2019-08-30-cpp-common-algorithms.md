@@ -4,7 +4,9 @@ description: >
   C++
 ---
 
-# Dijkstra
+# C++ code common algorithms
+
+## Dijkstra
 
 Assume `N` nodes, source node is indexed by `root`, using adjacency list
 
@@ -34,7 +36,7 @@ To track the actual shortest path, introduce an array `int Predecessor[N]`,
 update whenever `dist[neighbor.second]` changes, 
 simply set to the new predecessor `current.second`. 
 
-# Union Find
+## Union Find
 
 ```
 #include<map>
@@ -70,7 +72,7 @@ void unionSet(int x, int y, map<int, pair<int, int>>& m){
 
 
 
-# Catalan number
+## Catalan number
 
 The first Catalan numbers for n = 0, 1, 2, 3, ... are
 
@@ -81,7 +83,7 @@ The first Catalan numbers for n = 0, 1, 2, 3, ... are
 ![CatalanRecursionFormula](imgs/catalanrecursion.png)
 
 
-# Fibonacci number 
+## Fibonacci number 
 
 The first Fibonacci numbers for n = 0, 1, 2, 3, ... are
 
@@ -90,9 +92,40 @@ The first Fibonacci numbers for n = 0, 1, 2, 3, ... are
 ![FibonacciFormula](imgs/fibonacciformula.png)
 
 
-# KMP  
+## KMP  
 
+```
+#include<vector>
+#include<string>
 
+vector<int> buildKmpArray(string& pattern){
+  vector<int> kmp(pattern.size() + 1, 0); // temporary array for KMP 
+  kmp[0] = -1;
+  int j = 0;
+  for(int i = 1; i <= pattern.size(); i++){
+    kmp[i] = j;
+    while(j >= 0 && pattern[j] != pattern[i])
+      j = kmp[j];
+    j++;
+  }
+return kmp;
+}
+    
+int KMP(string txt, string pattern) {
+  vector<int> kmp = buildKmpArray(pattern);
+  // search for pattern
+  int j = 0;
+  for(int i = 0; i <= txt.size(); i++){
+    while(j >= 0 && pattern[j] != txt[i])
+      j = kmp[j];
+    j++;
+    if(j == pattern.size()){
+      cout << "match found at " <<  i - pattern.size() + 1 << endl;
+      j = kmp[j];
+    }
+  }
+}
+```
 
 
 
