@@ -41,6 +41,17 @@ http://rogerdudler.github.io/git-guide/
 
 
 
+Probability! An interactive introduction.
+
+
+https://bookdown.org/probability/beta/
+
+
+
+
+**************************************************************************************************
+
+
 
 
 
