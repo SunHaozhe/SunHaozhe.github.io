@@ -4,7 +4,27 @@ description: >
   Useful websites 
 ---
 
-Posts written before August 30, 2019 have not yet been included.
+All of the posts written before 2019.08.30 have not yet been included.
+
+**************************************************************************
+
+2 lines C++ solution, easy to understand
+
+https://leetcode.com/problems/h-index/discuss/359325/2-lines-C%2B%2B-solution-easy-to-understand
+
+**************************************************************************
+
+C++ clear general backtracking, beats 98.38% in time, 100.00% in memory
+
+https://leetcode.com/problems/permutations/discuss/359476/C%2B%2B-clear-general-backtracking-beats-98.38-in-time-100.00-in-memory
+
+
+**************************************************************************
+
+
+Explaining the "used" array trick
+
+https://leetcode.com/problems/permutations-ii/discuss/360071/Explaining-the-%22used%22-array-trick
 
 **************************************************************************
 
