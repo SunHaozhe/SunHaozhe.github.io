@@ -4,7 +4,6 @@ description: >
   Useful websites 
 ---
 
-All of the posts written before 2019.08.30 have not yet been included.
 
 **************************************************************************
 
