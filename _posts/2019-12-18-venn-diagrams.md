@@ -5,13 +5,10 @@ description: >
 ---
 
 
-![types_matrices](imgs/types_matrices.jpg)
+<img src="imgs/types_matrices.jpg"/>
 
 
-
-![correlation_dependence](imgs/correlation_dependence.jpg)
-
-
+<img src="imgs/correlation_dependence.jpg"/>
 
 
 
