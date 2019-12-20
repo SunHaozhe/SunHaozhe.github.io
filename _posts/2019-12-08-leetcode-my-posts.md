@@ -5,7 +5,6 @@ title: Leetcode my posts
 tagline: by SunHaozhe
 tags: 
   - Utilities
-  - Online
 mathjax: true
 published: true
 ---
