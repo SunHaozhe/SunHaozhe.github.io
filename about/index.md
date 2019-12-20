@@ -2,11 +2,14 @@
 layout: page
 title: About Me
 type: about
+
 ---
 
 
 
+```
+![image](/assets/images/blog/girl_plane.jpg)
+```
 
 
-`<img src="/assets/images/blog/girl_plane.jpg"/>`
 
