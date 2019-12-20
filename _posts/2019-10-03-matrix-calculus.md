@@ -5,6 +5,7 @@ title: Matrix calculus
 tagline: by SunHaozhe
 tags: 
   - Mathematics
+mathjax: true
 published: true
 ---
 
