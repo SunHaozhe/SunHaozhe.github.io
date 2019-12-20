@@ -13,6 +13,13 @@ published: true
 
 
 
-`<img src="/assets/images/blog/XXX"/>`
+
+```
+
+![XXX](/assets/images/blog/XXX)
+
+```
+
+
 
 <!--more-->

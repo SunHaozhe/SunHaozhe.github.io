@@ -10,10 +10,13 @@ mathjax: true
 published: true
 ---
 
-<img src="/assets/images/blog/types_matrices.jpg"/>
 
 
-<img src="/assets/images/blog/correlation_dependence.jpg"/>
+![types_matrices](/assets/images/blog/types_matrices.jpg)
+
+
+
+![correlation_dependence](/assets/images/blog/correlation_dependence.jpg)
 
 
 
