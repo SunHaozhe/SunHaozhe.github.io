@@ -51,3 +51,10 @@ Xval.loc[0, Xval.columns[1]]
 
 Out: 'ACCACCGTCATCTATGTGGCCGTCGTGGGCCAACACATTGGTGTGAAGCACATGGCCGACCACGTGTTGTATCTGAATCTAGGTCGACCCACTGTGCGATT'
 ```
+
+The reason is that `.loc` is label-based indexer, `0` is not interpreted as the location `0` but the label `0`. 
+However, after slicing, the index of each row remains the same. 
+
+
+
+
