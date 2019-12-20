@@ -84,7 +84,7 @@ plugins:
 # ---------------------------------------------------------------
 
 # Put your favicon.ico into `assets/` directory.
-favicon: /assets/images/info/shocked-emoji.ico
+favicon: /assets/images/info/smile_emoji.ico
 
 # Set default keywords (Use a comma to separate)
 keywords: "Jekyll, NexT, SunHaozhe, Haozhe, Sun"
@@ -241,7 +241,7 @@ social_icons:
 
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
-avatar: /assets/images/info/shocked-emoji.png
+avatar: /assets/images/info/smile_emoji.jpeg
 
 
 # Table Of Contents in the Sidebar
