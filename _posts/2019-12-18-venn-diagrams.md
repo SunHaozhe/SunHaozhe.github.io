@@ -6,7 +6,6 @@ tagline: by SunHaozhe
 tags: 
   - Common knowledge
   - Mathematics
-  - XXX
 published: true
 
 title: Venn diagrams

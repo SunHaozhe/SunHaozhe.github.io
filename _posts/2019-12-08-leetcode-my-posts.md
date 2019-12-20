@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Utilities
+category: Misc
 title: Leetcode my posts
 tagline: by SunHaozhe
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Utilities
+category: Misc
 title: Useful websites
 tagline: by SunHaozhe
 tags: 

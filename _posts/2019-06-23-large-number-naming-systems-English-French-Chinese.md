@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Common knowledge
+category: Misc
 title: Large number naming systems in English/French/Chinese
 tagline: by SunHaozhe
 tags: 

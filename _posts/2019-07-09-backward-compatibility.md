@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Common knowledge
+category: Misc
 title: Backward compatibility
 tagline: by SunHaozhe
 tags: 

@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Common knowledge
+category: Misc
 title: Useful unix commands
 tagline: by SunHaozhe
 tags: 

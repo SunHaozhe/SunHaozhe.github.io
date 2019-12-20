@@ -1,6 +1,6 @@
 ---
 layout: post
-category: Computer science
+category: Misc
 title: Distinction between queue, stack and heap
 tagline: by SunHaozhe
 tags: 
