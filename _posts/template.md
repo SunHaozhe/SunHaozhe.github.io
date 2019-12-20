@@ -1,12 +1,12 @@
 ---
 layout: post
-category: Android
-title: 标题
-tagline: by 明不知昔
+category: XXX
+title: XXX
+tagline: by SunHaozhe
 tags: 
-  - android
-  - cpp
-  - c
+  - XXX
+  - XXX
+  - XXX
 published: true
 ---
 

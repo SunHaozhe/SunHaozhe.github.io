@@ -4,12 +4,12 @@
 # ---------------------------------------------------------------
 
 # Site
-title: 明不知昔
-subtitle: 明不知昔's Blog
-description: 面朝大海，春暖花开
-author: 明不知昔
+title: Sun Haozhe
+subtitle: Sun Haozhe's Blog
+description: description 
+author: Sun Haozhe 
 # Support language: de, en, fr-FR, id, ja, ko, pt-BR, pt, ru, zh-Hans, zh-hk, zh-tw
-language: zh-Hans
+language: en
 date_format: '%Y-%m-%d'
 
 # URL
@@ -84,10 +84,10 @@ plugins:
 # ---------------------------------------------------------------
 
 # Put your favicon.ico into `assets/` directory.
-favicon: https://cdn.jsdelivr.net/gh/galensgan/galensgan.github.io/assets/images/info/galens-favicon.ico
+favicon: /assets/images/info/shocked-emoji.ico
 
 # Set default keywords (Use a comma to separate)
-keywords: "Jekyll, NexT, 明不知昔, galens"
+keywords: "Jekyll, NexT, SunHaozhe, Haozhe, Sun"
 
 # Set rss to false to disable feed link.
 # Leave rss as empty to use site's feed link.
@@ -222,8 +222,7 @@ font:
 # Key is the link label showing to end users.
 # Value is the target link (E.g. GitHub: https://github.com/iissnan)
 social:
-  GitHub: https://github.com/galensgan
-  简书: https://www.jianshu.com/u/08760e791f9e
+  GitHub: https://github.com/SunHaozhe
 
 
 # Social Links Icons
@@ -236,13 +235,13 @@ social_icons:
   # Icon Mappings.
   # KeyMapsToSocialItemKey: NameOfTheIconFromFontAwesome
   GitHub: github
-  Twitter: twitter
-  Weibo: weibo
+  #Twitter: twitter
+  #Weibo: weibo
 
 
 # Sidebar Avatar
 # in directory: /assets/images/avatar.gif
-avatar: https://cdn.jsdelivr.net/gh/galensgan/galensgan.github.io/assets/images/info/author.jpg
+avatar: /assets/images/info/shocked-emoji.png
 
 
 # Table Of Contents in the Sidebar
@@ -331,10 +330,10 @@ post_wordcount:
   separated_meta: false
 
 # Wechat Subscriber
-wechat_subscriber:
-  enabled: true
-  qcode: https://cdn.jsdelivr.net/gh/galensgan/galensgan.github.io/assets/images/info/wechat-qrcode.jpg
-  description: 欢迎订阅 BIMFlying，这里分享关于 BIM 的一切。
+#wechat_subscriber:
+#  enabled: true
+#  qcode: 
+#  description: 欢迎订阅 BIMFlying，这里分享关于 BIM 的一切。
 
 # Declare license on posts
 post_copyright:
@@ -371,30 +370,30 @@ highlight_theme: normal
 
 # MathJax Support
 mathjax:
-  enable: false
-  per_page: false
+  enable: true
+  per_page: true
   cdn: //cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML
 
 # Han Support docs: https://hanzi.pro/
-han: false
+han: true
 
 # Swiftype Search API Key
 #swiftype_key:
 
 # Baidu Analytics ID
-baidu_analytics: 70b7e141dfc0ea2b204682f94ab2e01a
+#baidu_analytics: 70b7e141dfc0ea2b204682f94ab2e01a
 
 # Duoshuo ShortName
 #duoshuo_shortname:
 
 # Disqus
-disqus:
-  enable: false
-  shortname: visitor
-  count: true
+#disqus:
+#  enable: false
+#  shortname: visitor
+#  count: true
   # hide comments (visitors need to click to load the comments)
   # count need to be false when hide is true
-  hide: false
+#  hide: false
 
 # <wildfire>
 wildfire:
@@ -455,8 +454,8 @@ gitalk:
 # Available value:
 #    button | slide
 # Warning: Baidu Share does not support https.
-baidushare:
-  type: button
+#baidushare:
+#  type: button
 
 # Share
 #jiathis:
@@ -468,10 +467,10 @@ baidushare:
 
 # Google Webmaster tools verification setting
 # See: https://www.google.com/webmasters/
-google_site_verification: hxyd6b4vb-uzYY6dVuzz4KXhScoVoEUjtiRWYSJVlrY
+#google-site-verification: 
 
 # Google Analytics
-google_analytics: UA-67994495-1
+#google_analytics: 
 
 # Yandex Webmaster tools verification setting
 # See: https://webmaster.yandex.ru/
@@ -487,10 +486,10 @@ google_analytics: UA-67994495-1
 # Make duoshuo show UA
 # user_id must NOT be null when admin_enable is true!
 # you can visit http://dev.duoshuo.com get duoshuo user id.
-duoshuo_info:
-  ua_enable: true
-  admin_enable: false
-  user_id: 0
+#duoshuo_info:
+#  ua_enable: true
+#  admin_enable: false
+#  user_id: 0
   #admin_nickname: Author
 
 
@@ -760,6 +759,6 @@ cdn:
     ggh: https://cdn.jsdelivr.net/gh/galensgan/galensgan.github.io #github自己的配置
 
 #增加看板娘#
-live2d:
-    enable: true
-    live2d_widget: https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js
+#live2d:
+#    enable: true
+#    live2d_widget: https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js
