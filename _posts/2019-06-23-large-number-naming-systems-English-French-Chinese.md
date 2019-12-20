@@ -1,7 +1,11 @@
 ---
+layout: post
+category: Common knowledge
 title: Large number naming systems in English/French/Chinese
-description: >
-  Common knowledge
+tagline: by SunHaozhe
+tags: 
+  - Common knowledge
+published: true
 ---
 
 | English     | French   | Chinese | Scientific notation |

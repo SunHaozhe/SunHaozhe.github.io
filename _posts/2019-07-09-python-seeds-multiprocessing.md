@@ -1,7 +1,12 @@
 ---
+layout: post
+category: Python
 title: Python seeds for random number generators with multiprocessing
-description: >
-  Python skills
+tagline: by SunHaozhe
+tags: 
+  - Python
+  - Multiprocessing
+published: true
 ---
 
 From https://stackoverflow.com/questions/29854398/seeding-random-number-generators-in-parallel-programs 

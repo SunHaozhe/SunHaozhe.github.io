@@ -1,7 +1,11 @@
 ---
+layout: post
+category: Mathematics
 title: Matrix calculus
-description: >
-  Mathematics
+tagline: by SunHaozhe
+tags: 
+  - Mathematics
+published: true
 ---
 
 $$\nabla (u^\intercal A) = \nabla (u^\intercal) A$$

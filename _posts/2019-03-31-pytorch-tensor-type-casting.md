@@ -1,8 +1,12 @@
 ---
+layout: post
+category: Python
 title: Pytorch Tensor type casting
-image: /assets/img/blog/python_logo.png
-description: >
-  Python skills 
+tagline: by SunHaozhe
+tags: 
+  - Python
+  - PyTorch
+published: true
 ---
 
 In Python3 & PyTorch 1.0.0,

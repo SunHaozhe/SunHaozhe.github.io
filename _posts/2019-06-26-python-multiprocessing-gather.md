@@ -1,7 +1,12 @@
 ---
+layout: post
+category: Python
 title: Python multiprocessing gather
-description: >
-  Python skills
+tagline: by SunHaozhe
+tags: 
+  - Python
+  - Multiprocessing
+published: true
 ---
 
 This experiment was run on Linux-4.9.125-linuxkit-x86_64-with-Ubuntu-18.04-bionic (indeed, in a docker Virtual Machine) with Python 3.6.8, the system had 4 physical cores with 4 hyperthreads, thus 8 logical cores.
@@ -90,7 +95,6 @@ All subprocesses done.
  5.0e+09 5.5e+09 6.0e+09 6.5e+09 7.0e+09 7.5e+09 8.0e+09]
 ```
 By doing so, only 1 core among 8 cores was used at 100%, whereas other 7 cores were almost at 0% (checked by linux command `top`). At a given time, only 100% (instead of 800%) of CPU charge was used, even though this 100% CPU charge may move from one core to another every time a new process started.
-
 
 ******************************************************************************************************************************
 The correct way to do:

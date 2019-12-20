@@ -1,7 +1,11 @@
 ---
+layout: post
+category: C++
 title: C++ pointer, *, reference, &
-description: >
-  C++
+tagline: by SunHaozhe
+tags: 
+  - C++
+published: true
 ---
 
 指针`*`，引用`&`，解引用`*`，取地址`&`

@@ -1,8 +1,12 @@
 ---
+layout: post
+category: Python
 title: Do not forget to reset index of pandas DataFrame
-image: /assets/img/blog/python_logo.png
-description: >
-  Python skills 
+tagline: by SunHaozhe
+tags: 
+  - Python
+  - Pandas
+published: true
 ---
 
 Don't forget to reset indices of pandas DataFrame after slicing operations. Otherwise, there might be key errors later.

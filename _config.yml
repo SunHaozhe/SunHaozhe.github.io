@@ -66,7 +66,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      comments: true
+      comments: false
 
 # Atom feed
 feed:
@@ -443,7 +443,7 @@ changyan:
 
 # Support for gitalk comments system.
 gitalk:
-  enable: true
+  enable: false
   clientID: 63ece14861c297420892
   clientSecret: 731f0c050c35a3afee5aed41ca386decc768a3f0
   repo: blog-comments

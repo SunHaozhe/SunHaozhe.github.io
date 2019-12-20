@@ -1,14 +1,29 @@
 ---
+layout: post
+category: Utilities
 title: Useful websites
+tagline: by SunHaozhe
+tags: 
+  - Utilities
+  - Online
+published: true
+
+title: 
 description: >
   Useful websites 
 ---
 
+Draw sequence diagrams in seconds using this free online tool.
+
+https://www.websequencediagrams.com/
+
+
+
+**************************************************************************************************
 
 Tutorial about ray tracing. After this, look at Fundamentals of Computer Graphics
 
 https://raytracing.github.io/
-
 
 **************************************************************************************************
 
@@ -45,7 +60,6 @@ Probability! An interactive introduction.
 
 
 https://bookdown.org/probability/beta/
-
 
 
 

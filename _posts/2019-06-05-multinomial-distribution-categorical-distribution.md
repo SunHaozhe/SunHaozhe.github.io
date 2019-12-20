@@ -1,7 +1,12 @@
 ---
+layout: post
+category: Mathematics
 title: Multinomial distribution & categorical distribution
-description: >
-  Statistics
+tagline: by SunHaozhe
+tags: 
+  - Mathematics
+  - Common knowledge
+published: true
 ---
 
 In probability theory, the multinomial distribution is a generalization of the binomial distribution. For example, 

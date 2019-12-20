@@ -1,7 +1,12 @@
 ---
+layout: post
+category: Python
 title: Python slicing
-description: >
-  Python skills
+tagline: by SunHaozhe
+tags: 
+  - Python
+  - API
+published: true
 ---
 
 

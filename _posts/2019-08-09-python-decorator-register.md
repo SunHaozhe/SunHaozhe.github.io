@@ -1,7 +1,11 @@
 ---
+layout: post
+category: Python
 title: Python decorator register
-description: >
-  Python skills
+tagline: by SunHaozhe
+tags: 
+  - Python
+published: true
 ---
 
 

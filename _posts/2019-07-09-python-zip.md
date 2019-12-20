@@ -1,7 +1,12 @@
 ---
+layout: post
+category: Python
 title: Python zip
-description: >
-  Python skills
+tagline: by SunHaozhe
+tags: 
+  - Python
+  - API
+published: true
 ---
 
 Experiments using Python 3.7.3

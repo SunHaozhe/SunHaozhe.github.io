@@ -1,7 +1,13 @@
 ---
+layout: post
+category: Computer science
 title: Distinction between queue, stack and heap
-description: >
-  Computer science basics 
+tagline: by SunHaozhe
+tags: 
+  - Computer science
+  - Common knowledge 
+  - Data structures and algorithms
+published: true
 ---
 
 | English | French | Chinese  | Property                                                                                                           |

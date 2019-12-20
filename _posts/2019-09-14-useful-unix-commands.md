@@ -1,7 +1,11 @@
 ---
+layout: post
+category: Common knowledge
 title: Useful unix commands
-description: >
-  Common knowledge
+tagline: by SunHaozhe
+tags: 
+  - Common knowledge
+published: true
 ---
 
 ************************************************************************************************

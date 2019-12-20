@@ -1,8 +1,11 @@
 ---
+layout: post
+category: Python
 title: How to deal with data type of lists/numpy array in Python
-image: /assets/img/blog/python_logo.png
-description: >
-  Python skills 
+tagline: by SunHaozhe
+tags: 
+  - Python
+published: true
 ---
 
 Python中，一个`list`可以包含不同类型的`object`。例如:  

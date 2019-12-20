@@ -1,7 +1,11 @@
 ---
+layout: post
+category: C++
 title: C++ strange behaviors of size_t 
-description: >
-  C++
+tagline: by SunHaozhe
+tags: 
+  - C++
+published: true
 ---
 
 size_t是标准C库中定义的，应为unsigned int，在64位系统中为 long unsigned int。

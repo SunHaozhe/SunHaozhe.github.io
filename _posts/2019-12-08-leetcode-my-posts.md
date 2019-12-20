@@ -1,9 +1,13 @@
 ---
+layout: post
+category: Utilities
 title: Leetcode my posts
-description: >
-  Useful websites 
+tagline: by SunHaozhe
+tags: 
+  - Utilities
+  - Online
+published: true
 ---
-
 
 **************************************************************************
 
@@ -16,7 +20,6 @@ https://leetcode.com/problems/h-index/discuss/359325/2-lines-C%2B%2B-solution-ea
 C++ clear general backtracking, beats 98.38% in time, 100.00% in memory
 
 https://leetcode.com/problems/permutations/discuss/359476/C%2B%2B-clear-general-backtracking-beats-98.38-in-time-100.00-in-memory
-
 
 **************************************************************************
 
@@ -56,7 +59,6 @@ https://leetcode.com/problems/path-sum-ii/discuss/448905/Passing-current-path-by
 comparison of traversal order dfs/bfs on binary tree
 
 https://leetcode.com/problems/flatten-binary-tree-to-linked-list/discuss/448906/comparison-of-traversal-order-dfsbfs-on-binary-tree
-
 
 **************************************************************************
 

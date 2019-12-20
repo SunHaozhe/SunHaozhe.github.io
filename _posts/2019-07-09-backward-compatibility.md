@@ -1,7 +1,11 @@
 ---
+layout: post
+category: Common knowledge
 title: Backward compatibility
-description: >
-  Common knowledge
+tagline: by SunHaozhe
+tags: 
+  - Common knowledge
+published: true
 ---
 
 Backward compatibility, sometimes also called downward compatibility (向下兼容), is a property of a system, 

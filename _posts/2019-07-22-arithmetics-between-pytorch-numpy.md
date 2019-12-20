@@ -1,7 +1,13 @@
 ---
+layout: post
+category: Python
 title: Arithmetics between Pytorch tensor and Numpy array
-description: >
-  Python skills
+tagline: by SunHaozhe
+tags: 
+  - Python
+  - Numpy
+  - PyTorch
+published: true
 ---
 
 Arithmetics between Pytorch tensor and Numpy array (without explicit casting) are not allowed.

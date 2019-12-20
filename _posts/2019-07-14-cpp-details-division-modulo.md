@@ -1,7 +1,11 @@
 ---
+layout: post
+category: C++
 title: C++ details about division /, modulo % 
-description: >
-  C++
+tagline: by SunHaozhe
+tags: 
+  - C++
+published: true
 ---
 
 ```
