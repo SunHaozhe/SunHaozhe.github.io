@@ -7,10 +7,6 @@ tags:
   - Common knowledge
   - Mathematics
 published: true
-
-title: Venn diagrams
-description: >
-  Common knowledge
 ---
 
 <img src="/assets/images/blog/types_matrices.jpg"/>
