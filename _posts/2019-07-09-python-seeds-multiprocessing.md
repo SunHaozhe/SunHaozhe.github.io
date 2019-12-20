@@ -6,6 +6,8 @@ tagline: by SunHaozhe
 tags: 
   - Python
   - Multiprocessing
+  - Numpy 
+  - PyTorch
 published: true
 ---
 

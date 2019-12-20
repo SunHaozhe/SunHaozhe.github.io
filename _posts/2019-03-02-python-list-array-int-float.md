@@ -5,6 +5,7 @@ title: How to deal with data type of lists/numpy array in Python
 tagline: by SunHaozhe
 tags: 
   - Python
+  - Numpy 
 published: true
 ---
 
