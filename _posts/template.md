@@ -7,6 +7,7 @@ tags:
   - XXX
   - XXX
   - XXX
+mathjax: true
 published: true
 ---
 

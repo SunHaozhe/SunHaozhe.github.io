@@ -5,6 +5,7 @@ title: Backward compatibility
 tagline: by SunHaozhe
 tags: 
   - Common knowledge
+mathjax: true
 published: true
 ---
 

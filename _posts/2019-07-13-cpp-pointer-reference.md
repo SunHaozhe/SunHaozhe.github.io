@@ -5,6 +5,7 @@ title: C++ pointer, *, reference, &
 tagline: by SunHaozhe
 tags: 
   - C++
+mathjax: true
 published: true
 ---
 

@@ -8,6 +8,7 @@ tags:
   - Multiprocessing
   - Numpy 
   - PyTorch
+mathjax: true
 published: true
 ---
 

@@ -6,11 +6,8 @@ tagline: by SunHaozhe
 tags: 
   - Utilities
   - Online
+mathjax: true
 published: true
-
-title: 
-description: >
-  Useful websites 
 ---
 
 Draw sequence diagrams in seconds using this free online tool.

@@ -5,6 +5,7 @@ title: Python decorator register
 tagline: by SunHaozhe
 tags: 
   - Python
+mathjax: true
 published: true
 ---
 

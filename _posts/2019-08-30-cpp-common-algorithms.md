@@ -6,6 +6,7 @@ tagline: by SunHaozhe
 tags: 
   - C++
   - Data structures and algorithms
+mathjax: true
 published: true
 ---
 

@@ -7,6 +7,7 @@ tags:
   - Python
   - Numpy
   - PyTorch
+mathjax: true
 published: true
 ---
 

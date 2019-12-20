@@ -6,6 +6,7 @@ tagline: by SunHaozhe
 tags: 
   - Python
   - Pandas
+mathjax: true
 published: true
 ---
 

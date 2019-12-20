@@ -6,6 +6,7 @@ tagline: by SunHaozhe
 tags: 
   - Python
   - Multiprocessing
+mathjax: true
 published: true
 ---
 

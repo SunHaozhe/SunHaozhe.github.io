@@ -6,6 +6,7 @@ tagline: by SunHaozhe
 tags: 
   - Python
   - Numpy 
+mathjax: true
 published: true
 ---
 

@@ -5,6 +5,7 @@ title: C++ details about division /, modulo %
 tagline: by SunHaozhe
 tags: 
   - C++
+mathjax: true
 published: true
 ---
 

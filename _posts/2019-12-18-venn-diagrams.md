@@ -6,6 +6,7 @@ tagline: by SunHaozhe
 tags: 
   - Common knowledge
   - Mathematics
+mathjax: true
 published: true
 ---
 

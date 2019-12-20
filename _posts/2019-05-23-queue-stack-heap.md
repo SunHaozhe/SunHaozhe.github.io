@@ -7,6 +7,7 @@ tags:
   - Computer science
   - Common knowledge 
   - Data structures and algorithms
+mathjax: true
 published: true
 ---
 
