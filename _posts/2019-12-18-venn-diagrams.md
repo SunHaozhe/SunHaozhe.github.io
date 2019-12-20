@@ -14,7 +14,7 @@ published: true
 
 ![types_matrices](/assets/images/blog/types_matrices.jpg)
 
-positive definite $\subset$ positive semi-definite $\subset$ symmetric
+`positive definite` $\subset$ `positive semi-definite` $\subset$ `symmetric`
 
 Identity matrix is the only matrix which is positive definite and orthogonal.
 
