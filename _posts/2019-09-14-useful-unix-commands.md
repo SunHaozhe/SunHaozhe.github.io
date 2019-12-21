@@ -24,3 +24,15 @@ https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-
 `git commit -m "xxx"`
 
 `git push`
+
+
+
+************************************************************************************************
+
+
+
+```
+git config --list
+git config --global user.name
+git config --global user.email
+```
