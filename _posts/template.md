@@ -8,6 +8,7 @@ tags:
   - XXX
   - XXX
 mathjax: true
+comments: true
 published: true
 ---
 

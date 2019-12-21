@@ -7,6 +7,7 @@ tags:
   - Mathematics
   - Machine learning
 mathjax: true
+comments: true
 published: true
 ---
 
