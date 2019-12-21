@@ -6,6 +6,7 @@ tagline: by SunHaozhe
 tags: 
   - Utilities
 mathjax: true
+comments: true
 published: true
 ---
 
@@ -15,21 +16,18 @@ Draw sequence diagrams in seconds using this free online tool.
 
 
 
-
 **************************************************************************************************
 
 Tutorial about ray tracing. After this, look at Fundamentals of Computer Graphics
 
 [https://raytracing.github.io/](https://raytracing.github.io/)
 
-
 **************************************************************************************************
 
 
 Pan Xiao's summary of algorithms
- 
-[https://panxiao.gitbook.io/lc/](https://panxiao.gitbook.io/lc/)
 
+[https://panxiao.gitbook.io/lc/](https://panxiao.gitbook.io/lc/)
 
 **************************************************************************************************
 
@@ -37,7 +35,6 @@ Pan Xiao's summary of algorithms
 Space and time Big-O complexities of common algorithms used in Computer Science
 
 [https://www.bigocheatsheet.com/](https://www.bigocheatsheet.com/)
-
 
 **************************************************************************************************
 

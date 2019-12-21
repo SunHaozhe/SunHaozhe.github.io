@@ -8,6 +8,7 @@ tags:
   - Numpy
   - PyTorch
 mathjax: true
+comments: true
 published: true
 ---
 

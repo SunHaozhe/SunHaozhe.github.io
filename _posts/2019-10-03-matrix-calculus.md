@@ -6,6 +6,7 @@ tagline: by SunHaozhe
 tags: 
   - Mathematics
 mathjax: true
+comments: true
 published: true
 ---
 

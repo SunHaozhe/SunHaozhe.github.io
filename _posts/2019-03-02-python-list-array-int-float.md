@@ -7,6 +7,7 @@ tags:
   - Python
   - Numpy 
 mathjax: true
+comments: true
 published: true
 ---
 

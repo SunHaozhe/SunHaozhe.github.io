@@ -8,6 +8,7 @@ tags:
   - Common knowledge 
   - Data structures and algorithms
 mathjax: true
+comments: true
 published: true
 ---
 

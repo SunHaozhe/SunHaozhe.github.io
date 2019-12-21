@@ -7,6 +7,7 @@ tags:
   - Python
   - Multiprocessing
 mathjax: true
+comments: true
 published: true
 ---
 

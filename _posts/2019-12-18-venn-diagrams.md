@@ -7,6 +7,7 @@ tags:
   - Common knowledge
   - Mathematics
 mathjax: true
+comments: true
 published: true
 ---
 

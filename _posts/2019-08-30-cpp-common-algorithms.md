@@ -7,6 +7,7 @@ tags:
   - C++
   - Data structures and algorithms
 mathjax: true
+comments: true
 published: true
 ---
 

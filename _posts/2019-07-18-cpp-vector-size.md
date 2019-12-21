@@ -6,6 +6,7 @@ tagline: by SunHaozhe
 tags: 
   - C++
 mathjax: true
+comments: true
 published: true
 ---
 

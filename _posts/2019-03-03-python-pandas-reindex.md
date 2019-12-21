@@ -7,6 +7,7 @@ tags:
   - Python
   - Pandas
 mathjax: true
+comments: true
 published: true
 ---
 
