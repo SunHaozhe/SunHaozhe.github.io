@@ -63,3 +63,70 @@ $$
 
 
 If the prior $\mathbb{P}(\theta)$ is uniform, then MAP reduces to MLE. MAP can be seen as MLE augmented with a regularization term. If the prior is assumed to be centered Gaussian distribution $\mathcal{N}(\boldsymbol{0}, \frac{1}{\lambda} I)$, then this is $L2$ regularization, that is, $-\log \mathbb{P}(\theta) = \frac{\lambda}{2}\vert\vert\theta\vert\vert_2^2$. If the prior is assumed to be centered Laplace distribution, then this is $L1$ regularization. 
+
+
+
+# Linear regression
+
+$$y = X\theta^* + \epsilon$$
+
+
+
+## Ordinary least squares (OLS)
+
+$$\hat{\theta} \in \underset{\theta}{\operatorname{argmin}} \frac{1}{2} \vert\vert X\theta - y \vert\vert_2^2$$ 
+
+Method 1:
+
+$$\nabla_\theta \frac{1}{2} \vert\vert X\theta - y \vert\vert_2^2 = X^\intercal (X\theta - y) = 0$$
+
+Method 2:
+
+$$f(\theta) = \frac{1}{2} \vert\vert X\theta - y \vert\vert_2^2 = \frac{1}{2} \theta^\intercal X^\intercal X\theta - \langle \theta, X^\intercal y \rangle + \frac{1}{2} \vert\vert y \vert\vert^2$$
+
+$$f(\theta + h) = f(\theta) + \langle h, X^\intercal X\theta - X^\intercal y \rangle + \frac{1}{2} h^\intercal X^\intercal Xh$$
+
+According to the first-order Taylor series approximation $f(\theta + h) = f(\theta) + \langle h, \nabla f(\theta) \rangle + o(h)$, $\nabla f(\theta) = X^\intercal X\theta - X^\intercal y $. 
+
+Method 3:
+
+One aims to find $\theta$ such that $y = X\theta$. However, as $y \notin \text{im}(X)$, where $\text{im}(X)$ denotes the column space of $X$, one instead solves $\text{Proj}_{\text{im}(X)}(y) = X\theta$.
+
+$$
+\begin{equation}
+\begin{split}
+& X\theta - y = \text{Proj}_{\text{im}(X)}(y) - y \\
+& \text{Proj}_{\text{im}(X)}(y) - y \in \text{im}(X)^\perp 
+\end{split}
+\end{equation}
+$$
+
+$$\Downarrow$$
+
+$$X\theta - y \in \text{im}(X)^\perp$$
+
+As $\text{im}(X)^\perp = \ker(X^\intercal)$, $X^\intercal (X\theta - y) = 0$. 
+
+
+
+Theorem: If the columns of $X$ are linearly independent, then $X^\intercal X$ is invertible and $X^\intercal X \theta = X^\intercal y$ has a unique solution $\hat{\theta} = (X^\intercal X)^{-1}X^\intercal y$.
+
+Proof: Let $\theta \in \ker(X^\intercal X)$, that is, $X^\intercal X \theta = 0$. Then, 
+
+$$
+\begin{equation}\begin{split}
+& \theta^\intercal X^\intercal X\theta = \vert\vert X\theta \vert\vert^2 = 0 \\
+\Rightarrow & X\theta = \theta_1 \text{col}_1(X) + \theta_2 \text{col}_2(X) + ... = 0
+\end{split}\end{equation}
+$$
+
+As the columns of $X$ are linearly independent, $\theta = 0$, $\ker(X^\intercal X) = \{0\}$. 
+
+OLS estimator is the best linear unbiased estimator. Ridge regression has higher bias and lower variance than OLS. 
+
+## Ridge regression
+
+$$\hat{\theta} \in \underset{\theta}{\operatorname{argmin}} \frac{1}{2} \vert\vert X\theta - y \vert\vert_2^2 + \frac{\lambda}{2} \vert\vert \theta \vert\vert_2^2$$
+
+$$\nabla_\theta \frac{1}{2} \vert\vert X\theta - y \vert\vert_2^2 + \frac{\lambda}{2} \vert\vert \theta \vert\vert_2^2 = 0 \Rightarrow \hat{\theta} = (X^\intercal X + \lambda I)^{-1}X^\intercal y$$
+
