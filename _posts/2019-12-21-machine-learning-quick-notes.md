@@ -72,7 +72,7 @@ $$y = X\theta^* + \epsilon$$
 
 
 
-## Ordinary least squares (OLS)
+***Ordinary least squares (OLS)***
 
 $$\hat{\theta} \in \underset{\theta}{\operatorname{argmin}} \frac{1}{2} \vert\vert X\theta - y \vert\vert_2^2$$ 
 
@@ -124,7 +124,9 @@ As the columns of $X$ are linearly independent, $\theta = 0$, $\ker(X^\intercal 
 
 OLS estimator is the best linear unbiased estimator. Ridge regression has higher bias and lower variance than OLS. 
 
-## Ridge regression
+
+
+***Ridge regression***
 
 $$\hat{\theta} \in \underset{\theta}{\operatorname{argmin}} \frac{1}{2} \vert\vert X\theta - y \vert\vert_2^2 + \frac{\lambda}{2} \vert\vert \theta \vert\vert_2^2$$
 
