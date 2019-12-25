@@ -32,7 +32,7 @@ $$\mathbb{P}_{\mu, b}(x) = \frac{1}{2b} \exp(-\frac{|x - \mu|}{b})$$
 
 # Chi-square distribution
 
-$\chi^2$ Distribution with $k$ degrees of freedom is denoted by $\chi_k^2$. 
+$\chi^2$ distribution with $k$ degrees of freedom is denoted by $\chi_k^2$. 
 
 Let $X_i \sim \mathcal{N}(0, 1)$, $X_i$'s are independent. $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i$.
 
