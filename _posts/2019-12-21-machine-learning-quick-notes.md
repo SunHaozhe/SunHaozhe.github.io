@@ -107,7 +107,7 @@ $$X\theta - y \in \text{im}(X)^\perp$$
 
 As $\text{im}(X)^\perp = \ker(X^\intercal)$, $X^\intercal (X\theta - y) = 0$. 
 
-
+![projection_onto_space](/assets/images/blog/projection_onto_space.png)
 
 Theorem: If the columns of $X$ are linearly independent, then $X^\intercal X$ is invertible and $X^\intercal X \theta = X^\intercal y$ has a unique solution $\hat{\theta} = (X^\intercal X)^{-1}X^\intercal y$.
 
