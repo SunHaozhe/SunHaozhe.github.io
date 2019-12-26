@@ -44,9 +44,9 @@ Variance: $2k$
 
 Let $X_i \sim \mathcal{N}(0, 1)$, $X_i$'s are independent. $\overline{X} = \frac{1}{n} \sum_{i=1}^n X_i$.
 
-$$Y = \sum_{i=1}^n X_i^2 \Rightarrow Y \sim \chi_n^2$$
+$$\sum_{i=1}^n X_i^2 \sim \chi_n^2$$
 
-$$Z = \sum_{i=1}^n (X_i - \overline{X})^2 \Rightarrow Z\sim \chi_{n-1}^2$$
+$$\sum_{i=1}^n (X_i - \overline{X})^2 \sim \chi_{n-1}^2$$
 
 
 
@@ -61,6 +61,18 @@ $$t = \frac{\overline{X} - \mu}{\frac{S}{\sqrt{n}}} $$
 $t$ follows Student's t-distribution with $n-1$ degrees of freedom. 
 
 Mean: $0$ for $\nu > 1$ degrees of freedom, otherwise undefined  
+
+
+
+# F-distribution
+
+F-distribution with parameters $d_1$ and $d_2$ is denoted by $F(d_1, d_2)$.
+
+If $X_1 \sim \chi_{d_1}^2$ and $X_2 \sim \chi_{d_2}^2$ are independent, then
+
+$$\frac{\frac{X_1}{d_1}}{\frac{X_2}{d_2}} \sim F(d_1, d_2)$$
+
+
 
 
 
