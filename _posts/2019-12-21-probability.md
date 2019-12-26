@@ -34,7 +34,7 @@ Variance: $2b^2$
 
 
 
-# Chi-square distribution
+# Chi-squared distribution
 
 $\chi^2$ distribution with $k$ degrees of freedom is denoted by $\chi_k^2$. 
 
