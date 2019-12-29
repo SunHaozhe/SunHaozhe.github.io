@@ -72,6 +72,8 @@ If $X_1 \sim \chi_{d_1}^2$ and $X_2 \sim \chi_{d_2}^2$ are independent, then
 
 $$\frac{\frac{X_1}{d_1}}{\frac{X_2}{d_2}} \sim F(d_1, d_2)$$
 
+Mean: $\frac{d_2}{d_2 - 2}$ for $d_2 > 2$
+
 
 
 
