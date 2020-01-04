@@ -5,6 +5,7 @@ title: Leetcode my posts
 tagline: by SunHaozhe
 tags: 
   - Utilities
+  - Data structures and algorithms
 mathjax: true
 comments: true
 published: true
