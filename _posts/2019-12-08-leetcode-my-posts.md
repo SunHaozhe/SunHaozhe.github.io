@@ -66,6 +66,18 @@ comparison of traversal order dfs/bfs on binary tree
 
 **************************************************************************
 
+Can I use non-const references in C++ during interviews (onsite or not) ?
+
+[https://leetcode.com/discuss/general-discussion/471408/Can-I-use-non-const-references-in-C%2B%2B-during-interviews-(onsite-or-not)](https://leetcode.com/discuss/general-discussion/471408/Can-I-use-non-const-references-in-C%2B%2B-during-interviews-(onsite-or-not))
+
+[https://leetcode.com/discuss/interview-experience/471411/Can-I-use-non-const-references-in-C%2B%2B-during-interviews-(onsite-or-not)](https://leetcode.com/discuss/interview-experience/471411/Can-I-use-non-const-references-in-C%2B%2B-during-interviews-(onsite-or-not))
+
+[https://leetcode.com/discuss/interview-question/471413/can-i-use-non-const-references-in-c-during-interviews-onsite-or-not](https://leetcode.com/discuss/interview-question/471413/can-i-use-non-const-references-in-c-during-interviews-onsite-or-not)
+
+
+
+**************************************************************************
+
 
 
 
