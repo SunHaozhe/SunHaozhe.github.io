@@ -6,6 +6,8 @@ tagline: by SunHaozhe
 tags: 
   - Utilities
   - Data structures and algorithms
+  - C++
+  - Computer science
 mathjax: true
 comments: true
 published: true
