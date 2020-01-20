@@ -14,7 +14,7 @@ published: true
 This experiment was run on Linux-4.9.125-linuxkit-x86_64-with-Ubuntu-18.04-bionic (indeed, in a docker Virtual Machine) with Python 3.6.8, the system had 4 physical cores with 4 hyperthreads, thus 8 logical cores.
 
 An incorrect way to do:
-```
+```python
 import multiprocessing, os
 import numpy as np
 import gym
@@ -55,7 +55,7 @@ if __name__ == '__main__':
 ```
 
 The output was
-```
+```python
 There are 8 CPUs, we run 16 experiments in parallel.
 begin worker 10
 end worker 10
@@ -100,7 +100,7 @@ By doing so, only 1 core among 8 cores was used at 100%, whereas other 7 cores w
 
 ******************************************************************************************************************************
 The correct way to do:
-```
+```python
 import multiprocessing, os
 import numpy as np
 import gym
@@ -145,7 +145,7 @@ if __name__ == '__main__':
 ```
 
 The output of the correct way was:
-```
+```python
 There are 8 CPUs, we run 16 experiments in parallel.
 begin worker 10
 begin worker 20
@@ -190,12 +190,12 @@ All subprocesses done.
 By using the correct way, all 8 cores were used at 100% (checked by linux command `top`).
 
 The difference is the following:
-```
+```python
 for i, seed in enumerate(random_seeds):
 	array1[i], array2[i] = pool.apply_async(worker, (seed,), kwargs).get()
 ```
 becomes
-```
+```python
 async_results = []
 for i, seed in enumerate(random_seeds):
 	async_results.append(pool.apply_async(worker, (seed,), kwargs))

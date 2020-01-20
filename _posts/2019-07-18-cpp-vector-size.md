@@ -14,7 +14,7 @@ size_t是标准C库中定义的，应为unsigned int，在64位系统中为 long
 
 size_t是一种无符号的整型数，它的取值没有负数，在数组中也用不到负数，而它的取值范围是整型数的双倍。
 
-```
+```c++
 #include <typeinfo>
 
 vector<int> data;

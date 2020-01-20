@@ -26,20 +26,20 @@ In Python3 & PyTorch 1.0.0,
 
 One example of conversion from `LongTensor` to `FloatTensor`:
 
-```
+```python
 a = torch.LongTensor(22)
 a = a.float()
 ```
 
 Attention:
-```
+```python
 a = torch.LongTensor(22)
 b = 100. * a
 
 ```
 `b.type()` equals `LongTensor`. The implicit type casting did not work because `type(a)` is `torch.Tensor` instead of Python raw numbers or Numpy array.
 <br>The solution is as follows:
-```
+```python
 a = torch.LongTensor(22)
 b = 100 * a.float()
 ```

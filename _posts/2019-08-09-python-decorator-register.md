@@ -11,7 +11,7 @@ published: true
 ---
 
 
-```
+```python
 mapping = {}
 
 def register(name):
@@ -43,7 +43,7 @@ if __name__ == '__main__':
 ```
 
 
-```
+```python
 Out:
 
 <function cnn at 0x00000219BA78A950>
