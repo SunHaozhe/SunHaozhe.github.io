@@ -17,7 +17,7 @@ published: true
 
 Assume `N` nodes, source node is indexed by `root`, using adjacency list
 
-```
+```c++
 #include<climits> // INT_MAX
 #include<vector>
 #include<queue> // priority_queue
@@ -45,7 +45,7 @@ simply set to the new predecessor `current.second`.
 
 ## Union Find
 
-```
+```c++
 #include<map>
 #include<<utility>> // pair
 
@@ -105,7 +105,7 @@ The first Fibonacci numbers for n = 0, 1, 2, 3, ... are
 
 ## KMP  
 
-```
+```c++
 #include<vector>
 #include<string>
 
