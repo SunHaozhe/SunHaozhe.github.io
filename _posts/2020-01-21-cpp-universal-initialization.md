@@ -52,8 +52,15 @@ int main(){
 One trap of universal initializations is shown here:
 
 ```c++
-vector<int> v(4, 100); // [100, 100, 100, 100], fill constructor
-vector<int> v{4, 100}; // [4, 100], equivalent to vector<int> v = {4, 100};
+vector<int> v1(4, 100); // [100, 100, 100, 100], fill constructor
+vector<int> v2{4, 100}; // [4, 100], equivalent to vector<int> v = {4, 100};
+
+vector<vector<int>> vv;
+vv.push_back(vector<int>(4, 100));
+vv.push_back(vector<int>{4, 100});
+for(auto e: vv[0]) cout << e << ", "; cout << endl; // 100, 100, 100, 100, 
+for(auto e: vv[1]) cout << e << ", "; cout << endl; // 4, 100, 
+
 ```
 
 
