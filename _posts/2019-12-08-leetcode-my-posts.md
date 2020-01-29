@@ -74,7 +74,17 @@ Can I use non-const references in C++ during interviews (onsite or not) ?
 
 C++ 3 approaches: inorder traversal, DFS range check, BFS range check
 
-()[]
+[https://leetcode.com/problems/validate-binary-search-tree/discuss/485751/c-3-approaches-inorder-traversal-dfs-range-check-bfs-range-check](https://leetcode.com/problems/validate-binary-search-tree/discuss/485751/c-3-approaches-inorder-traversal-dfs-range-check-bfs-range-check)
+
+
+
+**************************************************************************
+
+C++ binary search solution (two versions)
+
+[https://leetcode.com/problems/sqrtx/discuss/493465/C%2B%2B-binary-search-solution-(two-versions)](https://leetcode.com/problems/sqrtx/discuss/493465/C%2B%2B-binary-search-solution-(two-versions))
+
+
 
 
 
