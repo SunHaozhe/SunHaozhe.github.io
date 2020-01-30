@@ -154,3 +154,25 @@ int binary_search(vector<int>& nums, int target){
 ```
 
 
+## argsort in C++
+
+```c++
+#include <iostream>
+#include <vector>
+#include <numeric>   // std::iota
+#include <algorithm> // std::stable_sort
+using namespace std;
+
+vector<int> argsort(vector<int>& v){
+  vector<int> idx(v.size());       // idx = {0, 0, 0, ..., 0};
+  iota(idx.begin(), idx.end(), 0); // idx = {0, 1, 2, ..., v.size() - 1};
+  stable_sort(idx.begin(), idx.end(), [&v](int i1, int i2){return v[i1] < v[i2];});
+  return idx;
+}
+
+int main(){
+  vector<int> v = {23, 40, 10, 15};
+  vector<int> idx = argsort(v); 
+  for(auto i: idx) cout << i << ", "; // 2, 3, 0, 1, 
+}
+```
