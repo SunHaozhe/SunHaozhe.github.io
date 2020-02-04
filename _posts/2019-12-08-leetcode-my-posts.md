@@ -91,6 +91,14 @@ C++ binary search solution (two versions)
 **************************************************************************
 
 
+C++ 6 approaches to solve the dutch national flag problem
+
+[https://leetcode.com/problems/sort-colors/discuss/499396/C%2B%2B-six-approaches-to-solve-the-dutch-national-flag-problem](https://leetcode.com/problems/sort-colors/discuss/499396/C%2B%2B-six-approaches-to-solve-the-dutch-national-flag-problem)
+
+
+
+**************************************************************************
+
 
 
 
