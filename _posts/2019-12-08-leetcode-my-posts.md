@@ -99,6 +99,18 @@ C++ 6 approaches to solve the dutch national flag problem
 
 **************************************************************************
 
+C++ brute force solution vs doubly linked list solution
+
+[https://leetcode.com/problems/lru-cache/discuss/500336/C%2B%2B-brute-force-solution-vs-double-linked-list-solution](https://leetcode.com/problems/lru-cache/discuss/500336/C%2B%2B-brute-force-solution-vs-double-linked-list-solution)
+
+
+
+
+
+
+
+**************************************************************************
+
 
 
 
