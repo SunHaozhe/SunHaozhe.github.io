@@ -112,6 +112,19 @@ C++ brute force solution vs doubly linked list solution
 **************************************************************************
 
 
+Why isn't this C++ code working?
+
+[https://leetcode.com/problems/sudoku-solver/discuss/505166/Why-isn't-this-C%2B%2B-code-working](https://leetcode.com/problems/sudoku-solver/discuss/505166/Why-isn't-this-C%2B%2B-code-working)
+
+
+
+
+
+
+
+**************************************************************************
+
+
 
 
 
