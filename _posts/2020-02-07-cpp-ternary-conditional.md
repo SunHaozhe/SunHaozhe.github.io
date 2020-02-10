@@ -1,7 +1,7 @@
 ---
 layout: post
 category: C++
-title: XXX
+title: C++ ternary conditional
 tagline: by SunHaozhe
 tags: 
   - C++
