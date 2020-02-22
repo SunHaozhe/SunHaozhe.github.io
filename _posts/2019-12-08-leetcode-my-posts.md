@@ -124,6 +124,20 @@ Why isn't this C++ code working?
 
 **************************************************************************
 
+C++ generalized to kSum
+
+[https://leetcode.com/problems/4sum/discuss/517139/C%2B%2B-generalized-to-kSum](https://leetcode.com/problems/4sum/discuss/517139/C%2B%2B-generalized-to-kSum)
+
+
+
+
+
+
+
+
+
+**************************************************************************
+
 
 
 
