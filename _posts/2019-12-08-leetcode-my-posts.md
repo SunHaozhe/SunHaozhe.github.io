@@ -181,6 +181,17 @@ C++ using priority queue
 **************************************************************************
 
 
+# 25. Reverse Nodes in k-Group
+
+C++ iterative solution & recursive solution
+
+[https://leetcode.com/problems/reverse-nodes-in-k-group/discuss/523641/C%2B%2B-iterative-solution-and-recursive-solution](https://leetcode.com/problems/reverse-nodes-in-k-group/discuss/523641/C%2B%2B-iterative-solution-and-recursive-solution)
+
+
+
+**************************************************************************
+
+
 
 
 
