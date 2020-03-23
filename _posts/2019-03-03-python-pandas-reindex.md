@@ -58,4 +58,6 @@ However, after slicing, the index of each row remains the same.
 
 
 
+When using `.loc` with slices, both the start point and end point are included.
 
+When using `.iloc` with slices, the start point is included, while the end point is excluded (like standard Python slicing convention). 
