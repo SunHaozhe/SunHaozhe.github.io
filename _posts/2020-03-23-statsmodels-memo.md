@@ -23,8 +23,9 @@ import statsmodels.api as sm
 Fit OLS:
 
 ```python
-regression_results = sm.OLS(y_train, X_train.assign(const=1)).fit()
+regression_results = sm.OLS(y_train, X_train).fit()
 # regression_results is a statsmodels.regression.linear_model.RegressionResultsWrapper
+# Replace X_train by X_train.assign(const=1) if needed
 ```
 
 Summarize the regression results:
@@ -251,6 +252,45 @@ strong multicollinearity problems or that the design matrix is singular.
 ```
 
 
+Forward variable selection:
+
+```python
+def forward_variable_selection(X, y, early_stop_pvalue=None, k=None, 
+                               const_col_name="const"):
+    """
+    Forward variable selection for regression problem
+    
+    X, y: pandas DataFrame
+    
+    If X has already been augmented by the constant column, 
+    that column must be named by const_col_name
+    """
+    if k is None: 
+        k = X.shape[1]
+        if const_col_name in X.columns:
+            k -= 1 
+    used = {const_col_name: True} 
+    target = sm.OLS(y, pd.DataFrame([[1]], index=X.index)).fit().resid
+    selected = []
+    for _ in range(k):
+        tuples = [] 
+        for feature in X.columns:
+            if not used.get(feature, False): 
+                regression_results = sm.OLS(target, X.loc[:, [feature]]).fit()
+                tuples.append((feature, regression_results.resid, 
+                               regression_results.tvalues.iloc[0], 
+                               regression_results.pvalues.iloc[0])) 
+        chosen_tuple = max(tuples, key=lambda x: x[2]) 
+        if early_stop_pvalue is not None:
+            if chosen_tuple[3] > early_stop_pvalue:
+                break 
+        selected.append(chosen_tuple[0])
+        used[chosen_tuple[0]] = True
+        target = chosen_tuple[1]
+    return selected
+
+selected = forward_variable_selection(X_train, y_train)
+```
 
 
 
