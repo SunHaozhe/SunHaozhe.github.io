@@ -154,7 +154,7 @@ binary_results = sm.Logit(y_train , X_train).fit(method="bfgs", maxiter=1000)
 # Replace X_train by X_train.assign(const=1) if needed
 ```
 
-Check all available output which is dependent on the solve:
+Check all available output which is dependent on the solver:
 
 ```python
 binary_results.mle_retvals

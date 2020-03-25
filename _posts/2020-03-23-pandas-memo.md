@@ -28,11 +28,18 @@ print(train_df.info())
 train_df
 ```
 
-Convert object (string) columns to Categorical columns:
+Convert `object` (string) columns to `Categorical` columns:
 
 ```python
 categorical_cols = ["...", "...", "..."]
 train_df.loc[:, categorical_cols] = train_df.loc[:, categorical_cols].astype("category")
+```
+
+Convert `float` columns to `int` columns (as long as there are no missing values):
+
+```python
+int_cols = ["...", "...", "..."]
+train_df.loc[:, int_cols] = train_df.loc[:, int_cols].astype("int")
 ```
 
 Convert Categorical columns into dummy columns:
@@ -191,12 +198,51 @@ Get a subset of the DataFrame’s columns based on the column dtypes:
 train_df.select_dtypes(include=["object", "bool", "float64", "int"])
 ```
 
-Make a histogram:
+Make plots of Series or DataFrame (matplotlib is used by default):
+
+```python
+train_df.plot(x="...", y="...", kind="line")
+plt.show()
+```
+
+Make histograms:
 
 ```python
 train_df["age"].hist(bins=10)
 plt.show()
 ```
+
+Generate descriptive statistics (count, mean, std, min, 25%, 50%, 75%, max for each feature) of a `GroupBy` object`:
+
+```python
+train_df.groupby(["country"]).describe()
+train_df.groupby(["country"])["cases"].describe()
+train_df.groupby(["country"])["cases", "fatalities"].describe()
+```
+
+MultiIndex indexing:
+
+```
+                                    cases  fatalities
+country 			 date                                  
+China          2020-01-22             548          17
+               2020-01-23             643          18
+...                                   ...         ...
+Italy          2020-03-17           31506        2503
+               2020-03-18           35713        2978
+```
+
+```python
+train_df.loc["China", :]
+train_df.loc[(slice(None), "2020-01-23"), :]
+train_df.loc[(slice(None), slice("2020-01-23", "2020-01-25")), :]
+```
+
+
+
+
+
+
 
 
 

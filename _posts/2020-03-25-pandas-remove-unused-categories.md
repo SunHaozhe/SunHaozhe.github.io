@@ -193,7 +193,7 @@ Name: cases, dtype: float64
 
 Let's see what's going on. 
 
-`df2["country"].cat` is a `pandas.core.arrays.categorical.CategoricalAccessor` object. The method `Series.cat.remove_unused_categories()` removes categories which are not used and returns an instance of `pandas.Categorical` class. 
+`df2["country"].cat` is a `pandas.core.arrays.categorical.CategoricalAccessor` object. The method `Series.cat.remove_unused_categories()` removes categories which are not used and returns a series (DataFrame column).  
 
 The above can also be done by:
 
