@@ -109,6 +109,12 @@ train_df.loc[train_df["country"].isin(["China", "France"]), :]
 train_df.loc[~train_df["country"].isin(["China", "France"]), :]
 ```
 
+Sort by the values along either axis:
+
+```python
+train_df.sort_values("A", ascending=True, inplace=False)
+```
+
 Normalize features:
 
 ```python
@@ -123,6 +129,16 @@ scaler = MinMaxScaler() # StandardScaler()
 train_df = pd.DataFrame(scaler.fit_transform(train_df), 
 columns=train_df.columns, index=train_df.index)
 train_df = train_df.assign(const=1)
+```
+
+Standard database join operations between `DataFrame` or named `Series` objects:
+
+```python
+df3 = df1.merge(df2, on=["..."], how="inner") # SQL inner join
+df3 = df1.merge(df2, on=["..."], how="left")  # SQL left outer join
+df3 = df1.merge(df2, on=["..."], how="right") # SQL right outer join
+df3 = df1.merge(df2, on=["..."], how="outer") # SQL full outer join
+df3 = df1.merge(df2, left_index=True, right_index=True)
 ```
 
 Split features `X` and labels `y`:
@@ -238,6 +254,16 @@ train_df.loc[(slice(None), "2020-01-23"), :]
 train_df.loc[(slice(None), slice("2020-01-23", "2020-01-25")), :]
 ```
 
+Revert from MultiIndex to single index dataframe:
+
+```python
+# level: only remove the given levels from the index
+
+# integer position
+train_df.reset_index(level=[1, 3], inplace=True) 
+# the name of the level
+train_df.reset_index(level=["...", "...", "..."], inplace=True) 
+```
 
 
 
