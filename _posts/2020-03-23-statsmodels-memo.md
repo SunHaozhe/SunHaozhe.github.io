@@ -127,13 +127,16 @@ leverage = regression_results.get_influence().hat_matrix_diag
 
 ***Variance inflation factor (VIF) for multicollinearity***
 
-
 ```python
 from statsmodels.stats.outliers_influence import variance_inflation_factor
 
-vif = pd.DataFrame()
-vif["feature"] = X_train.columns
-vif["vif"] = [variance_inflation_factor(X_train.values, i) for i in range(X_train.shape[1])]
+def build_vif(df):
+    vif = pd.DataFrame()
+    vif["feature"] = df.columns
+    vif["vif"] = [variance_inflation_factor(df.values, i) for i in range(df.shape[1])]
+    vif.set_index("feature", inplace=True)
+    return vif
+
 ```
 
 Visualize long table (of vif) in Jupyter notebook:
