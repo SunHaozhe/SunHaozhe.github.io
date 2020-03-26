@@ -125,6 +125,35 @@ $$H = X(X^{\intercal}X)^{-1}X^{\intercal}$$
 leverage = regression_results.get_influence().hat_matrix_diag
 ```
 
+As leverage is independent of label vector `y`, on can instead do the following:
+
+```python
+def build_leverage(df, visualize=True, xticks_labels=None, rotation=85, 
+                   title=None, augment_const=True):
+    """
+    If constant columns has not already been augmented, use augment_const=True, 
+    otherwise use augment_const=False. 
+    """
+    if augment_const:
+        X = df.assign(const=1)
+    else:
+        X = df
+    regression_results = sm.OLS(pd.DataFrame([[1]], index=X.index), X).fit()
+    leverage = regression_results.get_influence().hat_matrix_diag
+    if visualize:
+        plt.plot(leverage)
+        plt.grid()
+        if title is not None:
+            plt.title(title)
+        if xticks_labels is not None:
+            plt.xticks(range(len(countries)), countries, rotation=rotation)
+        plt.show()
+    return leverage
+
+leverage = build_leverage(X_train)
+```
+
+
 ***Variance inflation factor (VIF) for multicollinearity***
 
 ```python
