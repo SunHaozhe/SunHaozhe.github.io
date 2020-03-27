@@ -112,7 +112,7 @@ train_df.loc[~train_df["country"].isin(["China", "France"]), :]
 Sort by the values along either axis:
 
 ```python
-train_df.sort_values("A", ascending=True, inplace=False)
+train_df.sort_values("A", ascending=True, inplace=False, axis=0)
 ```
 
 Normalize features:
@@ -139,6 +139,9 @@ df3 = df1.merge(df2, on=["..."], how="left")  # SQL left outer join
 df3 = df1.merge(df2, on=["..."], how="right") # SQL right outer join
 df3 = df1.merge(df2, on=["..."], how="outer") # SQL full outer join
 df3 = df1.merge(df2, left_index=True, right_index=True)
+
+# If both objects are Series or named Series, consider:
+df = pd.merge(s1, s2, left_index=True, right_index=True, how="outer")
 ```
 
 Split features `X` and labels `y`:
@@ -265,7 +268,58 @@ train_df.reset_index(level=[1, 3], inplace=True)
 train_df.reset_index(level=["...", "...", "..."], inplace=True) 
 ```
 
+Slice a MultiIndex DataFrame with a condition based on the index:
 
+```python
+l0 = train_df.index.get_level_values(0) # level 0 index
+l1 = train_df.index.get_level_values(1) # level 1 index 
+train_df.loc[(l0 == "foo") | ((l0=="bar") & (l1=="two")), :]
+```
+
+Exchange index level of a MultiIndex DataFrame:
+
+```python
+train_df = train_df.swaplevel(0, 1)
+train_df = train_df.swaplevel("...", "...")
+train_df = train_df.swaplevel("...", 1)
+train_df = train_df.swaplevel(0, "...")
+
+# However, calling this method does not 
+# change the ordering of the values.
+
+# To solve this, do the following: 
+# "..." stands for the index level name (str)
+train_df.sort_values("...", ascending=True, inplace=True, axis=0)
+```
+
+Rename a `Series`:
+
+```python
+s.rename("...", inplace=True)
+```
+
+Build a `pd.Timestamp` (datetime) object:
+
+```python
+time_stamp = pd.to_datetime("2020-03-21")
+```
+
+Conversion of `pd.Timedelta` Series, `pd.TimedeltaIndex`, and `pd.Timedelta` scalars:
+
+```python
+# All the following conversions output float64
+# to days 
+td / np.timedelta64(1, 'D')
+(pd.to_datetime("2020-03-21") - df["date"]) / np.timedelta64(1, 'D')
+td.astype('timedelta64[D]')
+
+# to seconds 
+td / np.timedelta64(1, 's')
+td.astype('timedelta64[s]')
+
+# to months (these are constant months)
+td / np.timedelta64(1, 'M')
+```
 
 
 
