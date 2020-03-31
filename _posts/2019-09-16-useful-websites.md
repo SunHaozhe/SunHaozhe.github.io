@@ -58,6 +58,21 @@ Probability! An interactive introduction.
 **************************************************************************************************
 
 
+The GDELT Project:
+
+monitors the world's broadcast, print, and web news from nearly every corner of every country in over 100 languages and identifies...
+
+[https://www.gdeltproject.org/](https://www.gdeltproject.org/)
+
+
+
+
+
+
+
+**************************************************************************************************
+
+
 
 
 
