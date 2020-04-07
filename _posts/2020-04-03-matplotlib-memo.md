@@ -17,6 +17,15 @@ published: true
 import matplotlib.pyplot as plt
 ```
 
+```python
+params = {'legend.fontsize': 'xx-large',
+         'axes.labelsize': 'xx-large',
+         'axes.titlesize':'xx-large',
+         'xtick.labelsize':'xx-large',
+         'ytick.labelsize':'xx-large'}
+plt.rcParams.update(params)
+```
+
 
 
 
