@@ -17,7 +17,7 @@ Iterable:
 * It is an object that contains a countable number of values. 
 * It is an object that can be iterated upon, meaning that you can traverse through all the values.
 * It is an object that has an `__iter__()` method or defines a `__getitem__()` method. 
-* It generates an Iterator when passed to `iter()` method. 
+* It generates an Iterator when passed to `iter()` function. 
 * It stores all the values in memory. 
 * It is any object you can get an iterator from. 
 
@@ -105,7 +105,7 @@ The first time the `for` calls the generator object created from your function, 
 
 [2] Python Iterators. (n.d.). W3Schools Online Web Tutorials. https://www.w3schools.com/python/python_iterators.asp
 
-[3] Python | Difference between iterable and iterator. (2019, August 23). GeeksforGeeks. https://www.geeksforgeeks.org/python-difference-iterable-iterator/
+[3] Python - Difference between iterable and iterator. (2019, August 23). GeeksforGeeks. https://www.geeksforgeeks.org/python-difference-iterable-iterator/
 
 [4] What exactly are iterator, iterable, and iteration? (n.d.). Stack Overflow. https://stackoverflow.com/questions/9884132/what-exactly-are-iterator-iterable-and-iteration
 
