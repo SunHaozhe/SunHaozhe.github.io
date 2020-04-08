@@ -165,7 +165,6 @@ def build_vif(df):
     vif["vif"] = [variance_inflation_factor(df.values, i) for i in range(df.shape[1])]
     vif.set_index("feature", inplace=True)
     return vif
-
 ```
 
 Visualize long table (of vif) in Jupyter notebook:

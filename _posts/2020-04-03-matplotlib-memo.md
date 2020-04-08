@@ -32,13 +32,13 @@ plt.rcParams.update(params)
 
 # References
 
-```
+
 [1] Matplotlib. (2005, October 14). Wikipedia, the free encyclopedia. Retrieved April 3, 2020, from https://en.wikipedia.org/wiki/Matplotlib
 
 [2] Pyplot — Matplotlib 2.0.2 documentation. (n.d.). Matplotlib: Python plotting — Matplotlib 3.2.1 documentation. https://matplotlib.org/api/pyplot_api.html
 
 [3] Matplotlib, Pyplot, Pylab etc: What's the difference between these and when to use each? (2019, August 31). queirozf.com. https://queirozf.com/entries/matplotlib-pylab-pyplot-etc-what-s-the-different-between-thes`
-```
+
 
 
 

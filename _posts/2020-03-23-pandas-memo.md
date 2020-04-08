@@ -17,39 +17,39 @@ published: true
 Read dataset and reset index in place:
 
 ```python
-train_df = pd.read_csv("train.csv")
-train_df.set_index("id", inplace=True)
+df = pd.read_csv("train.csv")
+df.set_index("id", inplace=True)
 ```
 
 Visualize DataFrame:
 
 ```python
-print(train_df.info())
-train_df
+print(df.info())
+df
 ```
 
 Convert `object` (string) columns to `Categorical` columns:
 
 ```python
 categorical_cols = ["...", "...", "..."]
-train_df.loc[:, categorical_cols] = train_df.loc[:, categorical_cols].astype("category")
+df.loc[:, categorical_cols] = df.loc[:, categorical_cols].astype("category")
 ```
 
 Convert `float` columns to `int` columns (as long as there are no missing values):
 
 ```python
 int_cols = ["...", "...", "..."]
-train_df.loc[:, int_cols] = train_df.loc[:, int_cols].astype("int")
+df.loc[:, int_cols] = df.loc[:, int_cols].astype("int")
 ```
 
 Convert Categorical columns into dummy columns:
 
 ```python
-train_df = pd.get_dummies(train_df, drop_first=True)
+df = pd.get_dummies(df, drop_first=True)
 # drop_first: whether to get k-1 dummies out of k categorical 
 # levels by removing the first level.
 
-train_df = pd.get_dummies(train_df, columns=["...", "..."])
+df = pd.get_dummies(df, columns=["...", "..."])
 # If columns is None (default) then all the columns with 
 # object or category dtype will be converted.
 ```
@@ -57,62 +57,62 @@ train_df = pd.get_dummies(train_df, columns=["...", "..."])
 Fill missing values:
 
 ```python
-train_df["name"].fillna("unknown", inplace=True)
-train_df["age"].fillna(train_df["age"].mean(), inplace=True)
-train_df["A"].fillna(method="ffill", inplace=True)
+df["name"].fillna("unknown", inplace=True)
+df["age"].fillna(df["age"].mean(), inplace=True)
+df["A"].fillna(method="ffill", inplace=True)
 ```
 
 Remove missing values:
 
 ```python
-train_df.dropna(axis=0, how="any", inplace=True) # drop rows
-train_df.dropna(axis=1, how="any", inplace=True) # drop columns
+df.dropna(axis=0, how="any", inplace=True) # drop rows
+df.dropna(axis=1, how="any", inplace=True) # drop columns
 ```
 
 Remove columns/features:
 
 ```python
-train_df.drop(["...", "...", "..."], axis=1, inplace=True)
+df.drop(["...", "...", "..."], axis=1, inplace=True)
 ```
 
 Add interaction term:
 
 ```python
-train_df["C"] = train_df["A"] * train_df["B"]
+df["C"] = df["A"] * df["B"]
 ```
 
 Reset the index to the default integer index:
 
 ```python
-train_df.reset_index(inplace=True) # the old index is added as a column
-train_df.reset_index(drop=True, inplace=True) # drop the old index 
+df.reset_index(inplace=True) # the old index is added as a column
+df.reset_index(drop=True, inplace=True) # drop the old index 
 ```
 
 Convert pandas column to DateTime:
 
 ```python
-train_df["date"] =  pd.to_datetime(train_df["date"])
+df["date"] =  pd.to_datetime(df["date"])
 ```
 
 Select rows between two dates:
 
 ```python
-train_df.loc[(train_df["date"] >= "2020-03-17") & (train_df["date"] < "2020-03-20"), :]
+df.loc[(df["date"] >= "2020-03-17") & (df["date"] < "2020-03-20"), :]
 ```
 
 Select rows if value in column is in a list of values:
 
 ```python
-train_df.loc[train_df["country"].isin(["China", "France"]), :]
+df.loc[df["country"].isin(["China", "France"]), :]
 
 # to get the opposite, use ~
-train_df.loc[~train_df["country"].isin(["China", "France"]), :]
+df.loc[~df["country"].isin(["China", "France"]), :]
 ```
 
 Sort by the values along either axis:
 
 ```python
-train_df.sort_values("A", ascending=True, inplace=False, axis=0)
+df.sort_values("A", ascending=True, inplace=False, axis=0)
 ```
 
 Normalize features:
@@ -124,11 +124,11 @@ from sklearn.preprocessing import MinMaxScaler
 from sklearn.preprocessing import StandardScaler
 
 scaler = MinMaxScaler() # StandardScaler()
-# Let's assume train_df has not been augmented 
+# Let's assume df has not been augmented 
 # by the constant column yet.
-train_df = pd.DataFrame(scaler.fit_transform(train_df), 
-columns=train_df.columns, index=train_df.index)
-train_df = train_df.assign(const=1)
+df = pd.DataFrame(scaler.fit_transform(df), 
+columns=df.columns, index=df.index)
+df = df.assign(const=1)
 ```
 
 Standard database join operations between `DataFrame` or named `Series` objects:
@@ -147,8 +147,8 @@ df = pd.merge(s1, s2, left_index=True, right_index=True, how="outer")
 Split features `X` and labels `y`:
 
 ```python
-y_train = train_df.loc[:, "y"]
-X_train = train_df.drop("y", axis=1)
+y = df.loc[:, "y"]
+X = df.drop("y", axis=1)
 ```
 
 Split training set and test set:
@@ -163,7 +163,7 @@ test_size=0.3, random_state=42)
 
 Add a column of constant `1`'s:
 ```python
-X_train = X_train.assign(const=1)
+X = X.assign(const=1)
 # Used for statsmodels
 # The added column's name is "const"
 ```
@@ -171,22 +171,23 @@ X_train = X_train.assign(const=1)
 Visualize the number of distinct values that each feature can take:
 
 ```python
-train_df.nunique()
+df.nunique()
 ```
 
 Visualize the number of distinct values that each feature can take and the corresponding data type:
 
 ```python
-unique_counts = pd.DataFrame([(col, train_df[col].dtype, train_df[col].nunique()) \
-for col in train_df.columns], columns=["col_name", "dtype", "nunique"])\
+unique_counts = pd.DataFrame([(col, df[col].dtype, df[col].nunique()) \
+                              for col in df.columns], columns=["col_name", "dtype", "nunique"])\
 .set_index("col_name").sort_values(by=['nunique'])
+
 unique_counts
 ```
 
 Visualize counts of unique values in descending order of frequency:
 
 ```python
-train_df["A"].value_counts()
+df["A"].value_counts()
 ```
 
 For a certain column, parse string representations to lists of elements:
@@ -195,14 +196,14 @@ For a certain column, parse string representations to lists of elements:
 import ast
 col_names = ["genres", "spoken_languages"]
 for col in col_names:
-    train_df[col] = train_df[col].apply(lambda x: ast.literal_eval(x)) 
+    df[col] = df[col].apply(lambda x: ast.literal_eval(x)) 
 ```
 
 For a certain column, convert lists of strings to dummies: 
 
 ```python
 for col in ["genres", "production_countries", "spoken_languages"]:
-    train_df = train_df.join(train_df[col].str.join('|').str.get_dummies()\
+    df = df.join(df[col].str.join('|').str.get_dummies()\
     .add_prefix(col + "_")).drop(col, axis=1)
 ```
 
@@ -214,29 +215,29 @@ genres_Comedy, genres_Drama, genres_Family, genres_Romance, ...
 Get a subset of the DataFrame’s columns based on the column dtypes:
 
 ```python
-train_df.select_dtypes(include=["object", "bool", "float64", "int"])
+df.select_dtypes(include=["object", "bool", "float64", "int"])
 ```
 
 Make plots of Series or DataFrame (matplotlib is used by default):
 
 ```python
-train_df.plot(x="...", y="...", kind="line")
+df.plot(x="...", y="...", kind="line")
 plt.show()
 ```
 
 Make histograms:
 
 ```python
-train_df["age"].hist(bins=10)
+df["age"].hist(bins=10)
 plt.show()
 ```
 
 Generate descriptive statistics (count, mean, std, min, 25%, 50%, 75%, max for each feature) of a `GroupBy` object`:
 
 ```python
-train_df.groupby(["country"]).describe()
-train_df.groupby(["country"])["cases"].describe()
-train_df.groupby(["country"])["cases", "fatalities"].describe()
+df.groupby(["country"]).describe()
+df.groupby(["country"])["cases"].describe()
+df.groupby(["country"])["cases", "fatalities"].describe()
 ```
 
 MultiIndex indexing:
@@ -252,9 +253,9 @@ Italy          2020-03-17           31506        2503
 ```
 
 ```python
-train_df.loc["China", :]
-train_df.loc[(slice(None), "2020-01-23"), :]
-train_df.loc[(slice(None), slice("2020-01-23", "2020-01-25")), :]
+df.loc["China", :]
+df.loc[(slice(None), "2020-01-23"), :]
+df.loc[(slice(None), slice("2020-01-23", "2020-01-25")), :]
 ```
 
 Revert from MultiIndex to single index dataframe:
@@ -263,33 +264,33 @@ Revert from MultiIndex to single index dataframe:
 # level: only remove the given levels from the index
 
 # integer position
-train_df.reset_index(level=[1, 3], inplace=True) 
+df.reset_index(level=[1, 3], inplace=True) 
 # the name of the level
-train_df.reset_index(level=["...", "...", "..."], inplace=True) 
+df.reset_index(level=["...", "...", "..."], inplace=True) 
 ```
 
 Slice a MultiIndex DataFrame with a condition based on the index:
 
 ```python
-l0 = train_df.index.get_level_values(0) # level 0 index
-l1 = train_df.index.get_level_values(1) # level 1 index 
-train_df.loc[(l0 == "foo") | ((l0=="bar") & (l1=="two")), :]
+l0 = df.index.get_level_values(0) # level 0 index
+l1 = df.index.get_level_values(1) # level 1 index 
+df.loc[(l0 == "foo") | ((l0=="bar") & (l1=="two")), :]
 ```
 
 Exchange index level of a MultiIndex DataFrame:
 
 ```python
-train_df = train_df.swaplevel(0, 1)
-train_df = train_df.swaplevel("...", "...")
-train_df = train_df.swaplevel("...", 1)
-train_df = train_df.swaplevel(0, "...")
+df = df.swaplevel(0, 1)
+df = df.swaplevel("...", "...")
+df = df.swaplevel("...", 1)
+df = df.swaplevel(0, "...")
 
 # However, calling this method does not 
 # change the ordering of the values.
 
 # To solve this, do the following: 
 # "..." stands for the index level name (str)
-train_df.sort_values("...", ascending=True, inplace=True, axis=0)
+df.sort_values("...", ascending=True, inplace=True, axis=0)
 ```
 
 Rename a `Series`:

@@ -100,7 +100,7 @@ The first time the `for` calls the generator object created from your function, 
 
 # References
 
-```
+
 [1] Glossary — Python 3.8.2 documentation. (n.d.). 3.8.2 Documentation. https://docs.python.org/3/glossary.html
 
 [2] Python Iterators. (n.d.). W3Schools Online Web Tutorials. https://www.w3schools.com/python/python_iterators.asp
@@ -114,7 +114,9 @@ The first time the `for` calls the generator object created from your function, 
 [6] What does the "yield" keyword do? (n.d.). Stack Overflow. https://stackoverflow.com/questions/231767/what-does-the-yield-keyword-do
 
 [7] Difference between Python's generators and Iterators. (n.d.). Stack Overflow. https://stackoverflow.com/questions/2776829/difference-between-pythons-generators-and-iterators
-```
+
+
+
 
 
 
