@@ -115,6 +115,12 @@ Sort by the values along either axis:
 df.sort_values("A", ascending=True, inplace=False, axis=0)
 ```
 
+Sort object by labels (along an axis):
+
+```python
+df.sort_index(ascending=True, inplace=True, axis=0)
+```
+
 Normalize features:
 
 ```python
@@ -267,6 +273,12 @@ Revert from MultiIndex to single index dataframe:
 df.reset_index(level=[1, 3], inplace=True) 
 # the name of the level
 df.reset_index(level=["...", "...", "..."], inplace=True) 
+```
+
+Transform multiple columns to MultiIndex:
+
+```python
+df.set_index(["A", "B"], inplace=True)
 ```
 
 Slice a MultiIndex DataFrame with a condition based on the index:
