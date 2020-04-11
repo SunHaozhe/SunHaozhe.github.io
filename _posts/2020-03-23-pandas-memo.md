@@ -121,6 +121,15 @@ Sort object by labels (along an axis):
 df.sort_index(ascending=True, inplace=True, axis=0)
 ```
 
+Replace values: 
+
+```python
+# replaces 0 by 5
+df.replace(0, 5, inplace=True)    
+# replaces Inf by NaN 
+df.replace([np.inf, - np.inf], np.nan, inplace=True)  
+```
+
 Normalize features:
 
 ```python
@@ -311,10 +320,23 @@ Rename a `Series`:
 s.rename("...", inplace=True)
 ```
 
+Convert `Series` to `DataFrame`:
+
+```python
+df = s.to_frame()
+```
+
 Build a `pd.Timestamp` (datetime) object:
 
 ```python
 time_stamp = pd.to_datetime("2020-03-21")
+```
+
+Slice a dataframe based on datetime index (if datetime column has been set as the index):
+
+```python
+df.loc["2009-05-01" : "2010-03-01", :]
+df.loc["2012" : "2012-02-18", :]
 ```
 
 Conversion of `pd.Timedelta` Series, `pd.TimedeltaIndex`, and `pd.Timedelta` scalars:
