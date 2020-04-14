@@ -15,9 +15,52 @@ published: true
 ---
 
 
+# Correlation 
+
+To compute the correlation between two time series, we can use the `.corr()` method of `pandas.Series`. 
+
+To visualize the scatter plot of two time series: 
+
+```python
+def correlation_between_2_ts(s1, s2, figsize=(5, 5), plot_scatter=True):
+    """
+    Computes correlation between two time series
+    
+    s1, s2: named pandas.Series 
+    """
+    correlation = s1.corr(s2)
+    if plot_scatter:
+        plt.figure(figsize=figsize)
+        plt.scatter(s1, s2)
+        plt.grid()
+        title = "Scatter plot of {} and {}".format(s1.name, s2.name) 
+        title += "\ncorrelation = {:.4f}".format(correlation)
+        plt.title(title) 
+        plt.show()
+    return correlation
+
+correlation = correlation_between_2_ts(s1, s2)
+```
+
 # Autocorrelation function (ACF)
 
 The autocorrelation as a function of the lag. It equals one at lag-zero. 
+
+```python
+from statsmodels.tsa.stattools import acf
+
+acf(data)
+```
+
+```python
+from statsmodels.graphics.tsaplots import plot_acf
+
+plot_acf(data, alpha=0.05, lags=30)
+plt.show()
+```
+
+To compute a single lag-N autocorrelation, we can also use the `.autocorr(lag=N)` method of `pandas.Series`. 
+
 
 
 
@@ -40,6 +83,10 @@ White noise is a series with:
 * constant variance
 * zero autocorrelations at all lags
 * special case: if data has normal distribution, then Gaussian white noise
+
+```python
+gaussian_white_noise = np.random.normal(loc=0.02, scale=0.05, size=1000)
+```
 
 ### Random walk
 
@@ -86,6 +133,14 @@ If we use 5% as the threshold, a p-value larger than 5% indicates that:
 
 * we cannot reject the null hypothesis. 
 * this series is non-stationary. 
+
+
+```python
+from statsmodels.tsa.stattools import adfuller
+
+# p-value
+adfuller(p1)[1]
+```
 
 
 # Autoregressive model (AR model)
@@ -224,7 +279,7 @@ Interpretation of MA(1) parameter:
 * negative $\theta$: one-period mean reversion
 * positive $\theta$: one-period momentum 
 * one-period autocorrelation (lag-1 autocorrelation) is not $\theta$, it is $\frac{\theta}{1 + \theta^2}$. There is zero autocorrelation for an MA(1) beyond lag-1. 
-* higher frequency stock data is well modeled by an MA(1) process. For example, one day's prices (on September 1, 2017) for Sprint stock (ticker symbol "S") sampled at a frequency of one minute. The stock market is open for 6.5 hours (390 minutes), from 9:30am to 4:00pm. Such data can be accessed via Google Finance [3]. Stocks trade at discrete one-cent increments (although a small percentage of trades occur in between the one-cent increments) rather than at continuous prices, and when we plot the data we should observe that there are long periods when the stock bounces back and forth over a one cent range. This is sometimes referred to as "bid/ask bounce".
+* higher frequency stock data is well modeled by an MA(1) process. For example, one day's prices (on September 1, 2017) for Sprint stock (ticker symbol "S") sampled at a frequency of one minute. The stock market is open for 6.5 hours (390 minutes), from 9:30am to 4:00pm. Such data can be accessed via Google Finance [3]. Stocks trade at discrete one-cent increments (although a small percentage of trades occur in between the one-cent increments) rather than at continuous prices, and when we plot the data we should observe that there are long periods when the stock bounces back and forth over a one cent range. This is sometimes referred to as "bid/ask bounce". The bouncing of the stock price between bid and ask induces a negative first order autocorrelation, but no autocorrelations at lags higher than 1. 
 
 
 The model can be extended to include more lagged errors and more $\theta$ parameters:
@@ -306,6 +361,8 @@ ARMA(1, 1) model:
 
 $$X_t = \mu + \phi X_{t-1} + \epsilon_t + \theta \epsilon_{t-1}$$
 
+ARMA models are generally denoted ARMA(p, q) where parameters p and q are non-negative integers, p is the order of the AR model, q is the order of the MA model. 
+
 ARMA models can be converted to pure AR or pure MA models. Here is an example of converting an AR(1) model into an an MA($\infty$): 
 
 $$X_t = \mu + \phi X_{t-1} + \epsilon_t$$
@@ -314,8 +371,153 @@ $$X_t = \mu + \phi (\mu + \phi X_{t-2} + \epsilon_{t-1}) + \epsilon_t$$
 
 $$X_t = \frac{\mu}{1-\phi} + \epsilon_t + \phi \epsilon_{t-1} + \phi^2 \epsilon_{t-2} + \phi^3 \epsilon_{t-3} + ...$$
 
+This demonstrates that an AR(1) model is equivalent to an MA($\infty$) model with the appropriate parameters. 
 
 
+# Cointegration model 
+
+The idea behind cointegration (协整) is that even if the prices of two different assets both follow random walks, it is still possible that a linear combination of them is not a random walk. If that's true, then even though these two assets are not forecastable because they are random walks, the linear combination is forecastable. We say that these two assets are cointegrated. One analogy is that a dog owner walking his dog with a retractable leash. The position of the dog owner and the position of the dog may both follow random walks, but the distance between them may very well be mean reverting. Examples can be found by looking at economic substitutes: heating oil and natural gas, platinum and palladium, corn and wheat, corn and sugar, Bitcoin and Ethereum, etc. For stocks, a natural starting point for identifying cointegrated pairs are stocks in the same industry. However competitors are not necessarily economic substitutes, think of Apple and Blackberry. 
+
+Two steps to test for cointegration:
+
+* regress the level of one series $P_t$ on the level of the other series $Q_t$ to get the slope coefficient $c$ or the cointegration vector (coefficients of the linear combination). 
+* run Augmented Dickey-Fuller test on $P_t - c Q_t$ or on the residuals of the regression. 
+
+Alternatively, `statsmodels` has a function `coint` that combines both steps, its null hypothesis is no cointegration. 
+
+```python
+from statsmodels.tsa.stattools import coint
+
+# p-value
+coint(s1, s2)[1]
+```
+
+# Autoregressive integrated moving average model (ARIMA model)
+
+
+An ARIMA model is a generalization of an ARMA model. ARIMA models are applied in some cases where data show evidence of non-stationarity, where an initial differencing step (corresponding to the "integrated" part of the model) can be applied one or more times to eliminate the non-stationarity. 
+
+ARIMA models are generally denoted ARIMA(p, d, q) where parameters p, d, and q are non-negative integers, p is the order of the AR model, d is the degree of differencing, q is the order of the MA model. 
+
+
+Using the ARIMA module on a random walk series is identical to using the ARMA module on the first-order difference of that series followed by taking cumulative sums of these differences to get the original series forecast. 
+
+
+```python
+from statsmodels.tsa.arima_model import ARIMA
+
+arima = ARIMA(data, order=(1,1,1))
+arima_results = arima.fit()
+
+arima_results.plot_predict(start="1872-01-01", end="2046-01-01")
+plt.show()
+```
+
+
+In terms of forecasting, sometimes the estimate of the drift will have a much bigger impact on long range forecasts than the ARMA parameters. 
+
+
+# Machine learning for time series
+
+Unpivot a DataFrame from wide to long format (melt):
+
+```python
+df = data.melt(id_vars="Product_Code", var_name="Week", value_name="Sales")
+```
+
+```
+              W0  W1  W2  W3  W4  W5  W6  W7  W8  W9  ...  W42  W43  W44  W45  \
+Product_Code                                          ...                       
+P1            11  12  10   8  13  12  14  21   6  14  ...    4    7    8   10   
+P2             7   6   3   2   7   1   6   3   3   3  ...    2    4    5    1   
+P3             7  11   8   9  10   8   7  13  12   6  ...    6   14    5    5   
+```
+
+```
+                   Sales
+Product_Code Week       
+P1           0        11
+             1        12
+             2        10
+             3         8
+             4        13
+...                  ...
+P99          47        8
+```
+
+Adding lags as basic feature engineering:
+
+```python
+def add_lag(original_df, lag=3, groupby_col="Product_Code", col="Sales", diff=False, dropna=True):
+    df = original_df.copy()
+    columns = []
+    for i in range(1, lag + 1):
+        c = "lag_" + str(i)
+        columns.append(c)
+        df[c] = df.groupby(groupby_col)[col].shift(i)
+    if diff: # pay attention for multicollinearity
+        for i in range(1, lag + 1):
+            c = "diff_" + str(i)
+            columns.append(c)
+            df[c] = df.groupby(groupby_col)["lag_" + str(i)].diff(1)
+    if dropna:
+        df.dropna(inplace=True, axis=0, how="any")
+        df[columns] = df[columns].astype("int")
+    return df
+    
+df = add_lag(df, 3)
+```
+
+Time series cross validation:
+
+```python
+from sklearn.model_selection import TimeSeriesSplit
+
+def split_test_ts(X, y, test_size=1):
+    """
+    X: pd.DataFrame
+    y: pd.Series
+    
+    reserves the last test_size elements of the time series dataset 
+    as the test set of the time series problem. 
+    """
+    assert test_size > 0, "test_size must be larger than 0."
+    X_tmp, X_test = X.iloc[: - test_size, :], X.iloc[- test_size :, :]
+    y_tmp, y_test = y.iloc[: - test_size], y.iloc[- test_size :]
+    return X_tmp, X_test, y_tmp, y_test 
+
+def split_train_validation_ts(X, y, n_splits=3, max_train_size=None):
+    """
+    X: pd.DataFrame
+    y: pd.Series
+    
+    returns a generator that generates training sets and 
+    validation sets for time series cross validation. 
+    
+    If a separate test set is needed, call split_test_time_series() 
+    before calling this function. 
+    """
+    tss = TimeSeriesSplit(n_splits=n_splits, max_train_size=max_train_size)
+    for train_idx, validation_idx in tss.split(X):
+        X_train, X_validation = X.iloc[train_idx, :], X.iloc[validation_idx, :]
+        y_train, y_validation = y.iloc[train_idx], y.iloc[validation_idx]
+        yield X_train, X_validation, y_train, y_validation 
+        
+def get_dataset_with_specific_lag(df, lag, target="Sales", test_size=3600):
+    df = add_lag(df, lag)
+    y = df.loc[:, target]
+    X = df.drop(target, axis=1)
+    X_train, X_test, y_train, y_test = split_test_ts(X, y, test_size=test_size)
+    return X_train, X_test, y_train, y_test
+```
+
+```python
+X, X_test, y, y_test = split_test_ts(X, y, test_size=3600)
+
+train_validation_generator = split_train_validation_ts(X, y, n_splits=10)
+for X_train, X_validation, y_train, y_validation in train_validation_generator:
+    pass 
+```
 
 
 
@@ -331,6 +533,8 @@ $$X_t = \frac{\mu}{1-\phi} + \epsilon_t + \phi \epsilon_{t-1} + \phi^2 \epsilon_
 [2] E. E. Holmes, M. D. Scheuerell, and E. J. Ward. (2020, February 3). 5.3 Dickey-Fuller and augmented Dickey-Fuller tests - Applied time series analysis for fisheries and environmental sciences. NWFSC Time-Series Analysis. https://nwfsc-timeseries.github.io/atsa-labs/sec-boxjenkins-aug-dickey-fuller.html 
 
 [3] 6 ways to download free intraday and tick data for the U.S. stock market. (n.d.). QuantShare Trading Software. https://www.quantshare.com/sa-426-6-ways-to-download-free-intraday-and-tick-data-for-the-us-stock-market 
+
+[4] Autoregressive integrated moving average. (2005, February 15). Wikipedia, the free encyclopedia. Retrieved April 14, 2020, from https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average 
 
 
 
