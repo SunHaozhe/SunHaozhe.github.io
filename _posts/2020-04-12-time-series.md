@@ -73,9 +73,9 @@ To compute a single lag-N autocorrelation, we can also use the `.autocorr(lag=N)
 * If a process is not stationary, it becomes difficult to model. Modeling involves estimating a set of parameters. If a process is not stationary and the parameters are different at each point in time, then there are too many parameters to estimate (maybe more parameters than data). 
 * A random walk is a common type of non-stationary series, its variance grows with time. Seasonal series are also non-stationary, for example, its mean varies with time. A white noise series with varying mean is non-stationary.  
 * A white noise series (with constant mean and variance) is stationary. 
-* Many non-stationary series can be made stationary through a simple transformation. For example, if we take the differences (with a lag of 1) of a random walk series, we get a white noise series. A seasonal series can be made stationary by seasonal adjustments (taking the difference with a lag corresponding to the periodicity). Most economic data published by the government is seasonally adjusted. Sometimes, we may need more than one transformations, for a series that grows exponentially and shows a strong seasonal pattern, we can first take the log of the series to eliminate the exponential growth and then a seasonal difference. 
+* Many non-stationary series can be made stationary through a simple transformation. For example, if we take the differences (with a lag of 1) of a random walk series, we get a white noise series. A seasonal series can be made stationary by seasonal adjustments (taking the difference with a lag corresponding to the periodicity). Most economic data published by the government is seasonally adjusted. Sometimes, we may need more than one transformations, for a series that grows exponentially and shows a strong seasonal pattern, we can first take the log of the series to eliminate the exponential growth and then a seasonal difference. These operations often involve `df.diff()`, `np.log()`, `np.sqrt()`, etc. 
 
-### White noise 
+#### White noise 
 
 White noise is a series with:
 
@@ -88,7 +88,7 @@ White noise is a series with:
 gaussian_white_noise = np.random.normal(loc=0.02, scale=0.05, size=1000)
 ```
 
-### Random walk
+#### Random walk
 
 $$X_t = X_{t-1} + \epsilon_t$$
 
@@ -238,7 +238,7 @@ To identify the order of an AR model:
     * AIC (Akaike Information Criterion)
     * BIC (Bayesian Information Criterion)
 
-In practice, the way to use the information criteria is to fit several models, each with a different number of parameters, and choose the one with the lowest information criteria.
+In practice, the way to use the information criteria is to fit several models, each with a different number of parameters, and choose the one with the lowest information criteria. Compared to AIC, BIC penalizes additional model orders more than AIC and so the BIC will sometimes suggest a simpler model. The AIC and BIC will often choose the same model, but when they don't we have to make a choice. If our goal is to identify good predictive models, we should use AIC. If our goal is to identify a good explanatory model, we should use BIC. 
 
 ```python
 from statsmodels.graphics.tsaplots import plot_pacf
@@ -374,6 +374,25 @@ $$X_t = \frac{\mu}{1-\phi} + \epsilon_t + \phi \epsilon_{t-1} + \phi^2 \epsilon_
 This demonstrates that an AR(1) model is equivalent to an MA($\infty$) model with the appropriate parameters. 
 
 
+#### Using ACF and PACF to choose model order
+
+
+
+|      | AR(p)   | MA(q) | ARMA(p, q) |
+|-------------|----------|---------|---------------------|
+| ACF     | tails off  | cuts off after lag-q    | tails off              |
+| PACF     | cuts off after lag-p | tails off    | tails off              |
+
+
+The time series must be made stationary before making these plots. If the ACF values are high and tail off very very slowly, this is the sign that the data is non-stationary, so it needs to be differenced. If the autocorrelation at lag-1 is very negative, this is the sign that we have taken the difference too many times. 
+
+
+In the case of ARMA(p, q), we cannot deduce the model orders p and q from the plots. However, we can use AIC and BIC to find the most appropriate p and q. Sometimes when searching over model orders we will attempt to fit an order that leads to an error, for example, `ValueError: Non-stationary starting augoregressive parameters found with enforce_stationary set to True`. This `ValueError` tells us that we have tried to fit a model which would result in a non-stationary set of AR coefficients. We can use `try/except` blocks to skip this one. 
+
+
+
+
+
 # Cointegration model 
 
 The idea behind cointegration (协整) is that even if the prices of two different assets both follow random walks, it is still possible that a linear combination of them is not a random walk. If that's true, then even though these two assets are not forecastable because they are random walks, the linear combination is forecastable. We say that these two assets are cointegrated. One analogy is that a dog owner walking his dog with a retractable leash. The position of the dog owner and the position of the dog may both follow random walks, but the distance between them may very well be mean reverting. Examples can be found by looking at economic substitutes: heating oil and natural gas, platinum and palladium, corn and wheat, corn and sugar, Bitcoin and Ethereum, etc. For stocks, a natural starting point for identifying cointegrated pairs are stocks in the same industry. However competitors are not necessarily economic substitutes, think of Apple and Blackberry. 
@@ -415,6 +434,86 @@ plt.show()
 
 
 In terms of forecasting, sometimes the estimate of the drift will have a much bigger impact on long range forecasts than the ARMA parameters. 
+
+
+# ARMAX model
+
+Exogenous ARMA that uses external variables as well as time series. 
+
+$$\text{ARMAX} = \text{ARMA} + \text{linear regression}$$
+
+ARMAX(1, 1) model:
+
+$$X_t = \mu + \phi X_{t-1} + \epsilon_t + \theta \epsilon_{t-1} + \eta Z_t$$
+
+where $Z_t$ is the exogenous input. 
+
+```python
+from statsmodels.tsa.arima_model import ARMA
+
+arma = ARMA(data, order=(p, q), exog=df["..."])
+arma_results = arma.fit()
+
+print(arma_results.summary())
+```
+
+# SARIMAX model 
+
+Seasonal AutoRegressive Integrated Moving Average with eXogenous regressors model
+
+```python
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+
+sarimax = SARIMAX(df, order=(p, d, q)) # trend="c"
+
+sarimax_results = sarimax.fit()
+
+# make in-sample prediction for last 25 values  
+prediction_results = sarimax_results.get_prediction(start=-25)
+# the central value of the forecast 
+predicted_mean = prediction_results.predicted_mean
+# confidence interval of forecasts, 
+# use plt.fill_between to visualize 
+confidence_intervals = prediction_results.conf_int()
+
+# dynamic prediction (predict one step ahead and then use 
+# this predicted value to forecast the next value after that, 
+# and so on)
+prediction_results = sarimax_results.get_prediction(start=-25, dynamic=True)
+
+# make out-of-sample prediction (forecast future), 
+# this is also a dynamic forecast 
+prediction_results = sarimax_results.get_forecast(steps=5)
+predicted_mean = prediction_results.predicted_mean
+confidence_intervals = prediction_results.conf_int()
+```
+
+For an ideal model, the residuals (difference between one-step-ahead predictions and the real values) should be uncorrelated white Gaussian noise centered on zero. We can use the `plot_diagnostics()` method to evaluate this, this method generates 4 plots. The first plot is standardized residual, if our model is working correctly, there should be no obvious structure in the residuals. Another of the four plots shows the distribution of the residuals where the histogram shows the measured distribution, the orange line shows a smoothed version of this histogram and the green line shows a normal distribution. If our model is good, these two lines should be almost the same. The normal Q-Q plot is another way to show how the distribution of the model residuals compares to a normal distribution. If our residuals are normally distributed then all the points should lie along the red line, except perhaps some values at either end. The last plot is the correlogram, which is just an ACF plot of the residuals rather than the data. 95% of the correlations for lag greater than zero should not be significant. If there is significant correlation in the residuals, it means that there is information in the data that our model hasn't captured. 
+
+In the output of the `summary()` method, `Prob(Q)` is the p-value associated with the null hypothesis that the residuals have no correlation structure. `Prob(JB)` is the p-value associated with the null hypothesis that the residuals are Gaussian normally distributed. 
+
+```python
+sarimax_results.plot_diagnostics(figsize=(16, 8))
+plt.show()
+```
+
+For seasonal data, the full time series can be decomposed into 3 parts: the trend, the seasonal component and the residual. We can use `statsmodels.tsa.seasonal.seasonal_decompose`to separate out any time series into these three components. 
+
+```python
+from statsmodels.tsa.seasonal import seasonal_decompose
+
+# freq corresponds the number of data points in each repeated cycle 
+decompose_result = seasonal_decompose(df["..."], freq=12) 
+
+decompose_result.plot()
+plt.show()
+```
+
+We can use ACF to identify the frequency/period. In the case of a seasonal time series, the ACF will show periodic correlation pattern. To find the frequency we look for a lag greater than one, which is a peak in the ACF plot. In order to use ACF to identify the period of a non-stationary time series, it might be useful to detrend it first, we can substract long rolling average over N steps. Any large window size N will work for this. 
+
+```python
+df = df - df.rolling(N).mean().dropna()
+```
 
 
 # Machine learning for time series
@@ -535,6 +634,10 @@ for X_train, X_validation, y_train, y_validation in train_validation_generator:
 [3] 6 ways to download free intraday and tick data for the U.S. stock market. (n.d.). QuantShare Trading Software. https://www.quantshare.com/sa-426-6-ways-to-download-free-intraday-and-tick-data-for-the-us-stock-market 
 
 [4] Autoregressive integrated moving average. (2005, February 15). Wikipedia, the free encyclopedia. Retrieved April 14, 2020, from https://en.wikipedia.org/wiki/Autoregressive_integrated_moving_average 
+
+[5] Https://plus.google.com/u/0/+Datacamp/. (n.d.). Sign in. DataCamp. https://learn.datacamp.com/courses/arima-models-in-python 
+
+
 
 
 
