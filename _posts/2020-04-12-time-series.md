@@ -73,7 +73,7 @@ To compute a single lag-N autocorrelation, we can also use the `.autocorr(lag=N)
 * If a process is not stationary, it becomes difficult to model. Modeling involves estimating a set of parameters. If a process is not stationary and the parameters are different at each point in time, then there are too many parameters to estimate (maybe more parameters than data). 
 * A random walk is a common type of non-stationary series, its variance grows with time. Seasonal series are also non-stationary, for example, its mean varies with time. A white noise series with varying mean is non-stationary.  
 * A white noise series (with constant mean and variance) is stationary. 
-* Many non-stationary series can be made stationary through a simple transformation. For example, if we take the differences (with a lag of 1) of a random walk series, we get a white noise series. A seasonal series can be made stationary by seasonal adjustments (taking the difference with a lag corresponding to the periodicity). Most economic data published by the government is seasonally adjusted. Sometimes, we may need more than one transformations, for a series that grows exponentially and shows a strong seasonal pattern, we can first take the log of the series to eliminate the exponential growth and then a seasonal difference. These operations often involve `df.diff()`, `np.log()`, `np.sqrt()`, etc. 
+* Many non-stationary series can be made stationary through a simple transformation. For example, if we take the differences (with a lag of $1$) of a random walk series, we get a white noise series. A seasonal series can be made stationary by seasonal adjustments (taking the difference with a lag corresponding to the periodicity). Most economic data published by the government is seasonally adjusted. Sometimes, we may need more than one transformations, for a series that grows exponentially and shows a strong seasonal pattern, we can first take the log of the series to eliminate the exponential growth and then a seasonal difference. These operations often involve `df.diff()`, `np.log()`, `np.sqrt()`, etc. 
 
 #### White noise 
 
@@ -124,12 +124,12 @@ If we add more lagged changes on the right hand side, it's the Augmented Dickey-
 
 The null hypothesis for both Dickey-Fuller test and Augmented Dickey-Fuller test is that the data are non-stationary. 
 
-If we use 5% as the threshold, a p-value less than 5% indicates that:
+If we use $5\%$ as the threshold, a p-value less than $5\%$ indicates that:
 
-* we can reject the null hypothesis that the series is non-stationary with 95% confidence.
+* we can reject the null hypothesis that the series is non-stationary with $95\%$ confidence.
 * this series is stationary.
 
-If we use 5% as the threshold, a p-value larger than 5% indicates that:
+If we use $5\%$ as the threshold, a p-value larger than $5\%$ indicates that:
 
 * we cannot reject the null hypothesis. 
 * this series is non-stationary. 
@@ -145,7 +145,7 @@ adfuller(p1)[1]
 
 # Autoregressive model (AR model)
 
-AR model of order 1, or simply AR(1) model (there is only one lagged value on right hand side):
+AR model of order $1$, or simply AR$(1)$ model (there is only one lagged value on right hand side):
 
 $$X_t = \mu + \phi X_{t-1} + \epsilon_t$$
 
@@ -153,20 +153,20 @@ If AR parameter $\phi = 1$, then this is a random walk. If $\phi = 0$, then this
 
 In order for the process to be stable and stationary, $\phi$ has to be $- 1 < \phi < 1$. 
 
-Interpretation of AR(1) parameter:
+Interpretation of AR$(1)$ parameter:
 
 * negative $\phi$: mean reversion 
 * positive $\phi$: momentum. 
-* the autocorrelation function decays exponentially for an AR(1) time series at a rate of the AR(1) parameter $\phi$. 
+* the autocorrelation function decays exponentially for an AR$(1)$ time series at a rate of the AR$(1)$ parameter $\phi$. 
 
 
 The model can be extended to include more lagged values and more $\phi$ parameters:
 
-* AR(1): $X_t = \mu + \phi_1 X_{t-1} + \epsilon_t$
-* AR(2): $X_t = \mu + \phi_1 X_{t-1} + \phi_2 X_{t-2} + \epsilon_t$
+* AR$(1)$: $X_t = \mu + \phi_1 X_{t-1} + \epsilon_t$
+* AR$(2)$: $X_t = \mu + \phi_1 X_{t-1} + \phi_2 X_{t-2} + \epsilon_t$
 * etc. 
 
-To simulate AR time series, take care of the convention: we must include the zero-lag coefficient of 1 and the sign of the other coefficients is opposite what we have been using above. 
+To simulate AR time series, take care of the convention: we must include the zero-lag coefficient of $1$ and the sign of the other coefficients is opposite what we have been using above. 
 
 ```python
 from statsmodels.tsa.arima_process import ArmaProcess
@@ -266,7 +266,7 @@ plt.show()
 
 # Moving average model (MA model)
 
-MA model of order 1, or simply MA(1) model (there is only one lagged error on right hand side):
+MA model of order $1$, or simply MA$(1)$ model (there is only one lagged error on right hand side):
 
 $$X_t = \mu + \epsilon_t + \theta \epsilon_{t-1}$$
 
@@ -274,23 +274,23 @@ If MA parameter $\theta = 0$, then this is white noise.
 
 MA models are stationary for all values of $\theta$. 
 
-Interpretation of MA(1) parameter: 
+Interpretation of MA$(1)$ parameter: 
 
 * negative $\theta$: one-period mean reversion
 * positive $\theta$: one-period momentum 
-* one-period autocorrelation (lag-1 autocorrelation) is not $\theta$, it is $\frac{\theta}{1 + \theta^2}$. There is zero autocorrelation for an MA(1) beyond lag-1. 
-* higher frequency stock data is well modeled by an MA(1) process. For example, one day's prices (on September 1, 2017) for Sprint stock (ticker symbol "S") sampled at a frequency of one minute. The stock market is open for 6.5 hours (390 minutes), from 9:30am to 4:00pm. Such data can be accessed via Google Finance [3]. Stocks trade at discrete one-cent increments (although a small percentage of trades occur in between the one-cent increments) rather than at continuous prices, and when we plot the data we should observe that there are long periods when the stock bounces back and forth over a one cent range. This is sometimes referred to as "bid/ask bounce". The bouncing of the stock price between bid and ask induces a negative first order autocorrelation, but no autocorrelations at lags higher than 1. 
+* one-period autocorrelation (lag-$1$ autocorrelation) is not $\theta$, it is $\frac{\theta}{1 + \theta^2}$. There is zero autocorrelation for an MA$(1)$ beyond lag-$1$. 
+* higher frequency stock data is well modeled by an MA$(1)$ process. For example, one day's prices (on September 1, 2017) for Sprint stock (ticker symbol "S") sampled at a frequency of one minute. The stock market is open for 6.5 hours (390 minutes), from 9:30am to 4:00pm. Such data can be accessed via Google Finance [3]. Stocks trade at discrete one-cent increments (although a small percentage of trades occur in between the one-cent increments) rather than at continuous prices, and when we plot the data we should observe that there are long periods when the stock bounces back and forth over a one cent range. This is sometimes referred to as "bid/ask bounce". The bouncing of the stock price between bid and ask induces a negative first order autocorrelation, but no autocorrelations at lags higher than $1$. 
 
 
 The model can be extended to include more lagged errors and more $\theta$ parameters:
 
-* AR(1): $X_t = \mu + \epsilon_t + \theta_1 \epsilon_{t-1}$
-* AR(2): $X_t = \mu + \epsilon_t + \theta_1 \epsilon_{t-1} + \theta_2 \epsilon_{t-2}$
+* MA$(1)$: $X_t = \mu + \epsilon_t + \theta_1 \epsilon_{t-1}$
+* MA$(2)$: $X_t = \mu + \epsilon_t + \theta_1 \epsilon_{t-1} + \theta_2 \epsilon_{t-2}$
 * etc. 
 
-An MA(q) model has no autocorrelation beyond lag-q. 
+An MA$(q)$ model has no autocorrelation beyond lag-$q$. 
 
-To simulate MA time series, take care of the convention: we must include the zero-lag coefficient of 1. However, unlike with the AR simulation, we don't need to reverse the sign of $\theta$, its sign is what we have been using above. 
+To simulate MA time series, take care of the convention: we must include the zero-lag coefficient of $1$. However, unlike with the AR simulation, we don't need to reverse the sign of $\theta$, its sign is what we have been using above. 
 
 ```python
 from statsmodels.tsa.arima_process import ArmaProcess
@@ -343,7 +343,7 @@ MA.1           -1.0867           +0.0000j            1.0867            0.5000
 -----------------------------------------------------------------------------
 ```
 
-Just as with AR models, we can use MA models to do forecasting, both in-sample and out-of-sample using `statsmodels`. This can be done via either the `predict()` method if we want the forecasts in the form of a series of data, or the `plot_predict()` method if we want a plot of the forecasted data. One big difference between out-of-sample forecasts with an MA(1) model and an AR(1) model is that the MA(1) forecasts more than one period in the future are simply the mean of the sample. 
+Just as with AR models, we can use MA models to do forecasting, both in-sample and out-of-sample using `statsmodels`. This can be done via either the `predict()` method if we want the forecasts in the form of a series of data, or the `plot_predict()` method if we want a plot of the forecasted data. One big difference between out-of-sample forecasts with an MA$(1)$ model and an AR$(1)$ model is that the MA$(1)$ forecasts more than one period in the future are simply the mean of the sample. 
 
 
 ```python
@@ -357,13 +357,13 @@ plt.show()
 
 An ARMA model is a combination of an AR model and an MA model. 
 
-ARMA(1, 1) model:
+ARMA$(1, 1)$ model:
 
 $$X_t = \mu + \phi X_{t-1} + \epsilon_t + \theta \epsilon_{t-1}$$
 
-ARMA models are generally denoted ARMA(p, q) where parameters p and q are non-negative integers, p is the order of the AR model, q is the order of the MA model. 
+ARMA models are generally denoted ARMA$(p, q)$ where parameters $p$ and $q$ are non-negative integers, $p$ is the order of the AR model, $q$ is the order of the MA model. 
 
-ARMA models can be converted to pure AR or pure MA models. Here is an example of converting an AR(1) model into an an MA($\infty$): 
+ARMA models can be converted to pure AR or pure MA models. Here is an example of converting an AR$(1)$ model into an an MA$(\infty)$: 
 
 $$X_t = \mu + \phi X_{t-1} + \epsilon_t$$
 
@@ -371,23 +371,23 @@ $$X_t = \mu + \phi (\mu + \phi X_{t-2} + \epsilon_{t-1}) + \epsilon_t$$
 
 $$X_t = \frac{\mu}{1-\phi} + \epsilon_t + \phi \epsilon_{t-1} + \phi^2 \epsilon_{t-2} + \phi^3 \epsilon_{t-3} + ...$$
 
-This demonstrates that an AR(1) model is equivalent to an MA($\infty$) model with the appropriate parameters. 
+This demonstrates that an AR$(1)$ model is equivalent to an MA$(\infty)$ model with the appropriate parameters. 
 
 
 #### Using ACF and PACF to choose model order
 
 
 
-|      | AR(p)   | MA(q) | ARMA(p, q) |
+|      | AR$(p)$ | MA$(q)$ | ARMA$(p, q)$ |
 |-------------|----------|---------|---------------------|
-| ACF     | tails off  | cuts off after lag-q    | tails off              |
-| PACF     | cuts off after lag-p | tails off    | tails off              |
+| ACF     | tails off  | cuts off after lag-$q$  | tails off              |
+| PACF     | cuts off after lag-$p$ | tails off    | tails off              |
 
 
-The time series must be made stationary before making these plots. If the ACF values are high and tail off very very slowly, this is the sign that the data is non-stationary, so it needs to be differenced. If the autocorrelation at lag-1 is very negative, this is the sign that we have taken the difference too many times. 
+The time series must be made stationary before making these plots. If the ACF values are high and tail off very very slowly, this is the sign that the data is non-stationary, so it needs to be differenced. If the autocorrelation at lag-$1$ is very negative, this is the sign that we have taken the difference too many times. 
 
 
-In the case of ARMA(p, q), we cannot deduce the model orders p and q from the plots. However, we can use AIC and BIC to find the most appropriate p and q. Sometimes when searching over model orders we will attempt to fit an order that leads to an error, for example, `ValueError: Non-stationary starting augoregressive parameters found with enforce_stationary set to True`. This `ValueError` tells us that we have tried to fit a model which would result in a non-stationary set of AR coefficients. We can use `try/except` blocks to skip this one. 
+In the case of ARMA$(p, q)$, we cannot deduce the model orders $p$ and $q$ from the plots. However, we can use AIC and BIC to find the most appropriate $p$ and $q$. Sometimes when searching over model orders we will attempt to fit an order that leads to an error, for example, `ValueError: Non-stationary starting augoregressive parameters found with enforce_stationary set to True`. This `ValueError` tells us that we have tried to fit a model which would result in a non-stationary set of AR coefficients. We can use `try/except` blocks to skip this one. 
 
 
 
@@ -416,7 +416,7 @@ coint(s1, s2)[1]
 
 An ARIMA model is a generalization of an ARMA model. ARIMA models are applied in some cases where data show evidence of non-stationarity, where an initial differencing step (corresponding to the "integrated" part of the model) can be applied one or more times to eliminate the non-stationarity. 
 
-ARIMA models are generally denoted ARIMA(p, d, q) where parameters p, d, and q are non-negative integers, p is the order of the AR model, d is the degree of differencing, q is the order of the MA model. 
+ARIMA models are generally denoted ARIMA$(p, d, q)$ where parameters $p$, $d$, and $q$ are non-negative integers, $p$ is the order of the AR model, $d$ is the degree of differencing, $q$ is the order of the MA model. 
 
 
 Using the ARIMA module on a random walk series is identical to using the ARMA module on the first-order difference of that series followed by taking cumulative sums of these differences to get the original series forecast. 
@@ -442,7 +442,7 @@ Exogenous ARMA that uses external variables as well as time series.
 
 $$\text{ARMAX} = \text{ARMA} + \text{linear regression}$$
 
-ARMAX(1, 1) model:
+ARMAX$(1, 1)$ model:
 
 $$X_t = \mu + \phi X_{t-1} + \epsilon_t + \theta \epsilon_{t-1} + \eta Z_t$$
 
@@ -488,7 +488,7 @@ predicted_mean = prediction_results.predicted_mean
 confidence_intervals = prediction_results.conf_int()
 ```
 
-For an ideal model, the residuals (difference between one-step-ahead predictions and the real values) should be uncorrelated white Gaussian noise centered on zero. We can use the `plot_diagnostics()` method to evaluate this, this method generates 4 plots. The first plot is standardized residual, if our model is working correctly, there should be no obvious structure in the residuals. Another of the four plots shows the distribution of the residuals where the histogram shows the measured distribution, the orange line shows a smoothed version of this histogram and the green line shows a normal distribution. If our model is good, these two lines should be almost the same. The normal Q-Q plot is another way to show how the distribution of the model residuals compares to a normal distribution. If our residuals are normally distributed then all the points should lie along the red line, except perhaps some values at either end. The last plot is the correlogram, which is just an ACF plot of the residuals rather than the data. 95% of the correlations for lag greater than zero should not be significant. If there is significant correlation in the residuals, it means that there is information in the data that our model hasn't captured. 
+For an ideal model, the residuals (difference between one-step-ahead predictions and the real values) should be uncorrelated white Gaussian noise centered on zero. We can use the `plot_diagnostics()` method to evaluate this, this method generates 4 plots. The first plot is standardized residual, if our model is working correctly, there should be no obvious structure in the residuals. Another of the four plots shows the distribution of the residuals where the histogram shows the measured distribution, the orange line shows a smoothed version of this histogram and the green line shows a normal distribution. If our model is good, these two lines should be almost the same. The normal Q-Q plot is another way to show how the distribution of the model residuals compares to a normal distribution. If our residuals are normally distributed then all the points should lie along the red line, except perhaps some values at either end. The last plot is the correlogram, which is just an ACF plot of the residuals rather than the data. $95\%$ of the correlations for lag greater than zero should not be significant. If there is significant correlation in the residuals, it means that there is information in the data that our model hasn't captured. 
 
 In the output of the `summary()` method, `Prob(Q)` is the p-value associated with the null hypothesis that the residuals have no correlation structure. `Prob(JB)` is the p-value associated with the null hypothesis that the residuals are Gaussian normally distributed. 
 
@@ -509,11 +509,166 @@ decompose_result.plot()
 plt.show()
 ```
 
-We can use ACF to identify the frequency/period. In the case of a seasonal time series, the ACF will show periodic correlation pattern. To find the frequency we look for a lag greater than one, which is a peak in the ACF plot. In order to use ACF to identify the period of a non-stationary time series, it might be useful to detrend it first, we can substract long rolling average over N steps. Any large window size N will work for this. 
+We can use ACF to identify the frequency/period. In the case of a seasonal time series, the ACF will show periodic correlation pattern. To find the frequency we look for a lag greater than one, which is a peak in the ACF plot. In order to use ACF to identify the period of a non-stationary time series, it might be useful to detrend it first, we can substract long rolling average over $N$ steps. Any large window size $N$ will work for this, we could use a window size of any value bigger than the likely period.
 
 ```python
 df = df - df.rolling(N).mean().dropna()
 ```
+
+$$\text{SARIMA} = \text{Seasonal ARIMA}$$
+
+Fitting a SARIMA model is like fitting two different ARIMA models at once, one to the seasonal part and another to the non-seasonal part. Since we have these two models, we will have two sets of orders: 
+
+$$\text{SARIMA}(p, d, q)(P, D, Q)_S$$
+
+* Non-seasonal orders:
+    * $p$: autoregressive order
+    * $d$: differencing order
+    * $q$: moving average order
+* Seasonal orders:
+    * $P$: seasonal autoregressive order
+    * $D$: seasonal differencing order
+    * $Q$: seasonal moving average order 
+
+There is also a new order $S$ which is the length of the seasonal cycle. 
+
+Comparison of ARIMA and SARIMA models:
+
+* ARIMA$(2, 0, 1)$:
+    * $X_t = \mu + \phi_1 X_{t-1} + \phi_2 X_{t-2} + \epsilon_t + \theta_1 \epsilon_{t-1}$
+* SARIMA$(0, 0, 0)(2, 0, 1)_{7}$:
+    * $X_t = \mu + \phi_7 X_{t-7} + \phi_{14} X_{t-14} + \epsilon_t + \theta_7 \epsilon_{t-7}$
+
+The SARIMA$(0, 0, 0)(2, 0, 1)_{7}$ model will be able to capture seasonal, weekly patterns, but won't be able to capture local, day to day patterns. If we construct a SARIMA model and include non-seasonal orders as well, then we can capture both of these patterns. 
+
+Fitting a SARIMA model:
+
+```python
+from statsmodels.tsa.statespace.sarimax import SARIMAX
+
+sarimax = SARIMAX(df, order=(p, d, q), seasonal_order=(P, D, Q, S))
+sarimax_results = sarimax.fit()
+```
+
+The value of $S$ can be found by using the ACF. The next task is to find the order of differencing. To make a time series stationary we may need to apply seasonal differencing. In seasonal differencing, instead of substracting the most recent time series value, we substract the time series value from one cycle ago. 
+
+```python
+# take the seasonal difference 
+df = df.diff(S)
+```
+
+For example, if the time series shows a trend then we take the (normal) difference. If there is a strong seasonal cycle, then we will also take the seasonal difference. Once we have found the two orders of differencing and made the time series stationary, we need to find the other model orders. To find the non-seasonal orders, we plot the ACF and the PACF of the differenced time series. To find the seasonal orders, we plot the ACF and the PACF of the differenced time series at multiple seasonal steps, this can be done as follows: 
+
+```python
+# plot seasonal ACF and PACF 
+# S is the length of the seasonal cycle 
+plt.figure(figsize=(15, 8))
+plt.subplot(211)
+plot_acf(df, lags=[S, 2*S, 3*S, 4*S, 5*S, 6*S], ax=plt.gca())
+plt.subplot(212)
+plot_pacf(df, lags=[S, 2*S, 3*S, 4*S, 5*S, 6*S], ax=plt.gca())
+plt.show()
+```
+
+Here we set the `lags` parameter to a list of lags instead of a maximum, this plots the ACF and PACF at these specific lags only. 
+
+Sometimes we will have the choice of whether to apply seasonal differencing, non-seasonal differencing or both to make a time series stationary. Some good rules of thumb are:
+
+* Never use more than one order of seasonal differencing, $D = 0$ or $D = 1$
+* Never more than two orders of differencing in total, $0 \leqslant d + D \leqslant 2$ 
+
+Sometimes we will be able to make a time series stationary by using either one seasonal differencing or one non-seasonal differencing, we might build models for each in this case and see which one makes better predictions. 
+
+A time series is said to have a weak seasonality, meaning that the seasonal oscillations don't always look the same and are harder to identify. When we have a time series that has a strong seasonality, we should always use one order of seasonal differencing. This will ensure that the seasonal oscillation will remain in our dynamic predictions far into the future without fading out. 
+
+* Weak seasonal pattern
+    * Use seasonal differencing if necessary
+* Strong seasonal pattern
+    * Always use seasonal differencing 
+
+Just like in ARIMA modeling sometimes we need to use other transformations on our time series before fitting. Whenever the seasonality is additive we should not need to apply any transforms except for differencing. Additive seasonality is where the seasonal pattern just adds or takes away a little from the trend. When seasonality is multiplicative, the SARIMA model cannot fit this without extra transforms. If the seasonality is multiplicative the amplitude of the seasonal oscillations will get larger as the data trends up or smaller as it trends down. 
+
+* Additive seasonality $=$ trend $+$ season
+    * Proceeds as usual with differencing
+* Multiplicative seasonality $=$ trend $\times$ season
+    * Apply log transform first `np.log()`
+
+
+
+Searching over SARIMA model orders using `for` loops may be complex, there is a package that will do most of this work for us. The `auto_arima` function from this package loops over model orders to find the best one. The object returned by the function is the results object of the best model found by the search, this object is almost exactly a `statsmodels` `SARIMAXresults` object and has the `summary()` and the `plot_diagnostics()` method. 
+
+```python
+import pmdarima as pm
+
+results1 = pm.auto_arima(df)
+
+# create model for SARIMAX(p,1,q)(P,1,Q)_{7} 
+results2 = pm.auto_arima(df,
+                         seasonal=True, m=7,
+                         d=1, D=1, 
+                         start_p=1, start_q=1,
+                         max_p=3, max_q=3,
+                         max_P=2, max_Q=2,
+                         trace=True,
+                         error_action='ignore',
+                         suppress_warnings=True) 
+
+print(results2.summary())
+```
+
+The `pmdarima` package can also be used to update the model (incorporate data we have collected since then)
+
+```python
+# add new observations and update the model parameters
+results.update(df_new)
+```
+
+However this does not choose the model orders again, so if we are updating with a large amount of new data, it might be best to go back to the start of Box-Jenkins method. 
+
+
+
+
+
+# Box-Jenkins method
+
+From raw data $\Rightarrow$ production model:
+
+* identification
+    * Determine whether it is seasonal? If so, find its seasonal period. 
+    * Is it stationary? What (seasonal and non-seasonal) differencing will make it stationary? What transforms will make it stationary? 
+    * What values of $p$ and $q$ are the most promising? 
+    * Tools: plot the time series, augmented Dickey-Fuller test, ACF, PACF, etc. 
+* estimation
+    * Use the `fit()` method. 
+    * Choose between models using AIC and BIC 
+* model diagnostics
+    * Evaluate the best fitting model 
+    * Are the residuals uncorrelated? Are the residuals normally distributed? 
+    * Tools: `plot_diagnostics()`, `summary()` 
+    * Is this model good enough or do we need to go back and rework it? 
+
+
+
+# GARCH model 
+
+Generalized AutoRegressive Conditional Heteroskedasticity model 
+
+This is a popular approach to model volatility. A common assumption in time series modeling is that volatility (standard deviation, variance) remains constant over time. However it is frequently observed in financial return data that the presence of varying volatility systematically over time, this is called heteroskedasticity. 
+
+```python
+from arch import arch_model
+
+# GARCH(1, 1) model 
+model = arch_model(data, p=1, q=1, 
+                   mean="constant", 
+                   vol="GARCH", 
+                   dist="normal")
+```
+
+
+
+
+
 
 
 # Machine learning for time series
