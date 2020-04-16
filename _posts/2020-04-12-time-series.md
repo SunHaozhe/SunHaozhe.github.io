@@ -574,7 +574,7 @@ Here we set the `lags` parameter to a list of lags instead of a maximum, this pl
 
 Sometimes we will have the choice of whether to apply seasonal differencing, non-seasonal differencing or both to make a time series stationary. Some good rules of thumb are:
 
-* Never use more than one order of seasonal differencing, $D = 0$ or $D = 1$
+* Never use more than one order of seasonal differencing, $0 \leqslant D \leqslant 1$ 
 * Never more than two orders of differencing in total, $0 \leqslant d + D \leqslant 2$ 
 
 Sometimes we will be able to make a time series stationary by using either one seasonal differencing or one non-seasonal differencing, we might build models for each in this case and see which one makes better predictions. 
