@@ -792,6 +792,8 @@ for X_train, X_validation, y_train, y_validation in train_validation_generator:
 
 [5] Https://plus.google.com/u/0/+Datacamp/. (n.d.). Sign in. DataCamp. https://learn.datacamp.com/courses/arima-models-in-python 
 
+[6] Https://plus.google.com/u/0/+Datacamp/. (n.d.). Sign in. DataCamp. https://learn.datacamp.com/courses/garch-models-in-python 
+
 
 
 
