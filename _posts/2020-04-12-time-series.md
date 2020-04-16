@@ -512,7 +512,7 @@ plt.show()
 We can use ACF to identify the frequency/period. In the case of a seasonal time series, the ACF will show periodic correlation pattern. To find the frequency we look for a lag greater than one, which is a peak in the ACF plot. In order to use ACF to identify the period of a non-stationary time series, it might be useful to detrend it first, we can substract long rolling average over $N$ steps. Any large window size $N$ will work for this, we could use a window size of any value bigger than the likely period.
 
 ```python
-df = df - df.rolling(N).mean().dropna()
+df = (df - df.rolling(N).mean()).dropna()
 ```
 
 $$\text{SARIMA} = \text{Seasonal ARIMA}$$
