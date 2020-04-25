@@ -671,7 +671,8 @@ model = arch_model(data, p=1, q=1,
 
 
 
-# Machine learning for time series
+# Machine learning for time series 
+
 
 Unpivot a DataFrame from wide to long format (melt):
 
@@ -775,6 +776,37 @@ for X_train, X_validation, y_train, y_validation in train_validation_generator:
 
 
 
+For a classification problem whose inputs are audio data (for example, heartbeat time series), one can extract summary statistics from the envelope. The envelope is obtained by smoothing the absolute value of the original centered data so that the total amount of sound energy over time is distinguishable. This is done by first applying `np.abs()` to the original centered audio waveform, then by using the `.rolling()` method. This is shown as follows:
+
+```python
+# smooth by applying a rolling mean
+audio_envelope1 = audio1.apply(np.abs).rolling(20).mean()
+audio_envelope2 = audio2.apply(np.abs).rolling(window=50).mean()
+```
+
+Then we can use `np.mean()`, `np.std()`, `np.max()`, etc. to extract statistics from the obtained envelope. 
+
+The envelope calculation is also a common technique in computing tempo (每分钟节拍数，beats per minute) and rhythm (节奏，韵律) features. The tempogram (which estimates the tempo of a sound over time) can be calculated by using the `librosa` library. Note that `librosa` functions tend to only operate on `numpy` arrays instead of `DataFrames`, so we'll access our `pandas` data as a `numpy` array with the `.values` attribute. 
+
+```python
+import librosa
+
+tempo = librosa.beat.tempo(audio.values, sr=sampling_rate, hop_length=2**6, aggregate=None)
+```
+
+Then we can extract statistics from the tempogram by using `np.mean()`, `np.std()`, `np.max()`, etc. 
+
+Spectrograms (时频谱) are common in time-series analysis. By definition, the spectrogram is the squared magnitude of the short-time Fourier transform (STFT). The Fourier transform (FFT) describes, for a window of time, the presence of fast and slow oscillations in a time series. We can do the spectral feature engineering by using the spectrogram as a base. For example, we can calculate the spectral centroids and spectral bandwidth which describe where most of the spectral energy is at each moment of time. One way to do this is to use the `librosa` library (other libraries can also be used, for example `scipy.signal.spectrogram`). Under the assumption that the temporal features and spectral features provide independent information we can combine them to train our machine learning model. 
+
+
+```python
+
+```
+
+
+
+
+
 
 
 
@@ -793,6 +825,8 @@ for X_train, X_validation, y_train, y_validation in train_validation_generator:
 [5] Https://plus.google.com/u/0/+Datacamp/. (n.d.). Sign in. DataCamp. https://learn.datacamp.com/courses/arima-models-in-python 
 
 [6] Https://plus.google.com/u/0/+Datacamp/. (n.d.). Sign in. DataCamp. https://learn.datacamp.com/courses/garch-models-in-python 
+
+[7] Https://plus.google.com/u/0/+Datacamp/. (n.d.). Sign in. DataCamp. https://learn.datacamp.com/courses/machine-learning-for-time-series-data-in-python 
 
 
 
