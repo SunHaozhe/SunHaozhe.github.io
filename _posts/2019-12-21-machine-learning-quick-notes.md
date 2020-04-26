@@ -132,3 +132,24 @@ $$\hat{\theta} \in \underset{\theta}{\operatorname{argmin}} \frac{1}{2} \vert\ve
 
 $$\nabla_\theta \frac{1}{2} \vert\vert X\theta - y \vert\vert_2^2 + \frac{\lambda}{2} \vert\vert \theta \vert\vert_2^2 = 0 \Rightarrow \hat{\theta} = (X^\intercal X + \lambda I)^{-1}X^\intercal y$$
 
+
+
+***Coefficient of determination***
+
+The most general definition of the coefficient of determination is
+
+$$R^2 = 1 - \frac{\text{residual sum of squares}}{\text{total sum of squares}} = 1 - \frac{\text{残差平方和}}{\text{总平方和}} = 1 - \frac{\sum_i (y_i - f_i)^2}{\sum_i (y_i - \overline{y})^2}$$
+
+where
+
+$$\overline{y} = \frac{1}{n} \sum_i^n y_i$$
+
+$y_1$, $y_2$, ..., $y_n$ denotes the $n$ target variables, $f_1$, $f_2$, ..., $f_n$ denotes the $n$ predicted value by our model. 
+
+
+Values of $R^2$ outside the range $0$ to $1$ can occur when the model fits the data worse than a horizontal hyperplane. 
+
+$R^2$ (R squared) can be interpreted as the proportion of the variance in the target variable (label) that is predictable from the features. 
+
+
+
