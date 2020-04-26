@@ -779,6 +779,8 @@ for X_train, X_validation, y_train, y_validation in train_validation_generator:
 For a classification problem whose inputs are audio data (for example, heartbeat time series), one can extract summary statistics from the envelope. The envelope is obtained by smoothing the absolute value of the original centered data so that the total amount of sound energy over time is distinguishable. This is done by first applying `np.abs()` to the original centered audio waveform, then by using the `.rolling()` method. This is shown as follows:
 
 ```python
+# suppose that audio1, audio2 are both 1-D arrays 
+
 # smooth by applying a rolling mean
 audio_envelope1 = audio1.apply(np.abs).rolling(20).mean()
 audio_envelope2 = audio2.apply(np.abs).rolling(window=50).mean()
@@ -786,25 +788,101 @@ audio_envelope2 = audio2.apply(np.abs).rolling(window=50).mean()
 
 Then we can use `np.mean()`, `np.std()`, `np.max()`, etc. to extract statistics from the obtained envelope. 
 
-The envelope calculation is also a common technique in computing tempo (每分钟节拍数，beats per minute) and rhythm (节奏，韵律) features. The tempogram (which estimates the tempo of a sound over time) can be calculated by using the `librosa` library. Note that `librosa` functions tend to only operate on `numpy` arrays instead of `DataFrames`, so we'll access our `pandas` data as a `numpy` array with the `.values` attribute. 
+The envelope calculation is also a common technique in computing tempo (每分钟节拍数，beats per minute) and rhythm (节奏，韵律) features. The tempogram (which estimates the tempo of a sound over time) can be calculated by using the `librosa` library. 
+
+Some basics of the `librosa` library,
+
+* The sampling rate, sometimes denoted by `sr`, is a positive integer which indicates the number of samples per second of a time series. 
+* A frame is a short slice of a time series used for analysis purposes. This usually corresponds to a single column of a spectrogram matrix. 
+* A window is a vector or function used to weight samples within a frame when computing a spectrogram. 
+* `n_fft` is a positive integer which indicates the number of samples in an analysis window (or frame), this can be called the frame length. 
+* `hop_length` is a positive integer which indicates the number of samples between successive frames, e.g., the columns of a spectrogram. 
+* `librosa.core.stft()` returns a complex-valued matrix `D` such that:
+    * `np.abs(D)` is the magnitude 
+    * `np.angle(D)` is the phase 
+* Spectral centroid and spectral bandwidth are only defined with real-valued non-negative input. `magnitude, phase = librosa.magphase(D)` separates a complex-valued STFT `D` into its magnitude and phase components. 
+* `librosa` functions tend to only operate on `numpy` arrays instead of `DataFrames`, so we'll access `pandas` data as a `numpy` array with the `.values` attribute. 
+
 
 ```python
 import librosa
 
-tempo = librosa.beat.tempo(audio.values, sr=sampling_rate, hop_length=2**6, aggregate=None)
+tempo = librosa.beat.tempo(audio, sr=sampling_rate, hop_length=2**6, aggregate=None)
 ```
 
-Then we can extract statistics from the tempogram by using `np.mean()`, `np.std()`, `np.max()`, etc. 
+`tempo` and `audio` are both 1-D arrays, their sizes satisfy the following relation: 
+
+$$\text{tempo.size} = \text{nb_frames} \approx \frac{\text{audio.size}}{\text{hop_length}}$$
+
+Then we can extract statistics from the tempogram by using `np.mean(tempo)` (the average tempo of this particular audio signal), `np.std(tempo)`, `np.max(tempo)`, etc. 
+
+
 
 Spectrograms (时频谱) are common in time-series analysis. By definition, the spectrogram is the squared magnitude of the short-time Fourier transform (STFT). The Fourier transform (FFT) describes, for a window of time, the presence of fast and slow oscillations in a time series. We can do the spectral feature engineering by using the spectrogram as a base. For example, we can calculate the spectral centroids and spectral bandwidth which describe where most of the spectral energy is at each moment of time. One way to do this is to use the `librosa` library (other libraries can also be used, for example `scipy.signal.spectrogram`). Under the assumption that the temporal features and spectral features provide independent information we can combine them to train our machine learning model. 
 
 
 ```python
+import librosa
 
+audio, sampling_rate = librosa.load(audio_file_path)
+time_axis = np.arange(0, audio.size) / sampling_rate # seconds since the beginning 
+
+n_fft = 2 ** 7
+hop_length = 2 ** 4
+stft = librosa.stft(audio, hop_length=hop_length, n_fft=n_fft)
+
+magnitude, phase = librosa.magphase(stft)
+```
+
+```python
+import librosa.display
+
+# convert into decibels
+spec_db = librosa.amplitude_to_db(magnitude)
+
+# compare the raw audio to the spectrogram of the audio
+plt.figure(figsize=(10, 10))
+ax = plt.subplot(211)
+plt.plot(time_axis, audio)
+plt.subplot(212, sharex = ax)
+librosa.display.specshow(spec_db, sr=sampling_rate, x_axis="time", 
+                         y_axis="hz", hop_length=hop_length)
+plt.show()
+```
+
+```python
+# calculate the spectral centroid and bandwidth for the spectrogram from time-series input
+centroids = librosa.feature.spectral_centroid(y=audio, sr=sampling_rate, 
+                                              hop_length=hop_length, n_fft=n_fft)[0]
+bandwidths = librosa.feature.spectral_bandwidth(y=audio, sr=sampling_rate, 
+                                                hop_length=hop_length, n_fft=n_fft)[0]
+
+# calculate the spectral centroid and bandwidth for the spectrogram from spectrogram input
+centroids = librosa.feature.spectral_centroid(S=magnitude)[0]
+bandwidths = librosa.feature.spectral_bandwidth(S=magnitude)[0]
+```
+
+The obtained `centroids` and `bandwidths` are both 1-D arrays and their sizes satisfy the following relations:
+
+$$\text{centroids.size} = \text{nb_frames} \approx \frac{\text{audio.size}}{\text{hop_length}}$$
+
+$$\text{bandwidths.size} = \text{nb_frames} \approx \frac{\text{audio.size}}{\text{hop_length}}$$
+
+
+
+```python
+# visualize spectral centroid and bandwidth on top of the spectrogram
+plt.figure(figsize=(10, 5))
+librosa.display.specshow(spec_db, x_axis='time', y_axis='hz', hop_length=hop_length)
+times_spec = np.arange(0, spec_db.shape[1])
+plt.plot(times_spec, centroids)
+plt.fill_between(times_spec, centroids - bandwidths / 2, centroids + bandwidths / 2, alpha=.5)
+plt.show()
 ```
 
 
 
+To use the spectral features as machine learning features, we can use `np.mean(centroids)` (the average spectral centroid of this particular audio signal, which is a frequency), `np.std(centroids)`, `np.max(centroids)`, `np.mean(bandwidths)` (the average spectral bandwidth of this particular audio signal, which is a frequency range), `np.std(bandwidths)`, `np.max(bandwidths)`, etc. 
 
 
 
