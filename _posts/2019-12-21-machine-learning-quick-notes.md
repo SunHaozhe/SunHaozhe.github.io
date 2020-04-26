@@ -144,7 +144,7 @@ where
 
 $$\overline{y} = \frac{1}{n} \sum_i^n y_i$$
 
-$y_1$, $y_2$, ..., $y_n$ denotes the $n$ target variables, $f_1$, $f_2$, ..., $f_n$ denotes the $n$ predicted value by our model. 
+$y_1$, $y_2$, ..., $y_n$ denotes the $n$ target variables, $f_1$, $f_2$, ..., $f_n$ denotes the $n$ predicted values by our model. 
 
 
 Values of $R^2$ outside the range $0$ to $1$ can occur when the model fits the data worse than a horizontal hyperplane. 
