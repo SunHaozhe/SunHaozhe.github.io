@@ -775,6 +775,8 @@ for X_train, X_validation, y_train, y_validation in train_validation_generator:
 ```
 
 
+# Machine learning for audio signals 
+
 
 For a classification problem whose inputs are audio data (for example, heartbeat time series), one can extract summary statistics from the envelope. The envelope is obtained by smoothing the absolute value of the original centered data so that the total amount of sound energy over time is distinguishable. This is done by first applying `np.abs()` to the original centered audio waveform, then by using the `.rolling()` method. This is shown as follows:
 
@@ -850,6 +852,8 @@ librosa.display.specshow(spec_db, sr=sampling_rate, x_axis="time",
 plt.show()
 ```
 
+![XXX](/assets/images/blog/audio_signal_spectrogram.png)
+
 ```python
 # calculate the spectral centroid and bandwidth for the spectrogram from time-series input
 centroids = librosa.feature.spectral_centroid(y=audio, sr=sampling_rate, 
@@ -879,6 +883,8 @@ plt.plot(times_spec, centroids)
 plt.fill_between(times_spec, centroids - bandwidths / 2, centroids + bandwidths / 2, alpha=.5)
 plt.show()
 ```
+
+![XXX](/assets/images/blog/audio_signal_spectral_features.png)
 
 
 
