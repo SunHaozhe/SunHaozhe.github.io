@@ -775,6 +775,64 @@ for X_train, X_validation, y_train, y_validation in train_validation_generator:
 ```
 
 
+# Time series feature extraction with tsfresh
+
+`tsfresh` is a python package which automatically calculates a large number of time series features. Further the package contains methods to evaluate the explaining power and importance of such features for regression or classification tasks.
+
+Let's look at one example. Suppose we have the following dataframe `df` where the length of `A`'s time series is 1000, the length of `B`'s time series is 1200: 
+
+```
+     id     value
+0     A  0.008801
+1     A  0.008801
+2     A  0.008801
+3     A  0.008803
+4     A  0.008808
+...  ..       ...
+2195  B  0.001495
+2196  B  0.001498
+2197  B  0.001500
+2198  B  0.001503
+2199  B  0.001506
+
+[2200 rows x 2 columns]
+```
+
+`tsfresh` can extract 756 features with version `0.15.1`. To extract all features, we do use `tsfresh.extract_features()`. This function can be very time-consuming if the input's size is large. The returned `feature_matrix` has the shape: 
+
+$$(\text{nb_ids}, \text{nb_extracted_features_per_time_series} \times \text{nb_time_series})$$
+
+```python
+import tsfresh
+
+feature_matrix = tsfresh.extract_features(df, column_id="id", column_value="value")
+```
+
+We end up with a `DataFrame` `feature_matrix` with all possible features. Then we should:
+
+* first, remove all `NaN` values that were created by feature calculators that cannot be used on the given data, e.g. because it has too low statistics. 
+    * `tsfresh.utilities.dataframe_functions.impute()` replaces all `NaN`s and `inf`s from the input `DataFrame` with average/extreme values from the same columns.
+        * `-inf -> min`
+        * `+inf -> max`
+        * `NaN -> median` 
+    * `tsfresh.utilities.dataframe_functions.impute()` is in-place. 
+* second, select only the relevant features
+    * `tsfresh.feature_selection.selection.select_features()` checks the significance of all features (columns) with respect to target vector `y` and return a possibly reduced feature matrix only containing relevant features.
+
+```python
+tsfresh.utilities.dataframe_functions.impute(feature_matrix)
+filtered_feature_matrix = tsfresh.select_features(feature_matrix, y)
+```
+
+We can also perform the extraction, imputing and filtering at the same time with the `tsfresh.extract_relevant_features()` function. 
+
+```python
+filtered_feature_matrix = tsfresh.extract_relevant_features(df, y, column_id="id", column_value="value")
+```
+
+
+
+
 # Machine learning for audio signals 
 
 
@@ -790,9 +848,9 @@ audio_envelope2 = audio2.apply(np.abs).rolling(window=50).mean()
 
 Then we can use `np.mean()`, `np.std()`, `np.max()`, etc. to extract statistics from the obtained envelope. 
 
-The envelope calculation is also a common technique in computing tempo (每分钟节拍数，beats per minute) and rhythm (节奏，韵律) features. The tempogram (which estimates the tempo of a sound over time) can be calculated by using the `librosa` library. 
+The envelope calculation is also a common technique in computing tempo (每分钟节拍数，beats per minute) and rhythm (节奏，韵律) features. The tempogram (which estimates the tempo of a sound over time) can be calculated by using the `librosa` package. 
 
-Some basics of the `librosa` library,
+Some basics of the `librosa` package,
 
 * The sampling rate, sometimes denoted by `sr`, is a positive integer which indicates the number of samples per second of a time series. 
 * A frame is a short slice of a time series used for analysis purposes. This usually corresponds to a single column of a spectrogram matrix. 
@@ -820,7 +878,7 @@ Then we can extract statistics from the tempogram by using `np.mean(tempo)` (the
 
 
 
-Spectrograms (时频谱) are common in time-series analysis. By definition, the spectrogram is the squared magnitude of the short-time Fourier transform (STFT). The Fourier transform (FFT) describes, for a window of time, the presence of fast and slow oscillations in a time series. We can do the spectral feature engineering by using the spectrogram as a base. For example, we can calculate the spectral centroids and spectral bandwidth which describe where most of the spectral energy is at each moment of time. One way to do this is to use the `librosa` library (other libraries can also be used, for example `scipy.signal.spectrogram`). Under the assumption that the temporal features and spectral features provide independent information we can combine them to train our machine learning model. 
+Spectrograms (时频谱) are common in time-series analysis. By definition, the spectrogram is the squared magnitude of the short-time Fourier transform (STFT). The Fourier transform (FFT) describes, for a window of time, the presence of fast and slow oscillations in a time series. We can do the spectral feature engineering by using the spectrogram as a base. For example, we can calculate the spectral centroids and spectral bandwidth which describe where most of the spectral energy is at each moment of time. One way to do this is to use the `librosa` packages (other packages can also be used, for example `scipy.signal.spectrogram`). Under the assumption that the temporal features and spectral features provide independent information we can combine them to train our machine learning model. 
 
 
 ```python

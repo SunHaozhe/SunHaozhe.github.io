@@ -159,6 +159,13 @@ df3 = df1.merge(df2, left_index=True, right_index=True)
 df = pd.merge(s1, s2, left_index=True, right_index=True, how="outer")
 ```
 
+Concatenate `DataFrame` objects:
+
+```python
+# vertically concatenate two DataFrames
+df = pd.concat([df1, df2], axis=0, ignore_index=True) 
+```
+
 Split features `X` and labels `y`:
 
 ```python
@@ -181,6 +188,12 @@ Add a column of constant `1`'s:
 X = X.assign(const=1)
 # Used for statsmodels
 # The added column's name is "const"
+```
+
+Swap/reorder columns of `DataFrame` objects:
+
+```python
+df = df.reindex(columns=["...", "..."])
 ```
 
 Visualize the number of distinct values that each feature can take:
