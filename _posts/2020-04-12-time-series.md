@@ -831,6 +831,88 @@ filtered_feature_matrix = tsfresh.extract_relevant_features(df, y, column_id="id
 ```
 
 
+# Analyzing time series motifs and anomalies with stumpy
+
+For the `stumpy` package, time series motifs are approximately repeated subsequences found within a longer time series. 
+
+`stumpy` compares all subsequences within a time series by computing the pairwise z-normalized Euclidean distances and then storing only the index to its nearest neighbor. This nearest neighbor distance is referred to as the matrix profile and the index to each nearest neighbor within the time series is referred to as the matrix profile index. 
+
+The global minima from the matrix profile correspond to the locations of the two subsequences that make up the motif pair. The matrix profile index also tells us which subsequence within the time series does not have nearest neighbor that resembles itself, which is referred to as a discord, novelty, or anomaly. 
+
+```python
+import stumpy
+
+window_size = 640  
+matrix_profile = stumpy.stump(data, m=window_size)
+```
+
+
+The returned `matrix_profile` is a `numpy array` of shape `(data.size, 4)` (suppose `data` is 1-D). The first column consists of the matrix profile (the distance), the second column consists of the matrix profile indices, the third column consists of the left matrix profile indices, and the fourth column consists of the right matrix profile indices.
+
+
+```python
+def ts_stumpy_motif(data, matrix_profile, window_size, plot=True):
+    """Time series motif discovery (stumpy package)"""
+    from matplotlib.patches import Rectangle as patch_rect_
+    idx = matrix_profile[:, 0].argpartition(0)[0]
+    indices = np.array([idx, matrix_profile[idx, 1]]) 
+    if plot:
+        fig = plt.figure(figsize=(14, 5))
+        plt.suptitle("Time series motif discovery - window size = {}".format(window_size), 
+                     fontsize="xx-large")
+        ax = plt.subplot(211)
+        plt.plot(data)
+        plt.gca().set_ylabel("Time series", fontsize="xx-large")
+        plt.xticks(fontsize="xx-large")
+        plt.yticks(fontsize="xx-large")
+        bottom_, top_ = plt.ylim()
+        rect_height = top_ - bottom_
+        for idx in indices:
+            rect = patch_rect_((idx, 0), window_size, rect_height, facecolor="lightgrey")
+            plt.gca().add_patch(rect)
+        plt.subplot(212, sharex=ax)
+        plt.plot(matrix_profile[:, 0])
+        plt.gca().set_ylabel("Matrix profile", fontsize="xx-large")
+        plt.xticks(fontsize="xx-large")
+        plt.yticks(fontsize="xx-large")
+        for idx in indices:
+            plt.axvline(x=idx, linestyle="dashed")
+        plt.show()
+    return indices
+```
+
+![XXX](/assets/images/blog/stumpy_motif.png)
+
+```python
+def ts_stumpy_anomaly(data, matrix_profile, window_size, plot=True):
+    """Time series anomaly discovery (stumpy package)"""
+    from matplotlib.patches import Rectangle as patch_rect_
+    idx = matrix_profile[:, 0].argpartition(matrix_profile[:, 0].size - 1)[-1]
+    if plot:
+        plt.figure(figsize=(14, 5))
+        plt.suptitle("Time series anomaly discovery - window size = {}".format(window_size), 
+                     fontsize="xx-large")
+        ax = plt.subplot(211)
+        plt.plot(data)
+        plt.gca().set_ylabel("Time series", fontsize="xx-large")
+        bottom_, top_ = plt.ylim() 
+        rect = patch_rect_((idx, 0), window_size, top_-bottom_, facecolor='lightgrey')
+        plt.gca().add_patch(rect)
+        plt.xticks(fontsize="xx-large")
+        plt.yticks(fontsize="xx-large")
+        plt.subplot(212, sharex=ax)
+        plt.plot(matrix_profile[:, 0])
+        plt.gca().set_ylabel('Matrix profile', fontsize="xx-large")
+        plt.axvline(x=idx, linestyle="dashed")
+        plt.xticks(fontsize="xx-large")
+        plt.yticks(fontsize="xx-large")
+        plt.show()
+    return idx
+```
+
+![XXX](/assets/images/blog/stumpy_anomaly.png)
+
+
 
 
 # Machine learning for audio signals 
@@ -904,7 +986,7 @@ spec_db = librosa.amplitude_to_db(magnitude)
 plt.figure(figsize=(10, 10))
 ax = plt.subplot(211)
 plt.plot(time_axis, audio)
-plt.subplot(212, sharex = ax)
+plt.subplot(212, sharex=ax)
 librosa.display.specshow(spec_db, sr=sampling_rate, x_axis="time", 
                          y_axis="hz", hop_length=hop_length)
 plt.show()
