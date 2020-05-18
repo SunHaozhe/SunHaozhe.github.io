@@ -153,3 +153,19 @@ $R^2$ (R squared) can be interpreted as the proportion of the variance in the ta
 
 
 
+
+
+
+# Tf–idf 
+
+Tf–idf (term frequency–inverse document frequency) is defined as follows:
+
+$$w_{i,j} = \text{t}_{i,j} \log \frac{D}{\text{d}_i}$$
+
+where $w_{i,j}$ is the tf-idf weight for token $i$ in document $j$, $t_{i,j}$ is the number of occurences of token $i$ in document $j$, $d_{i}$ is the number of documents that contain token $i$, $D$ is the total number of documents. 
+
+
+
+
+
+
