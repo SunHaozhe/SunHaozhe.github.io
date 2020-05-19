@@ -24,5 +24,8 @@ Identity matrix is the only real matrix which is positive definite and orthogona
 
 
 
+![chomsky_hierarchy](/assets/images/blog/chomsky_hierarchy.png)
+
+
 
 
