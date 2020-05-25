@@ -14,7 +14,7 @@ published: true
 Let's say we have input data $X$ and we want to classify the data into labels $Y$. 
 
 * A generative model (生成模型) learns the joint probability distribution $\mathbb{P}(X, Y)$ 
-* A discriminative model (判别模型) learns the conditional probability distribution $\mathbb{P}(Y|X)$
+* A discriminative model (判别模型) learns the conditional probability distribution $\mathbb{P}(Y \| X)$
 
 Discriminative models learn the (hard or soft) boundary between classes, generative models model the distribution of individual classes. 
 
