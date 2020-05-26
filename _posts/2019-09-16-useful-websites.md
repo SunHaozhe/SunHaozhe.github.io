@@ -75,7 +75,7 @@ monitors the world's broadcast, print, and web news from nearly every corner of 
 
 Introduction to Conditional Random Fields (this is a tech blog with many other interesting articles)
 
-[http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/]
+[http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/](http://blog.echen.me/2012/01/03/introduction-to-conditional-random-fields/)
 
 
 
