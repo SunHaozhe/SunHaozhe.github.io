@@ -47,7 +47,7 @@ In C, we believe that `a` is a memory location that stores the value `1`, then i
 
 Some links to help understand this:
 
-* Understanding Python Variables [https://mathieularose.com/python-variables/#:~:text=Python%20has%20name%20binding.,a%20name%20to%20an%20object.&text=It%20has%201%20name%20%28%20x,and%201%20object%20%28%201%20%29.](https://mathieularose.com/python-variables/#:~:text=Python%20has%20name%20binding.,a%20name%20to%20an%20object.&text=It%20has%201%20name%20%28%20x,and%201%20object%20%28%201%20%29.)
+* Understanding Python Variables [https://mathieularose.com/python-variables/](https://mathieularose.com/python-variables/)
 * [http://pythontutor.com/visualize.html#mode=display](http://pythontutor.com/visualize.html#mode=display)
 
 
