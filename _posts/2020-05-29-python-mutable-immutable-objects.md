@@ -16,8 +16,8 @@ Everything in Python is an object. An object’s mutability is determined by its
 
 Among Python built-in types:
 
-Mutable objects include: `list` `dict` `set`
-Immutable objects include: `tuple` `str` `int` `float` `bool`
+* Mutable objects include: `list` `dict` `set`
+* Immutable objects include: `tuple` `str` `int` `float` `bool`
 
 User-defined classes are generally mutable. There are some exceptions, such as simple sub-classes of an immutable type. 
 
