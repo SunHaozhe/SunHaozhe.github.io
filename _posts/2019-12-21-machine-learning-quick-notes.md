@@ -68,8 +68,28 @@ If the prior $\mathbb{P}(\theta)$ is uniform, then MAP reduces to MLE. MAP can b
 
 # Linear regression
 
-$$y = X\theta^* + \epsilon$$
 
+
+There are 4 principal assumptions which justify the use of linear regression models for purposes of inference or prediction [1]:
+
+
+* **linearity and additivity** of the relationship between dependent variables (target variables) and independent variables (features)
+    * the expected value of dependent variable is a straight-line function of each independent variable, holding the others fixed
+    * the slope of that line does not depend on the values of the other variables
+    * the effects of different independent variables on the expected value of the dependent variable are additive
+* **statistical independence** of the errors (in particular, no correlation between consecutive errors in the case of time series data)
+* **homoscedasticity** (constant variance, 同方差性) of the errors 
+* * versus time (in the case of time series data)
+    * versus the predictions
+    * versus any independent variable 
+* **normality** of the error distribution
+
+
+If any of these assumptions is violated, then the forecasts, confidence intervals, and scientific insights yielded by a regression model may be (at best) inefficient or (at worst) seriously biased or misleading. 
+
+
+
+$$y = X\theta^* + \epsilon$$
 
 
 ***Ordinary least squares (OLS)***
@@ -170,4 +190,10 @@ However other ways of defining the term frequency and the document frequency exi
 
 
 
+
+
+# References
+
+
+[1] Testing the assumptions of linear regression. (n.d.). people.duke.edu. https://people.duke.edu/~rnau/testing.htm 
 
