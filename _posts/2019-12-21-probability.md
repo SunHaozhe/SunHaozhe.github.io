@@ -75,6 +75,15 @@ $$\frac{\frac{X_1}{d_1}}{\frac{X_2}{d_2}} \sim F(d_1, d_2)$$
 Mean: $\frac{d_2}{d_2 - 2}$ for $d_2 > 2$
 
 
+# Poisson distribution 
+
+Poisson distribution is a discrete probability distribution that expresses the probability of a given number of events occurring in a fixed interval of time or space if these events occur with a known constant mean rate and independently of the time since the last event. 
+
+A discrete random variable $X$ is said to have a Poisson distribution with parameter $\lambda > 0$, if $\forall k = 0, 1, 2, ...,$ 
+
+$$\mathbb{P}_{\lambda}(X = k) = \frac{\lambda^k e^{- \lambda} }{k!}$$
+
+
 
 
 
