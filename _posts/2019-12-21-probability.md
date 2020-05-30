@@ -84,7 +84,30 @@ A discrete random variable $X$ is said to have a Poisson distribution with param
 $$\mathbb{P}_{\lambda}(X = k) = \frac{\lambda^k e^{- \lambda} }{k!}$$
 
 
+Mean: $\lambda$
+
+Variance: $\lambda$
+
+
+# Bernoulli distribution
+
+$$\mathbb{P}_{p}(X=1) = 1 - \mathbb{P}_{p}(X=0) = p$$
+
+Mean: $p$
+
+Variance: $p (1 - p)$
+
+
+# Binomial distribution 二项分布
+
+$$\mathbb{P}_{n, p}(X = k) = {n \choose k} p^k (1 - p)^{n - k}$$
+
+Mean: $n p$
+
+Variance: $n p (1 - p)$
 
 
 
- 
+
+
+
