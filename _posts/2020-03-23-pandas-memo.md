@@ -370,6 +370,79 @@ td / np.timedelta64(1, 'M')
 ```
 
 
+Rolling window calculations:
+
+```
+# suppose df is the following DataFrame with shape (5, 1)
+
+# rolling window calculations return DataFrames with 
+# exactly the same shape
+
+   column_1
+0         0
+1         1
+2         2
+3         3
+4         4
+```
+
+```python
+df.rolling(3).sum()
+```
+
+```
+   column_1
+0       NaN
+1       NaN
+2       3.0
+3       6.0
+4       9.0
+```
+
+```python
+df.rolling(3, min_periods=1).sum()
+```
+
+```
+   column_1
+0       0.0
+1       1.0
+2       3.0
+3       6.0
+4       9.0
+```
+
+```python
+df.rolling(3, center=True).sum()
+```
+
+```
+   column_1
+0       NaN
+1       3.0
+2       6.0
+3       9.0
+4       NaN
+```
+
+```python
+df.rolling(3, min_periods=1, center=True).sum()
+```
+
+```
+   column_1
+0       1.0
+1       3.0
+2       6.0
+3       9.0
+4       7.0
+```
+
+
+
+
+
+
 
 
 
