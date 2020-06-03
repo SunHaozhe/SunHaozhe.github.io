@@ -439,6 +439,21 @@ df.rolling(3, min_periods=1, center=True).sum()
 ```
 
 
+Count the number of `True`/`False` in each row/column:
+
+```python
+# suppose df is a DataFrame that has either 
+# True or False as value
+
+# find out how many True/False are there in each column 
+df.apply(pd.Series.value_counts, axis=0)
+
+# find out how many True/False are there in each row 
+df.apply(pd.Series.value_counts, axis=1)
+```
+
+
+
 
 
 
