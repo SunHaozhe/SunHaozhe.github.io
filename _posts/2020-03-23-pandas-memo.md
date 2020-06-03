@@ -445,6 +445,10 @@ Count the number of `True`/`False` in each row/column:
 # suppose df is a DataFrame that has either 
 # True or False as value
 
+# For pd.DataFrame.apply(), 
+# axis=0/"index", apply function to each column
+# axis=1/"columns", apply function to each row 
+
 # find out how many True/False are there in each column 
 df.apply(pd.Series.value_counts, axis=0)
 
