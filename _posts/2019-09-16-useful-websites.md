@@ -79,6 +79,14 @@ Introduction to Conditional Random Fields (this is a tech blog with many other i
 
 
 
+**************************************************************************************************
+
+
+Quantopian's lectures
+
+[https://www.quantopian.com/lectures](https://www.quantopian.com/lectures)
+
+
 
 **************************************************************************************************
 
