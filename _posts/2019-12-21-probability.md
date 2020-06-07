@@ -22,6 +22,14 @@ $d$-dimensional case:
 
 $$\mathbb{P}_{\mu, \Sigma}(x) = \frac{1}{\sqrt{(2\pi)^d \det \Sigma}} \exp(-\frac{1}{2}(x-\mu)^\intercal \Sigma^{-1} (x-\mu))$$
 
+## 68–95–99.7 rule
+
+The **68–95–99.7 rule** is a shorthand used to remember the percentage of values that lie within one, two and three standard deviations of the mean in a normal distribution. 
+
+![68_95_997_rule](/assets/images/blog/68_95_997_rule.png)
+
+The **three-sigma rule** states that even for non-normally distributed variables, at least 88.8% of cases should fall within properly calculated three-sigma intervals. It follows from Chebyshev's inequality. For unimodal distributions the probability of being within the interval is at least 95% by the Vysochanskij–Petunin inequality. There may be certain assumptions for a distribution that force this probability to be at least 98%. 
+
 # Laplace distribution
 
 One-dimensional case:
