@@ -20,6 +20,8 @@ Multicollinearity **does not** reduce the **predictive power** or reliability of
 
 Multicollinearity is a problem because it undermines the statistical significance of an independent feature. Other things being equal, the larger the standard error of a regression coefficient, the less likely it is that this coefficient will be statistically significant [1]. The presence of multicollinearity increases standard error measures, which lowers statistical significance (this may lead to failing to reject the false null hypothesis, type II error) [10]. 
 
+Multicollinearity makes it difficult to determine the actual relationship between the target variable and the features, in the sense that the calculated value of the coefficients associated with features that are (nearly) collinear with other features may not be reliable and can dramatically change with slightly different input data. 
+
 
 To give some intuition, if we have some features that are exactly/perfectly collinear, we can still find coefficients minimizing the sum of squared errors, however the coefficients won't be unique, in fact there will be an infinite range of possible coefficient combinations that are equally valid. If the features are nearly collinear, we have a soft version of this same problem. We may be able to fit a model and find unique regression coefficients, but they don't mean much. With slightly different versions of the same data, the coefficients would slide around in an arbitrary way among the nearly collinear features [3]. 
 
