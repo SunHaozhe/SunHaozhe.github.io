@@ -79,7 +79,7 @@ There are 4 principal assumptions which justify the use of linear regression mod
     * the effects of different independent variables on the expected value of the dependent variable are additive
 * **statistical independence** of the errors (in particular, no correlation between consecutive errors in the case of time series data)
 * **homoscedasticity** (constant variance, 同方差性) of the errors 
-* * versus time (in the case of time series data)
+    * versus time (in the case of time series data)
     * versus the predictions
     * versus any independent variable 
 * **normality** of the error distribution

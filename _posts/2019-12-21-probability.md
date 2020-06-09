@@ -5,6 +5,7 @@ title: Probability
 tagline: by SunHaozhe
 tags: 
   - Mathematics
+  - Machine learning 
 mathjax: true
 comments: true
 published: true
