@@ -18,7 +18,7 @@ Multicollinearity **does not** reduce the **predictive power** or reliability of
 
 # Effect on interpretation 
 
-Multicollinearity is a problem because it undermines the statistical significance of an independent feature. Other things being equal, the larger the standard error of a regression coefficient, the less likely it is that this coefficient will be statistically significant [1].
+Multicollinearity is a problem because it undermines the statistical significance of an independent feature. Other things being equal, the larger the standard error of a regression coefficient, the less likely it is that this coefficient will be statistically significant [1]. The presence of multicollinearity increases standard error measures, which lowers statistical significance (this may lead to failing to reject the false null hypothesis, type II error) [10]. 
 
 
 To give some intuition, if we have some features that are exactly/perfectly collinear, we can still find coefficients minimizing the sum of squared errors, however the coefficients won't be unique, in fact there will be an infinite range of possible coefficient combinations that are equally valid. If the features are nearly collinear, we have a soft version of this same problem. We may be able to fit a model and find unique regression coefficients, but they don't mean much. With slightly different versions of the same data, the coefficients would slide around in an arbitrary way among the nearly collinear features [3]. 
@@ -159,6 +159,8 @@ One result that remains to be confirmed is the following [9]:
 [8] Why is RSS distributed CHI square times n-P? (n.d.). Cross Validated. https://stats.stackexchange.com/questions/20227/why-is-rss-distributed-chi-square-times-n-p
 
 [9] The meaning behind $(X^TX)^{-1}$. (n.d.). Mathematics Stack Exchange. https://math.stackexchange.com/questions/2624986/the-meaning-behind-xtx-1/2625661#2625661 
+
+[10] Model selection: Regression models. (n.d.). https://campus.datacamp.com/courses/practicing-machine-learning-interview-questions-in-python/model-selection-and-evaluation-4?ex=9
 
 
 
