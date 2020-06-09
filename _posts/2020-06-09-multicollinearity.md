@@ -113,6 +113,32 @@ $$\begin{equation}
 
 
 
+In order to estimate $\mathbb{Var}[\hat{\theta}]$, we need an estimate of $\sigma^2$.
+
+
+The residual sum of squares (RSS) is the following: 
+
+$$\text{RSS} = (y - X \hat{\theta})^\intercal (y - X \hat{\theta}) = \sum_i (y_i - f_i)^2$$
+
+It can be proved [[8]](https://stats.stackexchange.com/questions/20227/why-is-rss-distributed-chi-square-times-n-p) that 
+
+$$\frac{\text{RSS}}{\sigma^2} \sim \chi_{n-p}^2$$
+
+In consequence,
+
+$$\mathbb{E}[\frac{\text{RSS}}{n - p}] = \sigma^2$$
+
+$\widehat{\sigma^2} = \frac{\text{RSS}}{n - p}$ is thus an unbiased estimate of $\sigma^2$.
+
+$$\widehat{\mathbb{Var}[\hat{\theta}]} = \widehat{\sigma^2} (X^\intercal X)^{-1} = \frac{(y - X \hat{\theta})^\intercal (y - X \hat{\theta})}{n - p} (X^\intercal X)^{-1}$$ 
+
+One result that remains to be confirmed is the following [9]:
+
+![meaning_behind_XTX_1](/assets/images/blog/meaning_behind_XTX_1.png)
+
+
+
+
 
 # References
 
@@ -129,6 +155,16 @@ $$\begin{equation}
 [6] Condition number. (2001, October 29). Wikipedia, the free encyclopedia. Retrieved June 9, 2020, from https://en.wikipedia.org/wiki/Condition_number
 
 [7] https://www.statsmodels.org/dev/examples/notebooks/generated/ols.html#Condition-number
+
+[8] Why is RSS distributed CHI square times n-P? (n.d.). Cross Validated. https://stats.stackexchange.com/questions/20227/why-is-rss-distributed-chi-square-times-n-p
+
+[9] The meaning behind $(X^TX)^{-1}$. (n.d.). Mathematics Stack Exchange. https://math.stackexchange.com/questions/2624986/the-meaning-behind-xtx-1/2625661#2625661 
+
+
+
+
+
+
 
 
 
