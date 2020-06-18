@@ -345,6 +345,14 @@ Build a `pd.Timestamp` (datetime) object:
 time_stamp = pd.to_datetime("2020-03-21")
 ```
 
+Add date offset to a `pd.Timestamp` object: 
+
+```python
+time_stamp = pd.to_datetime("2019-02-19")  # 2019-02-19 00:00:00
+time_stamp += pd.DateOffset(days=54)       # 2019-04-14 00:00:00
+time_stamp += pd.DateOffset(minutes=23849) # 2019-04-30 13:29:00
+```
+
 Slice a dataframe based on datetime index (if datetime column has been set as the index):
 
 ```python
@@ -356,6 +364,7 @@ Conversion of `pd.Timedelta` Series, `pd.TimedeltaIndex`, and `pd.Timedelta` sca
 
 ```python
 # All the following conversions output float64
+
 # to days 
 td / np.timedelta64(1, 'D')
 (pd.to_datetime("2020-03-21") - df["date"]) / np.timedelta64(1, 'D')
@@ -367,6 +376,15 @@ td.astype('timedelta64[s]')
 
 # to months (these are constant months)
 td / np.timedelta64(1, 'M')
+```
+
+```python
+time_delta = pd.to_datetime("2021-02-19") - pd.to_datetime('2020-06-18')
+print(time_delta) # 246 days 00:00:00
+print(time_delta.days) # 246
+print(time_delta.components) 
+# Components(days=246, hours=0, minutes=0, seconds=0, 
+# milliseconds=0, microseconds=0, nanoseconds=0)
 ```
 
 
