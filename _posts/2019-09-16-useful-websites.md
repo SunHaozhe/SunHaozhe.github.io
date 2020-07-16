@@ -92,6 +92,16 @@ Quantopian's lectures
 
 
 
+Stack Exchange - Sun Haozhe (Cross Validated, Stack Overflow, Mathematics, Robotics, etc.)
+
+[https://stats.stackexchange.com/users/239861/sun-haozhe](https://stats.stackexchange.com/users/239861/sun-haozhe)
+
+
+
+**************************************************************************************************
+
+
+
 
 
 
