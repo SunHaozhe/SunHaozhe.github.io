@@ -18,7 +18,9 @@ published: true
 | retraining the last layer | le recyclage de la dernière couche | -    |
 | fine-tuning | le réglage fin | - |
 | Graph Neural Networks | réseaux de neurones graphiques | - |
-
+| prior knowledge | connaissances antérieures |- |
+| feature engineering | ingénieurie des caractéristiques | - |
+| overfitting | surapprentissage  <br>sur-ajustement <br>surinterprétation (surajusté) | - |
 
 
 
