@@ -20,7 +20,7 @@ published: true
 | Graph Neural Networks | réseaux de neurones graphiques | - |
 | prior knowledge | connaissances antérieures |- |
 | feature engineering | ingénieurie des caractéristiques | - |
-| overfitting | surapprentissage  <br>sur-ajustement <br>surinterprétation (surajusté) | - |
+| overfitting | surapprentissage  <br>sur-ajustement (surajusté) <br>surinterprétation | - |
 
 
 
