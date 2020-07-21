@@ -21,6 +21,11 @@ published: true
 | prior knowledge | connaissances antérieures |- |
 | feature engineering | ingénieurie des caractéristiques | - |
 | overfitting | surapprentissage  <br>sur-ajustement (surajusté) <br>surinterprétation | - |
+| training set | jeu de données d'apprentissage <br>données d'apprentissage <br>ensemble d'apprentissage <br>échantillon d'apprentissage | - |
+| validation set | jeu de données de validation | - |
+| test set | jeu de données de test | - |
+| backpropagation <br>backprop <br>BP | rétropropagation du gradient | 反向传播算法 |
+
 
 
 
