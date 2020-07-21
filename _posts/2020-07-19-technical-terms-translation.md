@@ -25,6 +25,7 @@ published: true
 | validation set | jeu de données de validation | - |
 | test set | jeu de données de test | - |
 | backpropagation <br>backprop <br>BP | rétropropagation du gradient | 反向传播算法 |
+| vanishing gradient | disparition du gradient  | 梯度消失 |
 
 
 
