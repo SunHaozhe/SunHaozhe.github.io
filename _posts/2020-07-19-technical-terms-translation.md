@@ -38,6 +38,15 @@ published: true
 | exponential moving average | moyenne mobile exponentielle  | 指数移动平均 |
 | audio frame | trame audio  | - |
 | tune the hyperparameters | régler les hyperparamètres | 调参 |
+| short-time Fourier transform <br>STFT | transformée de Fourier à court terme <br>transformée de Fourier locale <br>transformée de Fourier à fenêtre glissante | - |
+| discrete cosine transform | transformée en cosinus discrète | 离散余弦变换 |
+| word embedding | word embedding <br>plongement de mots <br>plongement lexical | - |
+| toy model | modèle-jouet | - |
+
+
+
+
+
 
 
 
