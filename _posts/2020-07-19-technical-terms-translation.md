@@ -42,6 +42,17 @@ published: true
 | discrete cosine transform | transformée en cosinus discrète | 离散余弦变换 |
 | word embedding | word embedding <br>plongement de mots <br>plongement lexical | - |
 | toy model | modèle-jouet | - |
+| mesh <br>polygon mesh | mesh <br>maillage | 多边形网格 |
+| disentanglement | - | 解耦 | 
+| bounding box | boîte englobante | - |
+| anchor boxes | boîtes d'ancrage | - |
+| region proposal | proposition de région | - |
+| domain adaptation | adaptation de domaine | - |
+| domain shift | changement de domaine | - |
+| feature map | carte de caractéristiques | - |
+| likelihood | vraisemblance | - |
+| grid cell | cellule de grille | - |
+
 
 
 
