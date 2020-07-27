@@ -1,7 +1,7 @@
 ---
 layout: post
 category: Python    
-title: Translation of some technical terms 
+title: Python virtual environment  
 tagline: by SunHaozhe
 tags: 
   - Python 
@@ -11,21 +11,29 @@ comments: true
 published: true
 ---
 
-这篇文章还有问题，notebook用不成创建的虚拟环境 
 
 To create a virtual environment: 
 
 ```python
-# creates venv_X in the current directory 
+# navigate to the dedicated directory 
+# this command creates venv_X in the current directory 
 virtualenv venv_X
 ```
 
 To install the kernel for Jupyter notebook:
 
 ```python
-# do this before activating the virtual environment
-# 做完这一步之后不用激活虚拟环境，直接 jupyter notebook 就可以选虚拟环境对应的kernel
+cd venv_X/
+source bin/activate 
+pip3 install ipykernel
+
 python3 -m ipykernel install --user --name=venv_X
+
+# install packages
+pip3 install --upgrade matplotlib 
+pip3 install --upgrade ipywidgets 
+
+# 按顺序做完以上步骤之后激活虚拟环境或者不激活虚拟环境，都可以直接通过在 jupyter notebook 命令进入notebook并选与虚拟环境对应的kernel
 ```
 
 

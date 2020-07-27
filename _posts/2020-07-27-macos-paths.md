@@ -1,7 +1,7 @@
 ---
 layout: post
 category: Misc     
-title: Translation of some technical terms 
+title: Mac OS paths 
 tagline: by SunHaozhe
 tags: 
   - Common knowledge 
@@ -9,6 +9,8 @@ mathjax: true
 comments: true
 published: true
 ---
+
+
 
 Python3
 
