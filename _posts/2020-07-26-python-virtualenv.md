@@ -14,7 +14,7 @@ published: true
 
 To create a virtual environment: 
 
-```python
+```bash
 # navigate to the dedicated directory 
 # this command creates venv_X in the current directory 
 virtualenv venv_X
@@ -22,7 +22,7 @@ virtualenv venv_X
 
 To install the kernel for Jupyter notebook:
 
-```python
+```bash
 cd venv_X/
 source bin/activate 
 pip3 install ipykernel
@@ -40,31 +40,31 @@ pip3 install --upgrade ipywidgets
 
 To activate the virtual environment:
 
-```python
+```bash
 source venv_X/bin/activate
 ```
 
 To deactivate the virtual environment:
 
-```python
+```bash
 deactivate
 ```
 
 To delete the virtual environment:
 
-```python
+```bash
 rm -r venv_X
 ```
 
 To uninstall the kernel for Jupyter notebook:
 
-```python
+```bash
 jupyter kernelspec uninstall venv_X
 ```
 
 To see which kernels are available for Jupyter notebook:
 
-```python
+```bash
 jupyter kernelspec list
 ```
 

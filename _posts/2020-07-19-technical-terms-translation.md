@@ -56,7 +56,7 @@ published: true
 | thought experiment | expérience en imagination | 思想实验 |
 | perplexity | perplexité | 困惑度 |
 | BLEU <br>bilingual evaluation understudy | BLEU | 双语替换评测 |
-
+| setpoint <br>set point <br>set-point | valeur de consigne | 设定值 <br>目标值 <br>参考值 |
 
 
 
