@@ -64,3 +64,23 @@ caffeinate -t 18000
 ```
 
 ************************************************************************************************
+
+To get the summary of a grand total disk usage size of an directory in "Human Readable Format": 
+
+```bash
+du -sh *
+# 1.8G	XXX
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
