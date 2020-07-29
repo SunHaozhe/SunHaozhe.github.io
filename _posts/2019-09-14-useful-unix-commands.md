@@ -14,17 +14,20 @@ published: true
 
 https://stackoverflow.com/questions/43702546/tensorboard-doesnt-show-all-data-points 
 
-`tensorboard --samples_per_plugin scalars=0 --logdir xxx/`
+```bash
+tensorboard --samples_per_plugin scalars=0 --logdir xxx/
+```
 
 ************************************************************************************************
 
 https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-add
 
-`git add -A` stages **all changes**
 
-`git commit -m "xxx"`
-
-`git push`
+```bash
+git add -A # stages all changes
+git commit -m "xxx"
+git push
+```
 
 
 
@@ -32,8 +35,32 @@ https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-
 
 
 
-```
+```bash
 git config --list
 git config --global user.name
 git config --global user.email
 ```
+
+************************************************************************************************
+
+For Mac OS, the `caffeinate` command is used to prevent a Mac from going to sleep. 
+
+```bash
+# stay until you tell the command to stop running 
+# or close the terminal
+caffeinate 
+
+# wait for the process with ID 41734 to finish
+caffeinate -w 41734  
+
+# 18000 is the timeout value in seconds 
+caffeinate -t 18000  
+
+# Option -d prevents the display from sleeping.
+# Option -i prevents the system from idle sleeping.
+# Option -s prevents the system from sleeping. 
+# Option -s is valid only when system is running on AC power.
+# Some other options also exist. 
+```
+
+************************************************************************************************

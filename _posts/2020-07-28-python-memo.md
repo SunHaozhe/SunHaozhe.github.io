@@ -39,6 +39,14 @@ with open(file_path, "r") as file:
         print(line.strip()) 
 ```
 
+Remove spaces at the beginning and at the end of the string:
+
+```python
+txt = "     d     "
+x = txt.strip()
+y = "abc" + x + "efg" # "abcdefg"
+```
+
 ```python
 os.curdir # '.'
 os.pardir # '..'
@@ -52,4 +60,7 @@ if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 ```
 
-
+```python
+a = ["1", "2", "3", "4"]  
+b = "-".join(a) # "1-2-3-4"
+```
