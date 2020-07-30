@@ -64,3 +64,30 @@ if not os.path.exists(dir_path):
 a = ["1", "2", "3", "4"]  
 b = "-".join(a) # "1-2-3-4"
 ```
+
+```python
+import pickle
+
+with open(save_path, "wb") as f:
+    pickle.dump(self, f)
+    #pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)
+
+with open(save_path, "rb") as f:
+    obj_ = pickle.load(f)
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
