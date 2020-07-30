@@ -68,8 +68,9 @@ b = "-".join(a) # "1-2-3-4"
 ```python
 import pickle
 
+# save_path ends with ".pkl"
 with open(save_path, "wb") as f:
-    pickle.dump(self, f)
+    pickle.dump(obj_, f)
     #pickle.dump(data, f, protocol=pickle.HIGHEST_PROTOCOL)
 
 with open(save_path, "rb") as f:
@@ -77,6 +78,12 @@ with open(save_path, "rb") as f:
 ```
 
 
+Reimport a module in python while interactive
+
+```python
+import importlib
+importlib.reload(module_name) 
+```
 
 
 
