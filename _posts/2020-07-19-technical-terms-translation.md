@@ -57,8 +57,13 @@ published: true
 | perplexity | perplexité | 困惑度 |
 | BLEU <br>bilingual evaluation understudy | BLEU | 双语替换评测 |
 | setpoint <br>set point <br>set-point | valeur de consigne | 设定值 <br>目标值 <br>参考值 |
-
-
+| non-maximum suppression | suppression des non-maxima | 非极大值抑制 |
+| object detection | détection d'objet <br>reconnaissance d'objet | 物体识别 |
+| human pose estimation | - | 人体姿态估计 |
+| face detection | détection de visage | 人脸检测 |
+| aspect ratio | format d'image <br>rapport de forme <br>rapport de cadre | 长宽比 <br>宽高比 |
+| ground truth | vérité terrain | 基准真相 |
+| clustering | partitionnement | 聚类 |
 
 
 

@@ -101,6 +101,26 @@ Stack Exchange - Sun Haozhe (Cross Validated, Stack Overflow, Mathematics, Robot
 **************************************************************************************************
 
 
+Dive into Deep Learning - An interactive deep learning book with code, math, and discussions - 李沐 
+
+[https://d2l.ai/index.html](https://d2l.ai/index.html)
+
+
+**************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
