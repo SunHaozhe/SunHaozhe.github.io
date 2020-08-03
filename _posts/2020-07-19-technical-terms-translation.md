@@ -64,6 +64,8 @@ published: true
 | aspect ratio | format d'image <br>rapport de forme <br>rapport de cadre | 长宽比 <br>宽高比 |
 | ground truth | vérité terrain | 基准真相 |
 | clustering | partitionnement | 聚类 |
+| cross entropy | entropie croisée | 交叉熵 |
+| Kullback–Leibler divergence <br>relative entropy | divergence de Kullback-Leibler <br>divergence K-L <br>entropie relative | KL散度 <br>相对熵 |
 
 
 
