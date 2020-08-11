@@ -45,7 +45,7 @@ published: true
 | mesh <br>polygon mesh | mesh <br>maillage | 多边形网格 |
 | disentanglement | - | 解耦 |
 | bounding box | boîte englobante | - |
-| anchor boxes | boîtes d'ancrage | - |
+| anchor boxes <br>anchor | boîtes d'ancrage <br>ancre | - |
 | region proposal | proposition de région | - |
 | domain adaptation | adaptation de domaine | - |
 | domain shift | changement de domaine | - |
@@ -66,9 +66,8 @@ published: true
 | clustering | partitionnement | 聚类 |
 | cross entropy | entropie croisée | 交叉熵 |
 | Kullback–Leibler divergence <br>relative entropy | divergence de Kullback-Leibler <br>divergence K-L <br>entropie relative | KL散度 <br>相对熵 |
-
-
-
-
+| color depth <br>bit depth | profondeur de couleur | 色彩深度 <br>色深 |
+| histogram of oriented gradients <br>HOG | histogramme de gradient orienté | 方向梯度直方图 |
+| cross validation <br>rotation estimation <br>out-of-sample testing | validation croisée | 交叉验证 <br>循环估计 |
 
 

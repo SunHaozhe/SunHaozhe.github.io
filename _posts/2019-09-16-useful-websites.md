@@ -110,6 +110,23 @@ Dive into Deep Learning - An interactive deep learning book with code, math, and
 
 
 
+Preprocessing for deep learning: from covariance matrix to image whitening 
+
+[https://hadrienj.github.io/posts/Preprocessing-for-deep-learning/](https://hadrienj.github.io/posts/Preprocessing-for-deep-learning/)
+
+
+**************************************************************************************************
+
+
+JPEG Image Quality in PIL
+
+[https://jdhao.github.io/2019/07/20/pil_jpeg_image_quality/](https://jdhao.github.io/2019/07/20/pil_jpeg_image_quality/)
+
+
+
+
+**************************************************************************************************
+
 
 
 

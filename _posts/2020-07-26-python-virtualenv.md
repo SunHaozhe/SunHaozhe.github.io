@@ -25,6 +25,7 @@ To install the kernel for Jupyter notebook:
 ```bash
 cd venv_X/
 source bin/activate 
+pip3 install --upgrade pip 
 pip3 install ipykernel
 
 python3 -m ipykernel install --user --name=venv_X
@@ -32,6 +33,9 @@ python3 -m ipykernel install --user --name=venv_X
 # install packages
 pip3 install --upgrade matplotlib 
 pip3 install --upgrade ipywidgets 
+pip3 install --upgrade pandas 
+pip3 install --upgrade sklearn 
+pip3 install --upgrade opencv-python 
 
 # 按顺序做完以上步骤之后激活虚拟环境或者不激活虚拟环境，都可以直接通过在 jupyter notebook 命令进入notebook并选与虚拟环境对应的kernel
 ```
