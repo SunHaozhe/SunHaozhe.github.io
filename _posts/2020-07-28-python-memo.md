@@ -11,7 +11,7 @@ comments: true
 published: true
 ---
 
-
+Main file: 
 
 ```python
 if __name__ == "__main__":
@@ -47,6 +47,8 @@ x = txt.strip()
 y = "abc" + x + "efg" # "abcdefg"
 ```
 
+File path:
+
 ```python
 os.curdir # '.'
 os.pardir # '..'
@@ -60,10 +62,14 @@ if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 ```
 
+Join:
+
 ```python
 a = ["1", "2", "3", "4"]  
 b = "-".join(a) # "1-2-3-4"
 ```
+
+Pickle: 
 
 ```python
 import pickle
@@ -78,12 +84,60 @@ with open(save_path, "rb") as f:
 ```
 
 
-Reimport a module in python while interactive
+Reimport a module in python while interactive:
 
 ```python
 import importlib
 importlib.reload(module_name) 
 ```
+
+Exception: 
+
+```python
+try:
+    print(x)
+except NameError:
+    print("Variable x is not defined")
+except:
+    print("Something else went wrong")
+```
+
+```python
+try:
+    print(x) 
+except Exception as e:
+    print(e) 
+```
+
+```python
+try:
+    print("Hello")
+except:
+    print("Something went wrong")
+else:
+    print("Nothing went wrong")
+```
+
+```python
+try:
+    print(x)
+except:
+    print("Something went wrong")
+finally:
+    print("The 'try except' is finished")
+```
+
+```python
+raise Exception("Blablabla")
+```
+
+
+
+
+
+
+
+
 
 
 
