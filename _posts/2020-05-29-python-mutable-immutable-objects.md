@@ -26,7 +26,7 @@ Arguments are **passed by assignment** in Python. Since assignment just creates 
 
 If we pass a mutable object into a function, the function gets a reference to that same object and we can mutate it, the change in the function (if any) will be reflected in the outer scope. But if we rebind the reference in the function, the outer reference will still point to the original object. 
 
-If we pass a immutable object into a function, the function gets a reference to that same object but we cannot mutate it as this object does not provide such methods. If we rebind the reference in the function, the outer reference will still point to the original object. 
+If we pass an immutable object into a function, the function gets a reference to that same object but we cannot mutate it as this object does not provide such methods. If we rebind the reference in the function, the outer reference will still point to the original object. 
 
 
 
@@ -106,7 +106,7 @@ a[0] = "h"
 TypeError: 'str' object does not support item assignment
 ```
 
-Concatenating string in loops wastes lots of memory. As strings are immutable, concatenating two strings together actually creates a third string which is the combination of the previous two. If we are iterating a lot and building a large string, you will waste a lot of memory creating and throwing away objects. Use list comprehension join technique instead, for example:
+Concatenating string in loops wastes lots of memory. As strings are immutable, concatenating two strings together actually creates a third string which is the combination of the previous two. If we are iterating a lot and building a large string, we will waste a lot of memory creating and throwing away objects. Use list comprehension join technique instead, for example:
 
 ```python
 "".join(["first", "second", "other"])
