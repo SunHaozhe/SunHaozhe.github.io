@@ -47,6 +47,18 @@ x = txt.strip()
 y = "abc" + x + "efg" # "abcdefg"
 ```
 
+Split strings:
+
+```python
+a = "This is Mike."
+b = a.split() # ['This', 'is', 'Mike.']
+```
+
+```python
+a = "Hello, my name is Mike, I am from Australia."
+b = a.split(",") # ['Hello', ' my name is Mike', ' I am from Australia.'] 
+```
+
 File path:
 
 ```python
