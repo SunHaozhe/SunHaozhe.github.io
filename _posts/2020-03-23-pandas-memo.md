@@ -54,6 +54,12 @@ df = pd.get_dummies(df, columns=["...", "..."])
 # object or category dtype will be converted.
 ```
 
+Count null values of each column:
+
+```python
+df.isnull().sum() 
+```
+
 Fill missing values:
 
 ```python

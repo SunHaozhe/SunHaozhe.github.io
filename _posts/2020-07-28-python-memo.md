@@ -143,6 +143,11 @@ finally:
 raise Exception("Blablabla")
 ```
 
+Get object attributes in Python:
+
+```python
+dir(obj_)
+```
 
 
 
