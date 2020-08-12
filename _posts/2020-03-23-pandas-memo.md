@@ -60,6 +60,12 @@ Count null values of each column:
 df.isnull().sum() 
 ```
 
+Select rows with one or more null values: 
+
+```python
+df.loc[df.isnull().any(axis=1)] 
+```
+
 Fill missing values:
 
 ```python
@@ -79,6 +85,12 @@ Remove columns/features:
 
 ```python
 df.drop(["...", "...", "..."], axis=1, inplace=True)
+```
+
+Remove duplicate rows of `DataFrame`:
+
+```python
+df.drop_duplicates(subset=None, keep='first', inplace=True, ignore_index=True) 
 ```
 
 Add interaction term:

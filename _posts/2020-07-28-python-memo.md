@@ -149,6 +149,91 @@ Get object attributes in Python:
 dir(obj_)
 ```
 
+Sorting:
+
+```python
+a = [2, 8, 1, 4, 3, 9, 7]
+print(a)
+
+b = sorted(a)                # ascending order 
+c = sorted(a, reverse=True)  # descending order
+
+print(a)
+print(b)
+print(c)
+```
+
+```
+[2, 8, 1, 4, 3, 9, 7]
+[2, 8, 1, 4, 3, 9, 7]
+[1, 2, 3, 4, 7, 8, 9]
+[9, 8, 7, 4, 3, 2, 1]
+```
+
+```python
+a = ["cccc", "b", "dd", "aaa"] 
+sorted(a)           # ['aaa', 'b', 'cccc', 'dd']
+sorted(a, key=len)  # ['b', 'dd', 'aaa', 'cccc']
+```
+
+```python
+def func(x): 
+    return x % 7
+  
+a = [15, 3, 11, 7] 
+sorted(a)            # [3, 7, 11, 15]
+sorted(a, key=func)  # [7, 15, 3, 11]
+```
+
+```python
+a = [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'B', 10)]
+
+b = sorted(a, key=lambda x: x[2]) 
+```
+
+```
+[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)]
+```
+
+```python
+import operator 
+
+a = [('john', 'A', 15), ('jane', 'B', 12), ('dave', 'B', 10)]
+
+b = sorted(a, key=operator.itemgetter(2)) 
+```
+
+```
+[('dave', 'B', 10), ('jane', 'B', 12), ('john', 'A', 15)] 
+```
+
+```python
+a = {"Allen": 3, "Tom": 5, "John": 0, "Bob": -2}
+
+# sort dict by key 
+b = sorted(a)             # ['Allen', 'Bob', 'John', 'Tom']
+
+# sort dict by value 
+c = sorted(a, key=a.get)  # ['Bob', 'John', 'Allen', 'Tom'] 
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
