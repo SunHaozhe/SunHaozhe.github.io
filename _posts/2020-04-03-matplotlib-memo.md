@@ -29,6 +29,33 @@ plt.rcParams.update(params)
 
 
 
+# seaborn
+
+For `seaborn` version `0.10.1`, 
+
+```python
+# This import will not change the style for the rest of the session
+import seaborn
+
+# This command will change the style for the rest of the session  
+seaborn.set()
+
+# This command will restore the style  
+seaborn.reset_orig()
+```
+
+One can use the style context manager which sets a style temporarily:
+
+```python
+style_name = "seaborn-darkgrid"
+
+with plt.style.context(style_name):
+    pass 
+```
+
+Valid style names include: `"seaborn-darkgrid"`, `"seaborn-whitegrid"`, `"seaborn-dark"`, `"seaborn-white"`, `"seaborn-ticks"`, `"seaborn-bright"`, `"seaborn-colorblind"`, `"seaborn-dark-palette"`, `"seaborn-paper"`, `"seaborn-poster"`, `"seaborn-talk"`, `"bmh"`, `"classic"`, `"dark_background"`, `"fivethirtyeight"`, `"ggplot"`, `"grayscale"`, etc.
+
+
 
 # References
 

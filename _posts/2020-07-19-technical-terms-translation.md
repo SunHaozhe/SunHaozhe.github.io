@@ -69,5 +69,5 @@ published: true
 | color depth <br>bit depth | profondeur de couleur | 色彩深度 <br>色深 |
 | histogram of oriented gradients <br>HOG | histogramme de gradient orienté | 方向梯度直方图 |
 | cross validation <br>rotation estimation <br>out-of-sample testing | validation croisée | 交叉验证 <br>循环估计 |
-
+| t-SNE <br>t-distributed stochastic neighbor embedding | algorithme t-SNE | t分布随机邻域嵌入 | 
 
