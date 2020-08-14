@@ -26,6 +26,27 @@ params = {'legend.fontsize': 'xx-large',
 plt.rcParams.update(params)
 ```
 
+How to use `plt.subplots()`? 
+
+```python
+fig, axes = plt.subplots(nrows=nb_rows, ncols=nb_cols, figsize=(10, 6))
+for i, c in enumerate(iterable_):
+    # if nb_cols = 2, the following can be used:  
+    # axes[2*i, 0], axes[2*i, 1], axes[2*i+1, 0], axes[2*i+1, 1]
+    pass 
+#plt.tight_layout()
+plt.show()
+```
+
+```python
+fig, axes = plt.subplots(nrows=nb_rows, ncols=nb_cols, figsize=(10, 6))
+axes = axes.ravel() 
+for i, c in enumerate(iterable_):
+    # axes[i] 
+    pass 
+#plt.tight_layout()
+plt.show() 
+```
 
 
 
