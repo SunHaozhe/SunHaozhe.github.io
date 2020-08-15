@@ -74,6 +74,21 @@ if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 ```
 
+Use `glob` to find all the path names matching a specified pattern according to the rules used by the Unix shell: 
+
+```python
+import glob
+
+for file_name in glob.glob(os.path.join("XXX", "*.txt")):
+    print(file_name) 
+
+# File names in the above code are not sorted. 
+# If needed, use the following:
+
+for file_name in sorted(glob.glob(os.path.join("XXX", "*.txt")), key=lambda x: TODO):
+    print(file_name) 
+```
+
 Join:
 
 ```python
@@ -217,7 +232,11 @@ b = sorted(a)             # ['Allen', 'Bob', 'John', 'Tom']
 c = sorted(a, key=a.get)  # ['Bob', 'John', 'Allen', 'Tom'] 
 ```
 
+Dict comprehension to reverse key-value pair in a dictionary: 
 
+```python
+id2word = {v: k for k, v in word2id.items()} 
+```
 
 
 
