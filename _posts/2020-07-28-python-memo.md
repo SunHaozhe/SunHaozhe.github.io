@@ -87,6 +87,11 @@ for file_name in glob.glob(os.path.join("XXX", "*.txt")):
 
 for file_name in sorted(glob.glob(os.path.join("XXX", "*.txt")), key=lambda x: TODO):
     print(file_name) 
+    
+# To search file names in subdirectories:
+
+for file_name in glob.glob(os.path.join("XXX", "*/*.txt")):
+    print(file_name) 
 ```
 
 Join:
