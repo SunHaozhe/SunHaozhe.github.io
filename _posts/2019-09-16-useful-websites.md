@@ -129,12 +129,14 @@ JPEG Image Quality in PIL
 
 
 
+Lilian Weng's blog 
+
+[https://lilianweng.github.io/lil-log/archive.html](https://lilianweng.github.io/lil-log/archive.html)
 
 
 
 
-
-
+**************************************************************************************************
 
 
 
