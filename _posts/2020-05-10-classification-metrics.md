@@ -55,6 +55,16 @@ The **ROC curve** is created by plotting the true positive rate (TPR) against th
 ![roc_curve](/assets/images/blog/roc_curve.png)
 
 
+The **precision-recall curve (PR curve)** shows the tradeoff between precision and recall for different threshold. 
+
+According to [a post on Cross-Validated](https://stats.stackexchange.com/questions/7207/roc-vs-precision-and-recall-curves), the key difference is that ROC curves will be the same no matter what the baseline probability is, but PR curves may be more useful in practice for problems where the positive class is more interesting than the negative class (imbalanced problems). Recall (sensitivity) and specificity, which make up the ROC curve, are probabilities conditioned on the true class label. Precision is a probability conditioned on the estimate of the class label. If the question is: "How meaningful is a positive result from the classifier given the baseline probabilities of the problem?", use a PR curve. If the question is, "How well can this classifier be expected to perform in general, at a variety of different baseline probabilities?", go with a ROC curve.
+
+
+
+![pr_curve_example](/assets/images/blog/pr_curve_example.png)
+
+![pr_curve_example_2](/assets/images/blog/pr_curve_example_2.png)
+
 
 | English   | Chinese        |
 |-----------|----------------|
@@ -64,6 +74,9 @@ The **ROC curve** is created by plotting the true positive rate (TPR) against th
 | specificity    | 特异度 |
 | accuracy    | 准确率 |
 | confusion matrix    | 混淆矩阵 |
+| mAP    | 平均精度均值 |
+
+
 
 
 
