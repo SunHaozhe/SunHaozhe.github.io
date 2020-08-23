@@ -138,6 +138,23 @@ Lilian Weng's blog
 
 **************************************************************************************************
 
+Notes which accompany the Stanford class CS231n: Convolutional Neural Networks for Visual Recognition
+
+[https://cs231n.github.io/](https://cs231n.github.io/)
+
+
+**************************************************************************************************
+
+Stanford class CS224n: Natural Language Processing with Deep Learning 
+
+[http://web.stanford.edu/class/cs224n/](http://web.stanford.edu/class/cs224n/)
+
+
+**************************************************************************************************
+
+
+
+
 
 
 
