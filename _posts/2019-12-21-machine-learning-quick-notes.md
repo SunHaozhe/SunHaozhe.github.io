@@ -172,8 +172,165 @@ Values of $R^2$ outside the range $0$ to $1$ can occur when the model fits the d
 $R^2$ (R squared) can be interpreted as the proportion of the variance in the target variable (label) that is predictable from the features. 
 
 
+# Logistic regression 
 
+Suppose $w, x \in \mathbb{R}^{p+1}$, the bias term is included. Capital letters indicate random variables. 
 
+$$\mathbb{P}(Y=1 | x) = \frac{1}{1 + \exp{(-w^\intercal x)} }$$
+
+$$w^\intercal x = \log \frac{\mathbb{P}(Y=1 | x)}{1 - \mathbb{P}(Y=1 | x)} = \text{logit}(\;\mathbb{P}(Y=1 | x)\;)$$ 
+
+The function $\text{logit}(\cdot)$ is called log-odds or logit function. 
+
+Use MLE to estimate the parameter $w$. 
+
+If $y\in \{0, 1\}$, 
+
+$$
+\begin{equation}
+\begin{split}
+\underset{w}{\mathrm{argmax}}\; L(w) 
+&= \underset{w}{\mathrm{argmax}}\; \log \prod_{i} \mathbb{P}(Y=1 | x_i)^{y_i} (1 - \mathbb{P}(Y=1 | x_i)\;)^{1-y_i} \\
+&= \underset{w}{\mathrm{argmax}}\; \sum_i y_i \log \mathbb{P}(Y=1 | x_i) + (1-y_i) \log(1 - \mathbb{P}(Y=1 | x_i) \;) \\
+&= \underset{w}{\mathrm{argmax}}\; \sum_i y_i \log \frac{\mathbb{P}(Y=1 | x_i)}{1 - \mathbb{P}(Y=1 | x_i)} + \log(1 - \mathbb{P}(Y=1 | x_i) \;) \\
+&= \underset{w}{\mathrm{argmin}}\; \sum_i \log(1 + \exp(w^\intercal x)\;) - y_i w^\intercal x_i 
+\end{split}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\begin{split}
+\nabla_w L(w) &= \sum_i \frac{1}{1 + \exp(- w^\intercal x_i)\;} x_i - y_i x_i \\
+&= \sum_i (\frac{1}{1 + \exp(- w^\intercal x_i)\;} - y_i) x_i
+\end{split}
+\end{equation}
+$$
+
+If $y\in \{-1, 1\}$, 
+
+$$
+\begin{equation}
+\begin{split}
+\underset{w}{\mathrm{argmax}}\; L(w) 
+&= \underset{w}{\mathrm{argmax}}\; \log \prod_i \mathbb{P}(Y=y_i | x_i) \\
+&= \underset{w}{\mathrm{argmax}}\; \log \prod_i \frac{1}{1 + \exp(-y_i w^\intercal x_i)} \\
+&= \underset{w}{\mathrm{argmin}}\; \sum_i \log(1 + \exp(-y_i w^\intercal x_i)\;)
+\end{split}
+\end{equation}
+$$
+
+$$
+\begin{equation}
+\begin{split}
+\nabla_w L(w) 
+&= \sum_i \frac{- y_i}{1 + \exp(y_i w^\intercal x_i)} x_i
+\end{split}
+\end{equation}
+$$
+
+# SVM
+
+![svm](/assets/images/blog/svm.png)
+
+Suppose $w, x \in \mathbb{R}^{p}$, the bias term is not included. $y\in \{-1, 1\}$. 
+
+If the training data is linearly separable, hard-margin SVM.
+
+The primal form: 
+
+$$
+\begin{equation}\begin{split}
+&\min_{w,b} \quad \quad \quad \frac{1}{2} ||w||^2 \\
+&\text{s.t.}  \quad 1 - y_i (w^\intercal x_i + b) \leqslant 0, \forall i 
+\end{split}\end{equation}
+$$
+
+The dual form:
+
+$$
+\begin{equation}\begin{split}
+&\min_{\alpha} \quad \quad \quad \frac{1}{2} \sum_i \sum_j \alpha_i \alpha_j y_i y_j x_i^\intercal x_j - \sum_i \alpha_i \\
+&\text{s.t.}  \quad \alpha_i \geqslant 0, \forall i \\
+& \quad \quad \sum_i \alpha_i y_i = 0, \forall i
+\end{split}\end{equation}
+$$
+
+There exists $j$ such that $\alpha_j^* > 0$, 
+
+$$w^* = \sum_i \alpha_i^* y_i x_i$$
+
+$$b^* = y_j - \sum_i \alpha_i^* y_i x_i^\intercal x_j$$ 
+
+If the training data is not linearly separable, soft-margin SVM. 
+
+The primal form: 
+
+$$
+\begin{equation}\begin{split}
+&\min_{w,b,\xi} \quad \quad \quad \frac{1}{2} ||w||^2 + C \sum_i \xi_i \\
+&\text{s.t.}  \quad 1 - y_i (w^\intercal x_i + b) \leqslant \xi_i, \forall i \\
+& \quad \quad \xi_i \geqslant 0, \forall i
+\end{split}\end{equation}
+$$
+
+The dual form: 
+
+$$
+\begin{equation}\begin{split}
+&\min_{\alpha} \quad \quad \quad \frac{1}{2} \sum_i \sum_j \alpha_i \alpha_j y_i y_j x_i^\intercal x_j - \sum_i \alpha_i \\
+&\text{s.t.}  \quad 0 \leqslant \alpha_i \leqslant C, \forall i \\
+& \quad \quad \sum_i \alpha_i y_i = 0, \forall i
+\end{split}\end{equation}
+$$
+
+There exists $j$ such that $0 < \alpha_j^* < C$, 
+
+$$w^* = \sum_i \alpha_i^* y_i x_i$$
+
+$$b^* = y_j - \sum_i \alpha_i^* y_i x_i^\intercal x_j$$ 
+
+Soft-margin SVM can be written as the hinge loss with regularization term. 
+
+$$
+\begin{equation}\begin{split}
+\min_{w,b} \sum_i \max(1-y_i (w^\intercal x_i + b), 0) + \lambda ||w||^2 
+\end{split}\end{equation}
+$$
+
+# Lagrangian function 
+
+$$
+\begin{equation}\begin{split}
+&\min_{x} \quad \quad \quad f(x) \\
+&\text{s.t.}  \quad g_i(x) \leqslant 0, \forall i \\
+& \quad \quad h_j(x) = 0, \forall j
+\end{split}\end{equation}
+$$
+
+The Lagrangian function is formed as follows:
+
+$$\mathcal{L}(x,\mu,\lambda) = f(x) + \mu^\intercal g(x) + \lambda^\intercal h(x)$$
+
+# KKT conditions 
+
+* First order primal optimality
+
+$$\nabla_x \mathcal{L}(x, \mu, \lambda) = 0$$
+
+* Primal feasibility
+
+$$g_i (x^*) \leqslant 0, \forall i$$
+
+$$h_j(x^*) = 0, \forall j$$
+
+* Dual feasibility
+
+$$\mu_i \geqslant 0, \forall i$$
+
+* Complementary slackness 
+
+$$\mu_i g_i (x^*) = 0, \forall i$$
 
 
 # Tf–idf 
@@ -185,6 +342,7 @@ $$w_{i,j} = \text{t}_{i,j} \log \frac{D}{\text{d}_i}$$
 where $w_{i,j}$ is the tf-idf weight for token $i$ in document $j$, $t_{i,j}$ is the number of occurences of token $i$ in document $j$, $d_{i}$ is the number of documents that contain token $i$, $D$ is the total number of documents. 
 
 However other ways of defining the term frequency and the document frequency exist, for example, normalization, smoothing, etc. 
+
 
 
 
