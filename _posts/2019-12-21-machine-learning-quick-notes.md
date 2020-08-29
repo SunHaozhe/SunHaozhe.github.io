@@ -231,8 +231,6 @@ $$
 
 # SVM
 
-![svm](/assets/images/blog/svm.png)
-
 Suppose $w, x \in \mathbb{R}^{p}$, the bias term is not included. $y\in \{-1, 1\}$. 
 
 If the training data is linearly separable, hard-margin SVM.
@@ -261,6 +259,8 @@ There exists $j$ such that $\alpha_j^* > 0$,
 $$w^* = \sum_i \alpha_i^* y_i x_i$$
 
 $$b^* = y_j - \sum_i \alpha_i^* y_i x_i^\intercal x_j$$ 
+
+![svm](/assets/images/blog/svm.png)
 
 If the training data is not linearly separable, soft-margin SVM. 
 
