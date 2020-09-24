@@ -168,7 +168,18 @@ lossfunctions - They are a window to your model's heart.
 
 **************************************************************************************************
 
+Madcola blog (OCR, OpenCV, CUDA, etc.)
 
+[https://www.cnblogs.com/skyfsm/](https://www.cnblogs.com/skyfsm/)
+
+
+**************************************************************************************************
+
+CTC Algorithm Explained - Yudong's blog 
+
+[https://xiaodu.io/ctc-explained/](https://xiaodu.io/ctc-explained/)
+
+**************************************************************************************************
 
 
 

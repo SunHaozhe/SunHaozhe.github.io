@@ -20,7 +20,8 @@ $$\nabla (u^\intercal v) = \nabla (u^\intercal) v + \nabla (v^\intercal) u$$
 
 # Derivative of cross entropy loss with softmax function
 
-Cross entropy loss:
+
+For a single data point, cross entropy loss:
 
 $$L = - \sum_i y_i \log p_i$$
 
