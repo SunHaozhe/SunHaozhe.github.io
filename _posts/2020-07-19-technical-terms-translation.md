@@ -72,6 +72,9 @@ published: true
 | t-SNE <br>t-distributed stochastic neighbor embedding | algorithme t-SNE | t分布随机邻域嵌入 |
 | facial recognition system | système de reconnaissance faciale | 人脸识别系统 |
 | facial landmark     | repère facial <br>repère du visage | 人脸关键点 |
+| FLOPS <br>floating point operations per second <br>flops <br>flop/s     | FLOPS <br>opérations en virgule flottante par seconde | 每秒浮点运算次数 <br>每秒峰值速度 |
+
+
 
 
 
