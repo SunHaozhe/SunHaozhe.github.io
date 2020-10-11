@@ -762,6 +762,3 @@ cdn:
 #live2d:
 #    enable: true
 #    live2d_widget: https://cdn.jsdelivr.net/gh/stevenjoezhang/live2d-widget/autoload.js
-
-collections:
-  protected:
