@@ -73,6 +73,27 @@ published: true
 | facial recognition system | système de reconnaissance faciale | 人脸识别系统 |
 | facial landmark     | repère facial <br>repère du visage | 人脸关键点 |
 | FLOPS <br>floating point operations per second <br>flops <br>flop/s     | FLOPS <br>opérations en virgule flottante par seconde | 每秒浮点运算次数 <br>每秒峰值速度 |
+| radial basis function <br>RBF | fonction à base radiale <br>fonction radiale de base | 径向基函数 |
+| spline | spline | 样条（函数） |
+| evolutionary computation | - | 进化计算 |
+| evolutionary algorithm <br>EA | algorithme évolutionniste <br>algorithme évolutionnaire | 进化算法 |
+| particle swarm optimization <br>PSO | optimisation par essaims particulaires <br>OEP | 粒子群优化 <br>微粒群算法 |
+| swarm intelligence <br>SI | intelligence distribuée <br>intelligence en essaim | 群体智能 |
+| genetic algorithm <br>GA | algorithme génétique | 遗传算法 |
+| metaheuristic | métaheuristique | 元启发算法 |
+| evolution strategy <br>ES | stratégie d'évolution | 进化策略 |
+| differential evolution <br>DE | (algorithme à) évolution différentielle | 差分进化算法 <br>微分进化算法 |
+
+
+
+
+
+
+
+
+
+
+
 
 
 
