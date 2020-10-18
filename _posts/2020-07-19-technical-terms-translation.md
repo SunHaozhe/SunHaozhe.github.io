@@ -83,7 +83,7 @@ published: true
 | metaheuristic | métaheuristique | 元启发算法 |
 | evolution strategy <br>ES | stratégie d'évolution | 进化策略 |
 | differential evolution <br>DE | (algorithme à) évolution différentielle | 差分进化算法 <br>微分进化算法 |
-
+| low-discrepancy sequence <br>quasirandom sequence | suite à discrépance faible <br> suite quasi aléatoire <br>suite sous-aléatoire | 低差异序列 |
 
 
 
