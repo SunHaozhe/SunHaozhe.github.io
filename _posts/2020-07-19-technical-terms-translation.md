@@ -84,8 +84,13 @@ published: true
 | evolution strategy <br>ES | stratégie d'évolution | 进化策略 |
 | differential evolution <br>DE | (algorithme à) évolution différentielle | 差分进化算法 <br>微分进化算法 |
 | low-discrepancy sequence <br>quasirandom sequence | suite à discrépance faible <br> suite quasi aléatoire <br>suite sous-aléatoire | 低差异序列 |
-
-
+| inductive bias <br>learning bias | biais d'induction <br>biais inductif <br>biais d'apprentissage | 归纳偏置 |
+| isomorphism | isomorphisme | 同构 |
+| homomorphism | homomorphisme | 同态 |
+| automorphism | automorphisme | 自同构 |
+| homeomorphism <br>topological isomorphism <br>bicontinuous function | homéomorphisme | 同胚 |
+| isometry | isométrie | 等距同构 <br>保距映射 <br>等距 |
+| diffeomorphism | difféomorphisme | 微分同胚 |
 
 
 
