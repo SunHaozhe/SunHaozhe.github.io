@@ -82,9 +82,19 @@ istats
 
 ************************************************************************************************
 
+On Mac OS, change the default shell to Zsh
 
+```bash
+chsh -s /bin/zsh
+```
 
+On Mac OS, change the default shell to Bash
 
+```zsh
+chsh -s /bin/bash
+```
+
+************************************************************************************************
 
 
 
