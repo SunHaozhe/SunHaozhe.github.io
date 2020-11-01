@@ -93,7 +93,9 @@ published: true
 | homeomorphism <br>topological isomorphism <br>bicontinuous function | homéomorphisme | 同胚 |
 | isometry | isométrie | 等距同构 <br>保距映射 <br>等距 |
 | diffeomorphism | difféomorphisme | 微分同胚 |
-
+| abstract algebra <br>modern algebra | algèbre générale <br>algèbre abstraite | 抽象代数 |
+| algebraic structure | structure algébrique | 代数结构 |
+| group action | action de(d'un) groupe  | 群作用 |
 
 
 

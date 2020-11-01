@@ -22,9 +22,9 @@ Identity matrix is the only real matrix which is positive definite and orthogona
 
 ![correlation_dependence](/assets/images/blog/correlation_dependence.jpg)
 
-
-
 ![chomsky_hierarchy](/assets/images/blog/chomsky_hierarchy.png)
+
+![morphism](/assets/images/blog/morphism.png)
 
 
 
