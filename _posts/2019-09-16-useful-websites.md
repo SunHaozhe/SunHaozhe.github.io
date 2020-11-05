@@ -188,6 +188,28 @@ A website to create Venn diagram (visme)
 
 **************************************************************************************************
 
+Math 4120 (Modern Algebra), Summer I 2020 (online) 
+
+[http://www.math.clemson.edu/~macaule/classes/m20_math4120/](http://www.math.clemson.edu/~macaule/classes/m20_math4120/)
+
+
+**************************************************************************************************
+
+Simply enter your words in the above box and press search to generate a list of possible acronyms. 
+
+[http://acronymify.com/](http://acronymify.com/)
+
+**************************************************************************************************
+
+
+
+
+
+
+
+
+
+
 
 
 
