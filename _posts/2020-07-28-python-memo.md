@@ -63,6 +63,13 @@ a = "Hello, my name is Mike, I am from Australia."
 b = a.split(",") # ['Hello', ' my name is Mike', ' I am from Australia.'] 
 ```
 
+Join: 
+
+```python
+a = ["1", "2", "3", "4"]  
+b = "-".join(a) # "1-2-3-4"
+```
+
 # File path operations 
 
 ```python
@@ -145,17 +152,13 @@ for file_path in glob.glob(os.path.join("XXX", "*/*.txt")):
    
 # To search file paths recursively
 
-# If recursive is True, the pattern ** will match any files and zero or more directories and subdirectories. If the pattern is followed by an os.sep, only directories and subdirectories match.
+# If recursive is True, the pattern ** will match any files and 
+# zero or more directories and subdirectories. If the pattern is 
+# followed by an os.sep, only directories and subdirectories match.
 for file_path in glob.glob(os.path.join("XXX", "**", ".txt"), recursive=True):
     print(file_path)
 ```
 
-# Join
-
-```python
-a = ["1", "2", "3", "4"]  
-b = "-".join(a) # "1-2-3-4"
-```
 
 # Pickle 
 
@@ -172,7 +175,7 @@ with open(save_path, "rb") as f:
 ```
 
 
-# Reimport a module in python while interactive 
+# Reimports a module in python while interactive 
 
 ```python
 import importlib
@@ -219,7 +222,7 @@ finally:
 raise Exception("Blablabla")
 ```
 
-# Get object attributes in Python
+# Gets object attributes in Python
 
 ```python
 dir(obj_)
