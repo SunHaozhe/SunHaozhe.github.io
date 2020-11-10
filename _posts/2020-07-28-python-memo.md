@@ -11,21 +11,23 @@ comments: true
 published: true
 ---
 
-Main file: 
+# Main file 
 
 ```python
 if __name__ == "__main__":
     pass
 ```
 
-Read file as a string:
+# Reading files 
+
+Reads file as a string:
 
 ```python
 with open(file_path, "r") as file:
     content_as_str = file.read()
 ```
 
-Read file line by line:
+Reads file line by line:
 
 ```python
 # approach 1
@@ -38,6 +40,8 @@ with open(file_path, "r") as file:
     for line in file:
         print(line.strip()) 
 ```
+
+# String operations 
 
 Remove spaces at the beginning and at the end of the string:
 
@@ -59,14 +63,29 @@ a = "Hello, my name is Mike, I am from Australia."
 b = a.split(",") # ['Hello', ' my name is Mike', ' I am from Australia.'] 
 ```
 
-File path:
+# File path operations 
 
 ```python
 os.curdir # '.'
 os.pardir # '..'
 os.sep # '/'
 os.getcwd() # '/Users/ZZZ/Desktop/XXX/YYY'
+
+# Returns the base name without the directory name
+os.path.basename(file_path)
+# Returns the directory name without the base name
+os.path.dirname(file_path)
+# Returns True if path is an existing regular file
+os.path.isfile(path)
+# Returns True if path is an existing directory
+os.path.isdir(path)
+# Returns a normalized absolutized version of the pathname path
+os.path.abspath(path)
+# Returns True if path is an absolute pathname
+os.path.isabs(path)
 ```
+
+Makes a new directory if it does not exist:
 
 ```python
 dir_path = os.path.join(XXX, YYY)
@@ -74,34 +93,71 @@ if not os.path.exists(dir_path):
     os.makedirs(dir_path)
 ```
 
-Use `glob` to find all the path names matching a specified pattern according to the rules used by the Unix shell: 
+Gets a list of all base names (does not distinguish subdirectories and files) in the current directory:
+
+```python
+# name_ is base name, not path
+for name_ in os.listdir(X_dir):
+    print(name_) 
+```
+
+Gets a list of all subdirectories in the current directory:
+
+```python
+# name_ is base name, not path 
+for name_ in os.listdir(X_dir):
+    if os.path.isdir(os.path.join(X_dir, name_)):
+        print(name_)
+```
+
+Generates the file names in a directory tree by walking the tree. For each directory in the tree rooted at directory top (including top itself), it yields a 3-tuple. `dir_path` is a string, the path to the directory. `dir_names` is a list of the names of the subdirectories in `dir_path` (excluding `.` and `..`). `file_names` is a list of the names of the non-directory files in `dir_path`.
+
+```python
+for dir_path, dir_names, file_names in os.walk(X_dir):
+    print(dir_path)
+    print(dir_names)
+    print(file_names)
+```
+
+Uses `glob` to find all the path names matching a specified pattern according to the rules used by the Unix shell: 
 
 ```python
 import glob
 
-for file_name in glob.glob(os.path.join("XXX", "*.txt")):
-    print(file_name) 
+# To search file paths
+for file_path in glob.glob(os.path.join("XXX", "*.txt")):
+    print(file_path) 
+   
+# To search file names (base name without the directory)
+for file_path in glob.glob(os.path.join("XXX", "*.txt")):
+    print(os.path.basename(file_path)) 
 
-# File names in the above code are not sorted. 
+# File paths in the above code are not sorted. 
 # If needed, use the following:
 
-for file_name in sorted(glob.glob(os.path.join("XXX", "*.txt")), key=lambda x: TODO):
-    print(file_name) 
+for file_path in sorted(glob.glob(os.path.join("XXX", "*.txt")), key=lambda x: TODO):
+    print(file_path) 
     
-# To search file names in subdirectories:
+# To search file paths in subdirectories:
 
-for file_name in glob.glob(os.path.join("XXX", "*/*.txt")):
-    print(file_name) 
+for file_path in glob.glob(os.path.join("XXX", "*/*.txt")):
+    print(file_path) 
+   
+# To search file paths recursively
+
+# If recursive is True, the pattern ** will match any files and zero or more directories and subdirectories. If the pattern is followed by an os.sep, only directories and subdirectories match.
+for file_path in glob.glob(os.path.join("XXX", "**", ".txt"), recursive=True):
+    print(file_path)
 ```
 
-Join:
+# Join
 
 ```python
 a = ["1", "2", "3", "4"]  
 b = "-".join(a) # "1-2-3-4"
 ```
 
-Pickle: 
+# Pickle 
 
 ```python
 import pickle
@@ -116,14 +172,14 @@ with open(save_path, "rb") as f:
 ```
 
 
-Reimport a module in python while interactive:
+# Reimport a module in python while interactive 
 
 ```python
 import importlib
 importlib.reload(module_name) 
 ```
 
-Exception: 
+# Exceptions 
 
 ```python
 try:
@@ -163,13 +219,13 @@ finally:
 raise Exception("Blablabla")
 ```
 
-Get object attributes in Python:
+# Get object attributes in Python
 
 ```python
 dir(obj_)
 ```
 
-Sorting:
+# Sorting
 
 ```python
 a = [2, 8, 1, 4, 3, 9, 7]
@@ -237,7 +293,7 @@ b = sorted(a)             # ['Allen', 'Bob', 'John', 'Tom']
 c = sorted(a, key=a.get)  # ['Bob', 'John', 'Allen', 'Tom'] 
 ```
 
-Dict comprehension to reverse key-value pair in a dictionary: 
+# Dict comprehension to reverse key-value pair in a dictionary 
 
 ```python
 id2word = {v: k for k, v in word2id.items()} 

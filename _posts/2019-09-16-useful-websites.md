@@ -201,6 +201,19 @@ Simply enter your words in the above box and press search to generate a list of 
 
 **************************************************************************************************
 
+`.gitignore` cheat sheet
+
+[https://github.com/kenmueller/gitignore](https://github.com/kenmueller/gitignore)
+
+**************************************************************************************************
+
+
+
+
+
+
+
+
 
 
 
