@@ -88,6 +88,8 @@ os.path.isfile(path)
 os.path.isdir(path)
 # Returns a normalized absolutized version of the pathname path
 os.path.abspath(path)
+# Splits the path into a pair (root, ext)
+os.path.splitext("XXX/YYY/tmp.txt") # ('XXX/YYY/tmp', '.txt') 
 # Returns True if path is an absolute pathname
 os.path.isabs(path)
 ```
@@ -147,15 +149,15 @@ for file_path in sorted(glob.glob(os.path.join("XXX", "*.txt")), key=lambda x: T
     
 # To search file paths in subdirectories:
 
-for file_path in glob.glob(os.path.join("XXX", "*/*.txt")):
+for file_path in glob.glob(os.path.join("XXX", "*", "*.txt")):
     print(file_path) 
-   
+
 # To search file paths recursively
 
 # If recursive is True, the pattern ** will match any files and 
 # zero or more directories and subdirectories. If the pattern is 
 # followed by an os.sep, only directories and subdirectories match.
-for file_path in glob.glob(os.path.join("XXX", "**", ".txt"), recursive=True):
+for file_path in glob.glob(os.path.join("XXX", "**", "*.txt"), recursive=True):
     print(file_path)
 ```
 

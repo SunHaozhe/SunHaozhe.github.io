@@ -20,29 +20,6 @@ tensorboard --samples_per_plugin scalars=0 --logdir xxx/
 
 ************************************************************************************************
 
-https://stackoverflow.com/questions/572549/difference-between-git-add-a-and-git-add
-
-
-```bash
-git add -A # stages all changes
-git commit -m "xxx"
-git push
-```
-
-
-
-************************************************************************************************
-
-
-
-```bash
-git config --list
-git config --global user.name
-git config --global user.email
-```
-
-************************************************************************************************
-
 For Mac OS, the `caffeinate` command is used to prevent a Mac from going to sleep. 
 
 ```bash
