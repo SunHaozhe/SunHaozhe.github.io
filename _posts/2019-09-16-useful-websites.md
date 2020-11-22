@@ -208,12 +208,30 @@ Simply enter your words in the above box and press search to generate a list of 
 **************************************************************************************************
 
 
+Free Mind
+
+不错的博客（从数学理论到各种代码应用实现都有）
+
+[https://blog.pluskid.org/](https://blog.pluskid.org/)
 
 
+**************************************************************************************************
 
 
+10000 个科学难题 数学卷 
+
+[http://video.moe.gov.cn/kejisi/shuxue.pdf](http://video.moe.gov.cn/kejisi/shuxue.pdf)
 
 
+**************************************************************************************************
+
+
+10000 个科学难题 信息科学卷
+
+[http://video.moe.gov.cn/kejisi/xinxikexue.pdf](http://video.moe.gov.cn/kejisi/xinxikexue.pdf)
+
+
+**************************************************************************************************
 
 
 
