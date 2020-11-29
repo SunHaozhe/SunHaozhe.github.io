@@ -96,7 +96,8 @@ published: true
 | abstract algebra <br>modern algebra | algèbre générale <br>algèbre abstraite | 抽象代数 |
 | algebraic structure | structure algébrique | 代数结构 |
 | group action | action de(d'un) groupe  | 群作用 |
-
+| generative adversarial network <br>GAN | réseau antagoniste génératif <br>réseau adverse génératif  | 生成对抗网络 |
+| manifold | variété  | 流形 |
 
 
 

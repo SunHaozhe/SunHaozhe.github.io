@@ -305,6 +305,13 @@ id2word = {v: k for k, v in word2id.items()}
 ```
 
 
+# Built-in functions
+
+* `globals()` current global symbol table. It always returns the dictionary of the module namespace. This is always the dictionary of the current module (inside a function or method, this is the module where it is defined, not the module from which it is called).
+* `locals()` current local symbol table. It always returns a dictionary of the current namespace. 
+
+
+
 
 
 
