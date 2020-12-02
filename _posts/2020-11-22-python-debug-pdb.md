@@ -28,6 +28,7 @@ python3 -m pdb xxx.py
     * `p a, b, c`
 * `h` help 帮助
 * `w` where 打印当前执行堆栈 
+* `u` up 执行跳转到当前堆栈的上一层
 
 
 `pdb` is capable of interpreting any python code, not only those special commands. For example, `locals()` or `globals()` to display all the variables in scope with their values. 
