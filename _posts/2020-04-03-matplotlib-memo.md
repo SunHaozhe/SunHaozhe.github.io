@@ -26,13 +26,20 @@ params = {'legend.fontsize': 'xx-large',
 plt.rcParams.update(params)
 ```
 
+```python
+params = {'image.interpolation': 'nearest',
+         'image.cmap': 'gray', 
+         'figure.dpi': 72 * 1} 
+plt.rcParams.update(params)
+```
+
 How to use `plt.subplots()`? 
 
 ```python
 fig, axes = plt.subplots(nrows=nb_rows, ncols=nb_cols, figsize=(10, 6))
 for i, c in enumerate(iterable_):
     # if nb_cols = 2, the following can be used:  
-    # axes[2*i, 0], axes[2*i, 1], axes[2*i+1, 0], axes[2*i+1, 1]
+    #axes[2*i, 0], axes[2*i, 1], axes[2*i+1, 0], axes[2*i+1, 1]
     pass 
 #plt.tight_layout()
 plt.show()
@@ -42,7 +49,7 @@ plt.show()
 fig, axes = plt.subplots(nrows=nb_rows, ncols=nb_cols, figsize=(10, 6))
 axes = axes.ravel() 
 for i, c in enumerate(iterable_):
-    # axes[i] 
+    #axes[i].set_title("blablabla")
     pass 
 #plt.tight_layout()
 plt.show() 
