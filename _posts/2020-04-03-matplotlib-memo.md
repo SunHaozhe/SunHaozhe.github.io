@@ -52,6 +52,7 @@ for i, c in enumerate(iterable_):
     #axes[i].set_title("blablabla")
     pass 
 #plt.tight_layout()
+#plt.suptitle("blablabla")
 plt.show() 
 ```
 
