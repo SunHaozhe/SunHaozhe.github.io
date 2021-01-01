@@ -74,7 +74,7 @@ echo $$
 Similarly, the following table shows a number of special variables that one can use in shell scripts:
 
 * `$0` The filename of the current script.
-* `$n` These variables correspond to the arguments with which a script was invoked. Here n is a positive decimal number corresponding to the position of an argument (the first argument is $1, the second argument is $2, and so on).
+* `$n` These variables correspond to the arguments with which a script was invoked. Here n is a positive decimal number corresponding to the position of an argument (the first argument is `$1`, the second argument is `$2`, and so on).
 * `$#` The number of arguments supplied to a script.
 * `$?` The exit status of the last command executed.
 * `$$` The process number of the current shell. For shell scripts, this is the process ID under which they are executing.
@@ -110,7 +110,7 @@ VARIABLE="Hello" # declaring a variable
 echo $VARIABLE # this line prints the variable to the shell 
 ```
 
-`=` cannot be surrounded by any space ` `, which is different from Python programming. Otherwise, the shell will decide that `VARIABLE` (or the other part) is a command it must execute and give an error because it can't be found. 
+`=` cannot be surrounded by any space, which is different from Python programming. Otherwise, the shell will decide that `VARIABLE` (or the other part) is a command it must execute and give an error because it can't be found. 
 
 
 Shell enables you to store any value you want in a variable. 
