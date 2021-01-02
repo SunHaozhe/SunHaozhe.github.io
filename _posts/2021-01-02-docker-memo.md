@@ -61,14 +61,27 @@ docker push myrepo/myimage:2.0
 List all images that are locally stored with the Docker Engine
 
 ```zsh
+# both are equivalent 
 docker image ls
+docker images
 ```
 
 Delete an image from the local image store
 
 ```zsh
 docker image rm [imageName]
+docker rmi [imageName] # equivalent 
 docker image rm alpine:3.4 # an example 
+```
+
+Clean up unused images
+
+```zsh
+# remove dangling images, a dangling image is one that is not tagged and is not referenced by any container
+docker image prune
+
+# remove all images which are not used by existing containers 
+docker image prune -a
 ```
 
 # Docker container 
@@ -97,6 +110,64 @@ Run a container from the Alpine version 3.9 image, name the running container `w
 docker container run --name web -p 5000:80 alpine:3.9
 ```
 
+Use `-dit` for `docker run`, in this way, the docker will be run at background and one can use `docker exec -it ...` to enter that container. If one run `exit` here, one can detach from this container and leave it running. 
+
+The commands `docker stop` `docker start` `docker restart`:
+
+```zsh
+# to exit a container
+docker stop [container]
+
+# to restart a stopped container 
+docker start [container]
+
+# to restart a running container 
+docker restart [container]
+```
+
+Copy files/folders between a container and the local filesystem using `docker cp` 
+
+```zsh
+docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-
+docker cp [OPTIONS] SRC_PATH|- CONTAINER:DEST_PATH
+```
+
+An example: (The first line is run in the docker container. The second and third lines are run on the local terminal )
+
+```
+root@92d3e93c5606:/# mkdir -p /xxx/yyy/zzz 
+% CONTAINER=92d3e93c5606
+% docker cp ./upload_turbo.zip $CONTAINER:/xxx/yyy/zzz/hello_world.zip
+```
+
+Another example:
+
+```zsh
+docker run --name my_container ...
+docker cp my_container:/xxx/yyy/ .
+```
+
+
+When you stop a container, it is not automatically removed unless you started it with the `--rm` flag. To see all containers on the Docker host, including stopped containers, use `docker ps -a`. You may be surprised how many containers exist, especially on a development system! A stopped container’s writable layers still take up disk space. To clean this up, you can use the `docker container prune` command.
+
+```zsh
+# remove all stopped containers 
+docker container prune
+```
+
+
+# Volume
+
+
+Volumes can be used by one or more containers, and take up space on the Docker host. Volumes are never removed automatically, because to do so could destroy data.
+
+```zsh
+# remove all volumes not used by at least one container 
+docker volume prune
+```
+
+
+
 # Network 
 
 List the networks 
@@ -110,6 +181,7 @@ docker network ls
 
 
 Docker image sunhaozhe/pytorch-cu100-jupyter-gym:
+
 	* linux Ubuntu 18.04
 	* python 3.6.8
 	* pytorch for GPU (cuda 10.0)
@@ -125,6 +197,7 @@ Docker image sunhaozhe/pytorch-cu100-jupyter-gym:
 	* git clone https://github.com/lanpa/tensorboardX && cd tensorboardX && python setup.py install 
 
 Docker image sunhaozhe/pytorch-cu100-gym-tmux-tensorboardx:
+
 	* pip install --upgrade pip
 	* pip install gym
 	* apt-get update
@@ -161,6 +234,15 @@ sunhaozhe/pytorch-cu100-gym-tmux-tensorboardx
 docker exec -it my_env bash
 ```
 
+# Missing packages
+
+### Vim
+
+* `apt update`
+* `apt search vim`
+* `apt install vim`
+* `vim --version` 
+
 
 
 
@@ -168,6 +250,7 @@ docker exec -it my_env bash
 # References 
 
 * http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html
+* https://docs.docker.com/engine/reference/commandline/docker/ 
 
 
 
