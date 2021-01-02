@@ -1,12 +1,12 @@
 ---
 layout: post
-category: Python     
+category: Misc     
 title: Shell programming memo 
 tagline: by SunHaozhe
 tags: 
-  - Python
   - API  
   - Utilities 
+  - Common knowledge
 mathjax: true
 comments: true
 published: true
@@ -14,6 +14,7 @@ published: true
 
 * https://learnxinyminutes.com/docs/bash/
 * https://devhints.io/bash 
+* https://www.gnu.org/savannah-checkouts/gnu/bash/manual/bash.html 
 
 
 Shell programming in Linux/Unix
@@ -21,7 +22,7 @@ Shell programming in Linux/Unix
 # Steps to create a shell script
 
 * Create a text file any text editor, name this script file with extension `.sh`, for example `xxx.sh`
-* Start the script with `#!/bin/zsh` or `#!/bin/bash` or `#! /bin/sh` 
+* Start the script with `#!/bin/zsh` or `#!/bin/bash` or `#!/bin/sh` 
 * Write some code and save this file. 
 * Currently, permission is not yet granted to this script so it cannot be run directly from shells (`./xxx.sh`). Instead, one can do:
   * `zsh xxx.sh`
