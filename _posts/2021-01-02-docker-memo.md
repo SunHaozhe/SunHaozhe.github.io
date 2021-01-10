@@ -32,6 +32,27 @@ Display a live stream of container(s) resource usage statistics
 docker stats
 ```
 
+Display low-level information on Docker objects using `docker inspect`. For example, if one wants to compare content of images, one can look at section `RootFS`. If all layers are identical then images contains identical content. 
+
+```zsh
+docker inspect <imageName>
+```
+
+```
+"RootFS": {
+        "Type": "layers",
+        "Layers": [
+            "sha256:eda7136a91b7b4ba57aee64509b42bda59e630afcb2b63482d1b3341bf6e2bbb",
+            "sha256:c4c228cb4e20c84a0e268dda4ba36eea3c3b1e34c239126b6ee63de430720635",
+            "sha256:e7ec07c2297f9507eeaccc02b0148dae0a3a473adec4ab8ec1cbaacde62928d9",
+            "sha256:38e87cc81b6bed0c57f650d88ed8939aa71140b289a183ae158f1fa8e0de3ca8",
+            "sha256:d0f537e75fa6bdad0df5f844c7854dc8f6631ff292eb53dc41e897bc453c3f11",
+            "sha256:28caa9731d5da4265bad76fc67e6be12dfb2f5598c95a0c0d284a9a2443932bc"
+        ]
+    }
+```
+
+
 # Docker image
 
 Build an image from the Dockerfile in the current directory and tag the image
@@ -110,6 +131,7 @@ Run a container from the Alpine version 3.9 image, name the running container `w
 docker container run --name web -p 5000:80 alpine:3.9
 ```
 
+
 Use `-dit` for `docker run`, in this way, the docker will be run at background and one can use `docker exec -it ...` to enter that container. If one run `exit` here, one can detach from this container and leave it running. 
 
 The commands `docker stop` `docker start` `docker restart`:
@@ -125,7 +147,7 @@ docker start [container]
 docker restart [container]
 ```
 
-Copy files/folders between a container and the local filesystem using `docker cp` 
+### Copy files/folders between a container and the local filesystem 
 
 ```zsh
 docker cp [OPTIONS] CONTAINER:SRC_PATH DEST_PATH|-
@@ -176,6 +198,10 @@ List the networks
 docker network ls 
 ```
 
+```zsh
+# network access is disabled
+docker run -dit --network none alpine:3.9 /bin/bash
+```
 
 # Example 
 
