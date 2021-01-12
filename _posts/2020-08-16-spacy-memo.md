@@ -4,8 +4,8 @@ category: Python
 title: Spacy memo  
 tagline: by SunHaozhe
 tags: 
+  - memo 
   - Python
-  - API  
 mathjax: true
 comments: true
 published: true

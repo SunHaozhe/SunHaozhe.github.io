@@ -5,7 +5,7 @@ title: Python memo
 tagline: by SunHaozhe
 tags: 
   - Python
-  - API  
+  - memo
 mathjax: true
 comments: true
 published: true

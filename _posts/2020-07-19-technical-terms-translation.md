@@ -98,6 +98,7 @@ published: true
 | group action | action de(d'un) groupe  | 群作用 |
 | generative adversarial network <br>GAN | réseau antagoniste génératif <br>réseau adverse génératif  | 生成对抗网络 |
 | manifold | variété  | 流形 |
+| diminishing returns | loi des rendements décroissants  | 报酬递减 |
 
 
 

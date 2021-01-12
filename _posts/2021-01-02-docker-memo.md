@@ -4,9 +4,7 @@ category: Misc
 title: Docker memo 
 tagline: by SunHaozhe
 tags: 
-  - API  
-  - Utilities 
-  - Common knowledge
+  - memo
 mathjax: true
 comments: true
 published: true

@@ -6,7 +6,7 @@ tagline: by SunHaozhe
 tags: 
   - Python
   - Pandas
-  - API
+  - memo
   - Machine learning
 mathjax: true
 comments: true

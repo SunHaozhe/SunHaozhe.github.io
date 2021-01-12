@@ -5,7 +5,7 @@ title: statsmodels memo
 tagline: by SunHaozhe
 tags: 
   - Python
-  - API
+  - memo
   - Machine learning
 mathjax: true
 comments: true

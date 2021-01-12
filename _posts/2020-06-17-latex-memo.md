@@ -4,7 +4,7 @@ category: Misc
 title: Latex memo 
 tagline: by SunHaozhe
 tags: 
-  - API  
+  - memo
 mathjax: true
 comments: true
 published: true
