@@ -175,6 +175,28 @@ When you stop a container, it is not automatically removed unless you started it
 docker container prune
 ```
 
+Remove one or more containers
+
+```zsh
+# remove one container 
+docker rm CONTATINER_ID
+
+# remove several containers
+docker rm CONTATINER_ID_1 CONTATINER_ID_2
+
+# the following two lines remove a container
+# even if it is still running 
+docker stop CONTAINER_ID
+docker rm CONTATINER_ID
+
+# remove the container even if it is still running
+docker rm -f CONTAINER_ID
+
+# remove a container and its volumes 
+## Option -v removes anonymous volumes 
+## associated with the container
+docker rm -v CONTATINER_ID
+```
 
 # Volume
 
