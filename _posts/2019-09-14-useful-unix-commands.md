@@ -87,6 +87,36 @@ shasum -a 1 [file_name]
 
 ************************************************************************************************
 
+zip using command line
+
+```zsh
+# zip a directory
+zip -r new_zip_file.zip target_directory/
+
+# zip all the content in the current directory 
+zip -r new_zip_file.zip . 
+
+# -X excludes extra file attributes
+zip -r -X new_zip_file.zip target_directory/
+
+# zip several files 
+zip new_zip_file.zip target_file_1 target_file_2
+```
+
+unzip using command line 
+
+```zsh
+# unzip into a separate new directory 
+unzip -d name_of_a_new_directory blabla.zip
+
+# unzip and put all the files directly 
+# into the current directory
+unzip blabla.zip
+```
+
+************************************************************************************************
+
+
 
 
 
