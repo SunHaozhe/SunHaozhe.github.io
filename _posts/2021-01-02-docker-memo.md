@@ -30,6 +30,12 @@ Display a live stream of container(s) resource usage statistics
 docker stats
 ```
 
+Show the history of an image 
+
+```zsh
+docker history [IMAGE_ID]
+```
+
 Display low-level information on Docker objects using `docker inspect`. For example, if one wants to compare content of images, one can look at section `RootFS`. If all layers are identical then images contains identical content. 
 
 ```zsh
@@ -129,9 +135,6 @@ Run a container from the Alpine version 3.9 image, name the running container `w
 docker container run --name web -p 5000:80 alpine:3.9
 ```
 
-
-Use `-dit` for `docker run`, in this way, the docker will be run at background and one can use `docker exec -it ...` to enter that container. If one run `exit` here, one can detach from this container and leave it running. 
-
 The commands `docker stop` `docker start` `docker restart`:
 
 ```zsh
@@ -222,6 +225,52 @@ docker network ls
 # network access is disabled
 docker run -dit --network none alpine:3.9 /bin/bash
 ```
+
+# The command: docker run 
+
+`docker run` runs a command in a new container. 
+
+Use `-dit` for `docker run`, in this way, the docker will be run at background and one can use `docker exec -it ...` to enter that container. If one run `exit` here, one can detach from this container and leave it running. 
+
+
+```zsh
+# -v: Bind mount a volume
+## Map host's directory ~/xxx/yyy  
+## to docker container's directory /zzz 
+## Both are absolute path
+docker run -dit --name my_env -v ~/xxx/yyy:/zzz [imageName]
+```
+
+```zsh
+# network access is disabled
+docker run -dit --network none [imageName] /bin/bash
+```
+
+# The command: docker commit 
+
+`docker commit` creates a new image from a container's changes. The commit operation will not include any data contained in volumes mounted inside the container. By default, the container being committed and its processes will be paused while the image is committed. This reduces the likelihood of encountering data corruption during the process of creating the commit. If this behavior is undesired, set the `--pause` option to false.
+
+```zsh
+# Using the command "docker images",
+# sunhaozhe/IMAGE_NAME corresponds to REPOSITORY,
+# TAG_NAME corresponds to TAG. 
+
+docker commit -a "John Hannibal Smith <hannibal@a-team.com>" -m "blablabla" [CONTAINER_ID] sunhaozhe/IMAGE_NAME:TAG_NAME
+
+docker commit --author "John Hannibal Smith <hannibal@a-team.com>" --message "blablabla" [CONTAINER_ID] sunhaozhe/IMAGE_NAME:TAG_NAME
+```
+
+# Docker Hub
+
+`docker push` pushes an image or a repository to a registry
+
+Maybe create the repository first on Docker Hub's web, before running the following command: 
+
+```zsh
+# push local image to Docker Hub
+docker push sunhaozhe/IMAGE_NAME:TAG_NAME
+```
+
 
 # Example 
 
