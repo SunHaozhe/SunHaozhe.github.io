@@ -21,6 +21,16 @@ In the Apple MacOS operating system, **.DS_Store** is a file that stores custom 
 Pretty much every folder on your hard disk is likely to contain a **.DS_Store** file.
 
 
+### To delete .DS_STORE files in current folder and all subfolders from command line 
+
+The `find` utility walks a file hierarchy, it recursively descends the directory tree for each path listed, evaluating an expression in terms of each file in the tree. `.` represents the current directory. The option `-name` specifies the pattern to match. The option `-delete` deletes found files and/or directories. The option `-type f` is for extra caution, it excludes directories. Here, `f` means regular file, `d` means directory, `s` means socket, `l` means symbolic link, etc..
+
+```zsh
+find . -name '.DS_Store' -type f -delete 
+```
+
+
+
 # __MACOSX folder
 
 
