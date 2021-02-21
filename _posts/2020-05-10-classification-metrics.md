@@ -66,6 +66,17 @@ According to [a post on Cross-Validated](https://stats.stackexchange.com/questio
 ![pr_curve_example_2](/assets/images/blog/pr_curve_example_2.png)
 
 
+The general definition for the Average Precision (AP) is finding the area under the precision-recall curve. Before calculating AP for the object detection, we often smooth out the zig-zag pattern first. Graphically, at each recall level, we replace each precision value with the maximum precision value to the right of that recall level. 
+
+mAP (mean average precision) is the average of AP. In some context, we compute the AP for each class and average them to get mAP. But in some context, for example, under the COCO context, AP is averaged over all classes (even also over several IoU thresholds), which is traditionally called mAP. 
+
+How is precision-recall curve drawn? How is AP calculated? 
+* In the context of object detection, we first rank the predicted bounding boxes by their corresponding confidence score. By following this ranking, we cumulatively (only considering the current bounding box and all previous bounding boxes) calculate pairs of precision and recall. For each precision-recall pair, we draw a point in the precision-recall curve. By following this ranking, the recall of successive pairs will be increasing (not strictly increasing) by nature, on the other hand the precision can have a zig-zag pattern because of newly encountered false-positive predicted bounding boxes. This is why precision-recall curve is usually smoothed. 
+
+![pr_curve_smoothing](/assets/images/blog/pr_curve_smoothing.jpeg)
+
+
+
 | English   | Chinese        |
 |-----------|----------------|
 | precision | 精确率，查准率 |
