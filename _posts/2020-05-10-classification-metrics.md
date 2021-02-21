@@ -70,11 +70,16 @@ The general definition for the Average Precision (AP) is finding the area under 
 
 mAP (mean average precision) is the average of AP. In some context, we compute the AP for each class and average them to get mAP. But in some context, for example, under the COCO context, AP is averaged over all classes (even also over several IoU thresholds), which is traditionally called mAP. 
 
-How is precision-recall curve drawn? How is AP calculated? 
+How is precision-recall curve drawn? 
+
 * In the context of object detection, we first rank the predicted bounding boxes by their corresponding confidence score. By following this ranking, we cumulatively (only considering the current bounding box and all previous bounding boxes) calculate pairs of precision and recall. For each precision-recall pair, we draw a point in the precision-recall curve. By following this ranking, the recall of successive pairs will be increasing (not strictly increasing) by nature, on the other hand the precision can have a zig-zag pattern because of newly encountered false-positive predicted bounding boxes. This is why precision-recall curve is usually smoothed. 
 
 ![pr_curve_smoothing](/assets/images/blog/pr_curve_smoothing.jpeg)
 
+Comparison of F1 score and AP:
+
+* F1 score is sensitive to the trade-off between precision and recall. Therefore, careful tuning is often needed to get the best combination of precision and recall. On the other hand, AP is invariant to that trade-off. AP, on the other hand, calculates a measure by iterating over all points of precisions and recalls. Thus, it is invariant to the trade-off between precision and recall. 
+* For each point of the precision-recall curve (each pair of precision+recall), one can obtain a F1 score. One can then choose to keep the maximum one among obtained F1 scores. 
 
 
 | English   | Chinese        |
