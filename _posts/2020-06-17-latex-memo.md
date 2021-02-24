@@ -10,6 +10,8 @@ comments: true
 published: true
 ---
 
+# Line spacing and margins 
+
 Change line spacing for the whole document:
 
 ```latex
@@ -24,7 +26,7 @@ Change margins:
 
 [Microsoft engineers](http://www.metricationmatters.com/docs/PageBordersInchesORmillimetres.pdf) set the defaults for an A4 page (210 mm x 297 mm) at 1 inch (25.4 mm) top and bottom, with 1 and a 1/4 inch (31.7 mm) on each side. 
 
-## Citations
+# Citations
 
 Easily switch between (number) and (number+author) in the same document. Year is not shown. With `plainnat`, the number is different from `unsrt`, the ordering of citation numbers are not determined by the order of appearance. 
 
@@ -37,6 +39,53 @@ Easily switch between (number) and (number+author) in the same document. Year is
 
 \cite{} % citation with number
 \citet{} % citation with number and author
+```
+
+# 1-column abstract in 2-column document
+
+
+[https://www.texfaq.org/FAQ-onecolabs](https://www.texfaq.org/FAQ-onecolabs)
+
+```latex
+\documentclass[twocolumn]{article}
+
+
+...
+
+
+\begin{document}
+
+% 1-column abstract in 2-column document 
+\twocolumn[
+  \begin{@twocolumnfalse}
+    \maketitle
+    \begin{abstract}
+    Blablabla
+    \end{abstract}
+  \end{@twocolumnfalse}
+]
+
+
+%\section{Introduction}
+
+\end{document}
+```
+
+
+# Positioning of Figures
+
+![figure_position_specifiers](/assets/images/blog/figure_position_specifiers.png)
+
+
+In order to placing a figure spanning the two columns of a `twocolumn` document, we need to use the starred version of the `{figure*}` environment to enable the figure occupy the two columns. Example:
+
+```latex
+\begin{figure*}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{Figures/xxx.png}
+    \caption{}
+    \label{fig:xxx}
+\end{figure*}
 ```
 
 
