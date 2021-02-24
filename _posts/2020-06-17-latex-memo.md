@@ -71,6 +71,7 @@ Easily switch between (number) and (number+author) in the same document. Year is
 \end{document}
 ```
 
+Be careful when using long equations that would span across two columns. 
 
 # Positioning of Figures
 
@@ -87,6 +88,12 @@ In order to placing a figure spanning the two columns of a `twocolumn` document,
     \label{fig:xxx}
 \end{figure*}
 ```
+
+`{figure*}` should not be used together with `[H]`. 
+
+
+
+
 
 
 
