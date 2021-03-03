@@ -92,6 +92,48 @@ In order to placing a figure spanning the two columns of a `twocolumn` document,
 `{figure*}` should not be used together with `[H]`. 
 
 
+# Table
+
+In order to make a table with 3 rows and 4 columns:
+
+```latex
+\usepackage{adjustbox}
+
+
+\begin{table}[h]
+	\centering
+	\begin{adjustbox}{}
+	\begin{tabular}{|c|c|c|c|}
+	\hline
+     &  &  &  \\
+    \hline
+     &  &  &  \\
+    \hline
+     &  &  &  \\
+    \hline
+    \end{tabular}
+	\end{adjustbox}
+	\caption{}
+	\label{tab:}
+\end{table}
+```
+
+If the above table has too many columns that do not correctly fit the page width, one can use `\begin{adjustbox}{width=\linewidth}`
+
+The signification of the parameters of `\begin{tabular}`:
+
+* `l`	left-justified column
+* `c`	centered column
+* `r`	right-justified column
+* `|`	vertical line
+* `||`	double vertical line
+* `|||` triple vertical line
+
+
+Once in the `tabular` environment, `&` is column separator, `\\` is start new row, `\hline` is horizontal line.
+
+
+`\checkmark` and `$\times$` can be used for binary information. 
 
 
 
