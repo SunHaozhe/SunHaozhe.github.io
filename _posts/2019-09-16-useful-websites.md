@@ -241,6 +241,22 @@ ZHENG Fan 郑帆的博客（computer vision, SLAM, robotics, mobile robot naviga
 **************************************************************************************************
 
 
+PyPI Download Stats (Analytics for PyPI packages)
+
+[https://pypistats.org/](https://pypistats.org/)
+
+
+**************************************************************************************************
+
+
+
+
+
+
+
+
+
+
 
 
 

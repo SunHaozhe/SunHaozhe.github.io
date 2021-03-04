@@ -135,7 +135,14 @@ Once in the `tabular` environment, `&` is column separator, `\\` is start new ro
 
 `\checkmark` and `$\times$` can be used for binary information. 
 
+```latex
+\usepackage{makecell}
 
+% bold table headers, maybe optional  
+\renewcommand\theadfont{\bf} 
+```
+
+`\makecell{A \\B \\C}` can be used to break lines in table cells. `\thead{A \\B \\C}` additionally makes the text bold. 
 
 
 
