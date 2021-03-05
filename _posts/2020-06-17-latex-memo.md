@@ -145,9 +145,20 @@ Once in the `tabular` environment, `&` is column separator, `\\` is start new ro
 `\makecell{A \\B \\C}` can be used to break lines in table cells. `\thead{A \\B \\C}` additionally makes the text bold. 
 
 
+# Hyperlinks
+
+```latex
+\href{URL}{Text}
+```
 
 
+# Multi-line (block) comments 
 
+```latex
+\iffalse
+blablabla...
+\fi
+```
 
 
 
