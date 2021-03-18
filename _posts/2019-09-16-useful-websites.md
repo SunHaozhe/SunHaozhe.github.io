@@ -249,6 +249,17 @@ PyPI Download Stats (Analytics for PyPI packages)
 **************************************************************************************************
 
 
+BibTeX Entry and Field Types - Bib-it A BibTEX manager. 
+
+[http://bib-it.sourceforge.net/help/fieldsAndEntryTypes.php](http://bib-it.sourceforge.net/help/fieldsAndEntryTypes.php)
+
+
+**************************************************************************************************
+
+
+
+
+
 
 
 

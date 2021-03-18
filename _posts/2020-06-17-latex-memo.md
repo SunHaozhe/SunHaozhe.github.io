@@ -73,7 +73,25 @@ Easily switch between (number) and (number+author) in the same document. Year is
 
 Be careful when using long equations that would span across two columns. 
 
-# Positioning of Figures
+
+# Figures 
+
+```latex
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\linewidth]{images/xxx.png}
+    \caption{}
+    \label{fig:xxx}
+\end{figure}
+```
+
+# Positioning of floating elements
+
+In order to be able to use the option `[H]`, do the following: 
+
+```latex
+\usepackage{float}
+```
 
 ![figure_position_specifiers](/assets/images/blog/figure_position_specifiers.png)
 
@@ -160,5 +178,14 @@ blablabla...
 \fi
 ```
 
+# Mathematics
 
+```latex
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{bbm}
+\usepackage{amsthm}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+```
 
