@@ -176,6 +176,12 @@ with open(save_path, "rb") as f:
     obj_ = pickle.load(f)
 ```
 
+# Inheritance
+
+```python
+super().__init__() 
+```
+
 
 # Reimports a module in python while interactive 
 
