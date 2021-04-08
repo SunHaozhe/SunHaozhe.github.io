@@ -100,7 +100,8 @@ published: true
 | manifold | variété  | 流形 |
 | diminishing returns | loi des rendements décroissants  | 报酬递减 |
 | simulated annealing | recuit simulé  | 模拟退火 |
-
+| dihedral group | groupe diédral  | 二面体群 |
+| countable set | ensemble dénombrable  | 可数集 <br>可列集 |
 
 
 
