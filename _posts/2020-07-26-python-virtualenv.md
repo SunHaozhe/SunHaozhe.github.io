@@ -18,6 +18,10 @@ To create a virtual environment:
 # navigate to the dedicated directory 
 # this command creates venv_X in the current directory 
 virtualenv venv_X
+
+# create virtual env with a specific version of Python
+## here /usr/bin/python3 is Python 3.8.2
+virtualenv --python=/usr/bin/python3 venv_msr
 ```
 
 To install the kernel for Jupyter notebook:
