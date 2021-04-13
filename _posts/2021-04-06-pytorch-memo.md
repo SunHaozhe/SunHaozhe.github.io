@@ -337,6 +337,57 @@ Get current device name:
 torch.cuda.get_device_name(torch.cuda.current_device())
 ```
 
+The first GPU can be identified by the following string: 
+
+```python
+"cuda:0"
+```
+
+# Save and load
+
+Using `state_dict` is the recommended way. Python dictionary can easily be pickled, unpickled, updated, and restored. Thus saving model using `state_dict` offers more flexibility. We can also save the optimizer state, hyperparameters, etc., as key-value pairs along with the model's state_dict. The drawback is that we will need the model definition to load the `state_dict`.
+
+It is also possible to save and load the entire model. It is however not a recommended way of doing. This approach saves/loads models with the least amount of code, it is also more intuitive. The drawbacks are:
+
+* Since Python's pickle module is used internally, the serialized data is bound to the specific classes and the exact directory structure is used when the model is saved. Pickle simply saves a path to the file containing the specific class. This is used during load time.
+* The code might break after refactoring as the saved model might not link to the same path. Using such a model in another project is hard as well since the path structure needs to be maintained.
+
+
+### Save 
+
+```python
+# recommended
+torch.save(model.state_dict(), PATH)
+```
+
+```python
+# not recommended 
+torch.save(model, PATH)
+```
+
+### Load 
+
+`PATH` is the path to a `.pth`/`.pt` file. `model.load_state_dict(PATH)` **will not** work. `torch.load(PATH)` returns a `collections.OrderedDict` containing the parameters. 
+
+```python
+model = ClassBlaBlaBla(*args, **kwargs)
+
+# recommended
+model.load_state_dict(torch.load(PATH))
+```
+
+If we save on GPU, load on CPU:
+
+```python
+device = torch.device("cpu")
+model.load_state_dict(torch.load(PATH, map_location=device))
+```
+
+```python
+# not recommended
+model = torch.load(PATH)
+```
+
 # sum
 
 When using `sum()`, if `dim` is given (analogy to `axis` in `numpy`), the sum is only done in the given dimension `dim`. If `dim` is a list of dimensions, reduce over all of them. 

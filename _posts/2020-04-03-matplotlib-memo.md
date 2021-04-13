@@ -56,7 +56,9 @@ for i, c in enumerate(iterable_):
 plt.show() 
 ```
 
+In `matplotlib` and `PIL`, figure's size is given as (width, height) in inches. Width comes first. 
 
+However, height comes first in `numpy` (thus `OpenCV`), Tensorflow, PyTorch (the image convention is (N, C, H, W) ) and conventional matrix notation in mathematics. 
 
 # seaborn
 
