@@ -116,6 +116,32 @@ unzip blabla.zip
 
 ************************************************************************************************
 
+NVIDIA System Management Interface (nvidia-smi) 
+
+```zsh
+nvidia-smi
+
+# The following will loop and call 
+# the view at every second. 
+nvidia-smi -l 1
+```
+
+************************************************************************************************
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

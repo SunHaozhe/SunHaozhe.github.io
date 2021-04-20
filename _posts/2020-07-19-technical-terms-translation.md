@@ -102,6 +102,9 @@ published: true
 | simulated annealing | recuit simulé  | 模拟退火 |
 | dihedral group | groupe diédral  | 二面体群 |
 | countable set | ensemble dénombrable  | 可数集 <br>可列集 |
+| polyhedron | polyèdre  | 多面体 |
+| polygon | polygone  | 多边形 |
+| antiderivative <br>inverse derivative <br>primitive function <br>primitive integral <br>indefinite integral | primitive  | 不定积分 |
 
 
 

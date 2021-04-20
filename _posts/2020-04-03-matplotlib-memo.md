@@ -60,19 +60,21 @@ In `matplotlib` and `PIL`, figure's size is given as (width, height) in inches. 
 
 However, height comes first in `numpy` (thus `OpenCV`), Tensorflow, PyTorch (the image convention is (N, C, H, W) ) and conventional matrix notation in mathematics. 
 
+
+
 # seaborn
 
 For `seaborn` version `0.10.1`, 
 
 ```python
 # This import will not change the style for the rest of the session
-import seaborn
+import seaborn as sns
 
 # This command will change the style for the rest of the session  
-seaborn.set()
+sns.set()
 
 # This command will restore the style  
-seaborn.reset_orig()
+sns.reset_orig()
 ```
 
 One can use the style context manager which sets a style temporarily:
@@ -87,6 +89,37 @@ with plt.style.context(style_name):
 Valid style names include: `"seaborn-darkgrid"`, `"seaborn-whitegrid"`, `"seaborn-dark"`, `"seaborn-white"`, `"seaborn-ticks"`, `"seaborn-bright"`, `"seaborn-colorblind"`, `"seaborn-dark-palette"`, `"seaborn-paper"`, `"seaborn-poster"`, `"seaborn-talk"`, `"bmh"`, `"classic"`, `"dark_background"`, `"fivethirtyeight"`, `"ggplot"`, `"grayscale"`, etc.
 
 
+Set font size for seaborn. The value of `font_scale` should be proportional to the figure size.
+
+```python
+sns.set(font_scale=6)
+```
+
+Plot pairplot 
+
+```python
+# height plays the role of figsize
+
+sns.pairplot(df, diag_kind="hist", kind="kde", height=15)
+
+pairplot = sns.pairplot(df, diag_kind="hist", kind="scatter", height=15)
+```
+
+
+# Save figure
+
+```python
+fig = plt.figure(figsize=(xxx, yyy))
+...
+fig.savefig(image_path, dpi=fig.dpi)
+```
+
+For seaborn:
+
+```python
+pairplot = sns.pairplot(...)
+pairplot.fig.savefig(image_path, dpi=fig.dpi)
+```
 
 # References
 
