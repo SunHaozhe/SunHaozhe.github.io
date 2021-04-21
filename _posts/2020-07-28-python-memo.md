@@ -317,6 +317,47 @@ id2word = {v: k for k, v in word2id.items()}
 * `locals()` current local symbol table. It always returns a dictionary of the current namespace. 
 
 
+# Parsing arguments
+
+```python
+import argparse 
+
+parser = argparse.ArgumentParser("blablabla...")
+
+# positional argument 
+parser.add_argument("bar")
+
+# optional arguments
+
+# numerical values
+parser.add_argument("--xx", type=int, default=0, help="""""")
+parser.add_argument("--yy", type=int, default=None, help="""""")
+parser.add_argument("--yy", type=float, default=None, help="""""")
+
+# binary switch 
+parser.add_argument("--zz", action="store_true", default=False, help="""""")
+
+# shorthand (using -a is equivalent to using --blabla)
+parser.add_argument("-a", "--blabla", type=float, default=None, help="""""")
+
+# variable number of command-line parameters
+parser.add_argument("--foo", nargs=2)
+parser.add_argument("--foo", nargs="?", const="c", default="d")
+
+# to make an option required
+parser.add_argument('--foo', required=True)
+
+args = parser.parse_args()
+```
+
+For `nargs`:
+* `N` (an integer). `N` arguments from the command line will be gathered together into a list.
+* `?` One argument will be consumed from the command line if possible, and produced as a single item. If no command-line argument is present, the value from `default` will be produced. Note that for optional arguments, there is an additional case - the option string is present but not followed by a command-line argument. In this case the value from `const` will be produced.
+* `*` All command-line arguments present are gathered into a list.
+* `+` Just like `*`, all command-line args present are gathered into a list. Additionally, an error message will be generated if there wasn’t at least one command-line argument present.
+
+
+
 
 
 

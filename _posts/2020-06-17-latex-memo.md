@@ -114,7 +114,7 @@ In order to placing a figure spanning the two columns of a `twocolumn` document,
 
 In order to make a table with 3 rows and 4 columns:
 
-```latex
+```
 \usepackage{adjustbox}
 
 
@@ -161,6 +161,27 @@ Once in the `tabular` environment, `&` is column separator, `\\` is start new ro
 ```
 
 `\makecell{A \\B \\C}` can be used to break lines in table cells. `\thead{A \\B \\C}` additionally makes the text bold. 
+
+We can import a csv file as table
+
+```
+\usepackage{csvsimple,booktabs,siunitx}
+
+
+\begin{table}[h]
+\centering
+\begin{adjustbox}{}
+\csvreader[tabular={|c|c|c|c|c|c|},
+           table head=\toprule A & B & C & D & E & F \\ \midrule,
+           table foot=\bottomrule]
+           {csv_files/font_num_describe.csv}
+           {1=\a,2=\b,3=\c,4=\d,5=\e,6=\f}
+           {\a & \b & \c & \d & \e & \f}
+\end{adjustbox}
+\caption{}
+\label{tab:}
+\end{table}
+```
 
 
 # Hyperlinks

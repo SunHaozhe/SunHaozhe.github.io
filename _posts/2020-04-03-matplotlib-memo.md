@@ -92,7 +92,11 @@ Valid style names include: `"seaborn-darkgrid"`, `"seaborn-whitegrid"`, `"seabor
 Set font size for seaborn. The value of `font_scale` should be proportional to the figure size.
 
 ```python
+# sns.set(...) will also influence matplotlib's behavior
+
 sns.set(font_scale=6)
+...
+sns.reset_orig()
 ```
 
 Plot pairplot 
