@@ -21,6 +21,13 @@ df = pd.read_csv("train.csv")
 df.set_index("id", inplace=True)
 ```
 
+Save dataset set a csv file 
+
+```python
+df.to_csv("blabla.csv")
+df.to_csv("blabla.csv", sep="\t", encoding="utf-8")
+```
+
 Visualize DataFrame:
 
 ```python
@@ -491,6 +498,15 @@ df.apply(pd.Series.value_counts, axis=0)
 # find out how many True/False are there in each row 
 df.apply(pd.Series.value_counts, axis=1)
 ```
+
+Print all rows and all columns of a DataFrame
+
+```python
+with pd.option_context('display.max_rows', None, 'display.max_columns', None): 
+    print(df)
+```
+
+
 
 
 

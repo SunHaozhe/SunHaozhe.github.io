@@ -162,6 +162,8 @@ Once in the `tabular` environment, `&` is column separator, `\\` is start new ro
 
 `\makecell{A \\B \\C}` can be used to break lines in table cells. `\thead{A \\B \\C}` additionally makes the text bold. 
 
+If one only needs the header to be bold, one can just put `\bf` before the name (no need to put any `{` or `}` around).
+
 ### Import a csv file as table
 
 The solution I found is to use a tool to transform a `.csv` file to a `.tex` file and then copy the text content onto our document. A tool that works well is **CSV2LaTeX** ([http://brouits.free.fr/csv2latex/](http://brouits.free.fr/csv2latex/)). 
@@ -169,28 +171,41 @@ The solution I found is to use a tool to transform a `.csv` file to a `.tex` fil
 The stable version can be downloaded here: [http://brouits.free.fr/csv2latex/csv2latex-0.22.tar.gz](http://brouits.free.fr/csv2latex/csv2latex-0.22.tar.gz) Unzip the downloaded file, then run `make` within the unzipped directory. This `make` command will not install the software in the system (at least not on my MacOS), it only generates an executable file called `csv2latex`. Put the executable file called `csv2latex` and the target `.csv` file under the same directory, do:
 
 ```zsh
-csv2latex table.csv > document.tex
+./csv2latex table.csv > document.tex
 ```
+
 We can also specify the format of the csv file, and some output disposition.
 
 * The separator is a comma, block delimiter is a double-quote, and produces a LaTeX document with 40 lines per table and where the text is flushed left in each cell. 40 lines is a good average for A4 paper:
 
 ```zsh
-csv2latex --separator c --block d --lines 40 --position l table.csv > document.tex
+./csv2latex --separator c --block d --lines 40 --position l table.csv > document.tex
 ```
 
 * The separator is a semi-colon, block delimiter is a simple quote and produces a LaTeX document with 20 lines per table and where the text is centered in each cell.
 
 ```zsh
-csv2latex --separator s --block q --lines 20 --position c table.csv > document.tex
+./csv2latex --separator s --block q --lines 20 --position c table.csv > document.tex
 ```
 
 * If you have tricky block delimiter such as $ and separators like tabs, let the program guess
 
 ```zsh
-csv2latex --guess table.csv > document.tex
+./csv2latex --guess table.csv > document.tex
 ```
 
+The generated `document.tex` contains `tabular` code. We can copy-paste it into something like this:
+
+```latex
+\begin{table}[h]
+\centering
+\begin{adjustbox}{}
+% TODO
+\end{adjustbox}
+\caption{}
+\label{tab:}
+\end{table}
+```
 
 Below are some other solutions. These solutions do not work well. 
 
