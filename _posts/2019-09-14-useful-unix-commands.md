@@ -5,6 +5,7 @@ title: Useful unix commands
 tagline: by SunHaozhe
 tags: 
   - Common knowledge
+  - memo
 mathjax: true
 comments: true
 published: true
@@ -128,9 +129,48 @@ nvidia-smi -l 1
 
 ************************************************************************************************
 
+Print newline, word, and byte counts for each file
+
+```bash
+wc
+
+# count the number of lines
+wc -l
+
+# count the number of files in [name_of_directory]
+ls [name_of_directory] | wc -l
+```
+
+```bash
+man wc
+
+-c, --bytes
+    print the byte counts
+
+-m, --chars
+    print the character counts
+
+-l, --lines
+    print the newline counts
+    
+-w, --words
+    print the word counts
+```
 
 
+************************************************************************************************
 
+Search pattern (regular expression)
+
+```bash
+grep
+
+# print the line containing the pattern [pattern]
+ls [name_of_directory] | grep [pattern]
+```
+
+
+************************************************************************************************
 
 
 
