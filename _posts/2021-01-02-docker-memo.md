@@ -56,6 +56,11 @@ docker inspect <imageName>
     }
 ```
 
+Remove unused data (remove all unused containers, networks, images (both dangling and unreferenced), and optionally, volumes.)
+
+```bash
+docker system prune
+```
 
 # Docker image
 
@@ -178,7 +183,7 @@ When you stop a container, it is not automatically removed unless you started it
 docker container prune
 ```
 
-Remove one or more containers
+Remove one or more containers (stop plus "prune")
 
 ```zsh
 # remove one container 
@@ -244,6 +249,12 @@ docker run -dit --name my_env -v ~/xxx/yyy:/zzz [imageName]
 ```zsh
 # network access is disabled
 docker run -dit --network none [imageName] /bin/bash
+```
+
+Run docker which uses cuda GPU
+
+```bash
+docker run -dit --gpus all [imageName] bash
 ```
 
 # The command: docker commit 
@@ -356,7 +367,6 @@ docker exec -it my_env bash
 
 * http://www.ruanyifeng.com/blog/2018/02/docker-tutorial.html
 * https://docs.docker.com/engine/reference/commandline/docker/ 
-
 
 
 
