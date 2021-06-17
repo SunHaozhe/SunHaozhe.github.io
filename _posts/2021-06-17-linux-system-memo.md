@@ -10,13 +10,30 @@ comments: true
 published: true
 ---
 
-# echo
+# Printing and writing to files
 
 `echo` is usually used for printing message in the terminal, much like the printing function in programming languages. `echo` can also be used to write a string into a file if it is used together with a redirection operator. For example:
 
 ```bash
 echo "blablabla" > [file_path]
 ```
+
+### Redirect output of a program to a file
+
+```bash
+program [arguments...] > logs.txt
+```
+
+However, by doing the above no message will be output to the terminal (`stdout`). 
+
+### Redirect output of a program both to a file and stdout
+
+`2>&1` dumps the `stderr` and `stdout` streams. `tee logs.txt` takes the stream it gets and writes it to the screen and to the file `logs.txt`.
+
+```bash
+program [arguments...] 2>&1 | tee logs.txt
+```
+
 
 # Users and groups in linux
 
@@ -166,5 +183,4 @@ When the 4 digits number is used, the first digit is used for something else. We
 ```
 -R, --recursive
 ```
-
 
