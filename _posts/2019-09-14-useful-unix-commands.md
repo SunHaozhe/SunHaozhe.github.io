@@ -117,10 +117,13 @@ unzip blabla.zip
 
 ************************************************************************************************
 
-NVIDIA System Management Interface (nvidia-smi) 
+NVIDIA System Management Interface (`nvidia-smi`) 
 
 ```zsh
 nvidia-smi
+
+# If we just want the GPU name
+nvidia-smi --query-gpu=name --format=csv,noheader
 
 # The following will loop and call 
 # the view at every second. 
