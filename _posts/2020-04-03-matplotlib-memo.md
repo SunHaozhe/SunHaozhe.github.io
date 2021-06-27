@@ -61,6 +61,20 @@ In `matplotlib` and `PIL`, figure's size is given as (width, height) in inches. 
 However, height comes first in `numpy` (thus `OpenCV`), Tensorflow, PyTorch (the image convention is (N, C, H, W) ) and conventional matrix notation in mathematics. 
 
 
+Figure size (figsize) determines the size of the figure in inches. This gives the amount of space the axes (and other elements) have inside the figure. The default figure size is (6.4, 4.8) inches in matplotlib 2. 
+
+Dots per inches (dpi) determines how many pixels the figure comprises. The default dpi in matplotlib is 100.
+
+For example, a figure of `figsize = (w, h)` will have
+
+```python
+px, py = w * dpi, h * dpi  # pixels
+# e.g.
+# 6.4 inches * 100 dpi = 640 pixels
+```
+
+In matplotlib, image size (in pixels) cannot be too large, it must be less than $2^{16}=65536$ pixels in each direction.
+
 
 # seaborn
 
@@ -133,7 +147,6 @@ pairplot.fig.savefig(image_path, dpi=fig.dpi)
 [2] Pyplot — Matplotlib 2.0.2 documentation. (n.d.). Matplotlib: Python plotting — Matplotlib 3.2.1 documentation. https://matplotlib.org/api/pyplot_api.html
 
 [3] Matplotlib, Pyplot, Pylab etc: What's the difference between these and when to use each? (2019, August 31). queirozf.com. https://queirozf.com/entries/matplotlib-pylab-pyplot-etc-what-s-the-different-between-thes`
-
 
 
 
