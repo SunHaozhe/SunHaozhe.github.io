@@ -105,7 +105,7 @@ published: true
 | polyhedron | polyèdre  | 多面体 |
 | polygon | polygone  | 多边形 |
 | antiderivative <br>inverse derivative <br>primitive function <br>primitive integral <br>indefinite integral | primitive  | 不定积分 |
-
+| faculty psychology | psychologie des facultés  | 官能心理学 |
 
 
 

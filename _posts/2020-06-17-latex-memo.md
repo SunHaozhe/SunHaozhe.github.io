@@ -291,3 +291,51 @@ blablabla...
 \DeclareMathOperator*{\argmin}{arg\,min}
 ```
 
+
+# Glossary
+
+```latex
+\usepackage{glossaries}
+\usepackage[nonumberlist]{glossaries} % disable page numbers after each glossaries
+
+\makeglossaries
+
+% does not allow line break in description
+\newglossaryentry{}
+{
+    name=,
+    description={}
+}
+
+% allows line break in description
+\longnewglossaryentry{}
+{
+    name=,
+    description={}
+}
+
+% lists all glossaries even if they are not used
+\glsaddall
+
+\begin{document}
+
+...
+
+\printglossaries
+
+...
+
+% Using defined terms
+%% <label> is the X in \newglossaryentry{X}
+%% which can be different from the "name" 
+%% (Y in name=Y,)
+\gls{<label>}
+\glspl{<label>}
+\Gls{<label>}
+\Glspl{<label>}
+\glslink{<label>}{<alternate text>}
+\glssymbol{<label>}
+\glsdesc{<label>}
+
+\end{document}
+```
