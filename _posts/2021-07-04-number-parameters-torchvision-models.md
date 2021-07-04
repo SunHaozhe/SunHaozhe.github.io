@@ -12,44 +12,44 @@ published: true
 ---
 
 ```bash
-                 model  nb_trainable_parameters nb_trainable_parameters_human_readable
-15       squeezenet1_1                  1235496                                  1.24M
-14       squeezenet1_0                  1248424                                  1.25M
-22  shufflenet_v2_x0_5                  1366792                                  1.37M
-33          mnasnet0_5                  2218512                                  2.22M
-23  shufflenet_v2_x1_0                  2278604                                  2.28M
-28  mobilenet_v3_small                  2542856                                  2.54M
-34         mnasnet0_75                  3170208                                  3.17M
-24  shufflenet_v2_x1_5                  3503624                                   3.5M
-26        mobilenet_v2                  3504872                                   3.5M
-35          mnasnet1_0                  4383312                                  4.38M
-27  mobilenet_v3_large                  5483032                                  5.48M
-36          mnasnet1_3                  6282256                                  6.28M
-25  shufflenet_v2_x2_0                  7393996                                  7.39M
-16         densenet121                  7978856                                  7.98M
-9             resnet18                 11689512                                 11.69M
-21           googlenet                 13004888                                    13M
-17         densenet169                 14149480                                 14.15M
-19         densenet201                 20013928                                 20.01M
-10            resnet34                 21797672                                  21.8M
-29     resnext50_32x4d                 25028904                                 25.03M
-11            resnet50                 25557032                                 25.56M
-20        inception_v3                 27161264                                 27.16M
-18         densenet161                 28681000                                 28.68M
-12           resnet101                 44549160                                 44.55M
-13           resnet152                 60192808                                 60.19M
-0              alexnet                 61100840                                  61.1M
-31     wide_resnet50_2                 68883240                                 68.88M
-30    resnext101_32x8d                 88791336                                 88.79M
-32    wide_resnet101_2                126886696                                126.89M
-1                vgg11                132863336                                132.86M
-2             vgg11_bn                132868840                                132.87M
-3                vgg13                133047848                                133.05M
-4             vgg13_bn                133053736                                133.05M
-5                vgg16                138357544                                138.36M
-6             vgg16_bn                138365992                                138.37M
-7                vgg19                143667240                                143.67M
-8             vgg19_bn                143678248                                143.68M
+                 model human_readable  nb_trainable_parameters
+15       squeezenet1_1          1.24M                  1235496
+14       squeezenet1_0          1.25M                  1248424
+22  shufflenet_v2_x0_5          1.37M                  1366792
+33          mnasnet0_5          2.22M                  2218512
+23  shufflenet_v2_x1_0          2.28M                  2278604
+28  mobilenet_v3_small          2.54M                  2542856
+34         mnasnet0_75          3.17M                  3170208
+24  shufflenet_v2_x1_5           3.5M                  3503624
+26        mobilenet_v2           3.5M                  3504872
+35          mnasnet1_0          4.38M                  4383312
+27  mobilenet_v3_large          5.48M                  5483032
+36          mnasnet1_3          6.28M                  6282256
+25  shufflenet_v2_x2_0          7.39M                  7393996
+16         densenet121          7.98M                  7978856
+9             resnet18         11.69M                 11689512
+21           googlenet            13M                 13004888
+17         densenet169         14.15M                 14149480
+19         densenet201         20.01M                 20013928
+10            resnet34          21.8M                 21797672
+29     resnext50_32x4d         25.03M                 25028904
+11            resnet50         25.56M                 25557032
+20        inception_v3         27.16M                 27161264
+18         densenet161         28.68M                 28681000
+12           resnet101         44.55M                 44549160
+13           resnet152         60.19M                 60192808
+0              alexnet          61.1M                 61100840
+31     wide_resnet50_2         68.88M                 68883240
+30    resnext101_32x8d         88.79M                 88791336
+32    wide_resnet101_2        126.89M                126886696
+1                vgg11        132.86M                132863336
+2             vgg11_bn        132.87M                132868840
+3                vgg13        133.05M                133047848
+4             vgg13_bn        133.05M                133053736
+5                vgg16        138.36M                138357544
+6             vgg16_bn        138.37M                138365992
+7                vgg19        143.67M                143667240
+8             vgg19_bn        143.68M                143678248
 ```
 
 Source code:
@@ -143,8 +143,9 @@ for model_name, model_string in model_strings:
     nb_params = get_nb_trainable_parameters(model)
     df.append((model_name, nb_params))
 df = pd.DataFrame(df, columns=["model", "nb_trainable_parameters"])
-df["nb_trainable_parameters_human_readable"] = df["nb_trainable_parameters"].apply(lambda x: millify(x, precision=2))
+df["human_readable"] = df["nb_trainable_parameters"].apply(lambda x: millify(x, precision=2))
 df.sort_values("nb_trainable_parameters", ascending=True, inplace=True, axis=0)
+df = df[["model", "human_readable", "nb_trainable_parameters"]]
 
 pd.set_option('display.max_rows', None)
 print(df)
