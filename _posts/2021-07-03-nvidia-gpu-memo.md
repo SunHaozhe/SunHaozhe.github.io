@@ -103,6 +103,9 @@ It seems that at any given instant in time, code from only one context can run. 
 
 Rebooting can solve some problems: `sudo reboot`, then enter the sudo password
 
+* RuntimeError: CUDA error: CUBLAS_STATUS_NOT_INITIALIZED when calling `cublasCreate(handle)` /opt/conda/conda-bld/pytorch_1616554793803/work/aten/src/THCUNN/ClassNLLCriterion.cu:108: cunn_ClassNLLCriterion_updateOutput_kernel: block: [0,0,0], thread: [0,0,0] Assertion `t >= 0 && t < n_classes` failed.
+
+This possibly means that there is an `IndexError: Target XXX is out of bounds.` error. 
 
 
 * `torch.cuda.is_available()` returns `False` and `UserWarning: CUDA initialization: Unexpected error from cudaGetDeviceCount(). Did you run some cuda functions before calling NumCudaDevices() that might have already set an error? Error 804: forward compatibility was attempted on non supported HW (Triggered internally at  /opt/conda/conda-bld/pytorch_1616554793803/work/c10/cuda/CUDAFunctions.cpp:109.)
