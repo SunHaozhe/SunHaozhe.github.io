@@ -184,3 +184,12 @@ When the 4 digits number is used, the first digit is used for something else. We
 -R, --recursive
 ```
 
+To change the group ownership of a file/directory `Target` to the group `GroupA`
+
+```bash
+chgrp -R project_name file_or_directory
+```
+
+
+
+

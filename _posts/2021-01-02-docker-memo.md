@@ -355,6 +355,10 @@ docker exec -it my_env bash
 * WARNING: Your kernel does not support swap limit capabilities or the cgroup is not mounted. Memory limited without swap.
   * Meaning: `docker run` won't impose any limitations on the use of swap space. However, the warning message is also trying to say that option -m, --memory will still take effect, and the maximum amount of user memory (including file cache) will be set as intended.
   * https://stackoverflow.com/a/63726105/7636942 
+* ERROR: Unexpected bus error encountered in worker. This might be caused by insufficient shared memory (shm). [Reference](https://github.com/ultralytics/yolov3/issues/283)
+  * Two possibilities:
+    * Set `num-workers` to `0` (according to the doc of PyTorch `torch.utils.data DataLoade`, but this will slow down training)
+    * Use the flag `--ipc=host` when executing `docker run ...`, be careful of [potential security issues](https://stackoverflow.com/questions/38907708/docker-ipc-host-and-security).
 
 
 
