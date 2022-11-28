@@ -6,22 +6,13 @@ author_profile: true
 ---
 
 
-## Workshop organizer
+## AlphaDraughts Zero
 
-- : [NewInML workshop at NeurIPS 2021](https://sunhaozhe.github.io/NewInML2021_NeurIPS/). Leading organizer.
-- : [NewInML workshop at ICML 2022](https://ablacan.github.io/NewInML2022_ICML/). Advisor.
+AlphaGo Zero is a historical breakthrough in Game AI, not only because that it beated all the previous versions and all human experts, but also because that it is learnt by self-play without any human knowledge.
 
+In this project, we investigate at first the algorithm flow of AlphaGo Zero. A readily compmrehensible interpretation is provided. We then apply the algorithm in English Draughts.
 
-## Competition organizer
-
-- : [MetaDL - Few Shot Learning Competition with Novel Datasets from Practical Domains at NeurIPS 2021](https://metalearning.chalearn.org/metadlneurips2021).
-
-## Reviewer
-
-
-- : NeurIPS Competition Track 
-- : NeurIPS Datasets and Benchmarks Track
-- : BayLearn Symposium 
+![XXX](/images/alphadraughts_zero.png)
 
 
 
