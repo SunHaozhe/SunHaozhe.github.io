@@ -6,15 +6,19 @@ main:
 #  - title: "Talks"
 #    url: /talks/    
 
-  - title: "Teaching"
-    url: /teaching/    
-
   - title: "Services"
     url: /services/   
+
+
+  - title: "Projects"
+    url: /projects/ 
     
 #  - title: "Portfolio"
 #    url: /portfolio/
         
+  - title: "Teaching"
+    url: /teaching/    
+
   - title: "Technical Blog Posts"
     url: https://sunhaozhe.github.io/blogs/
     
