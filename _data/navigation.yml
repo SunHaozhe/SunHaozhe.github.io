@@ -19,11 +19,13 @@ main:
   - title: "Teaching"
     url: /teaching/    
 
+  - title: "CV"
+    url: /cv/
+
   - title: "Technical Blog Posts"
     url: https://sunhaozhe.github.io/blogs/archives/
     
-#  - title: "CV"
-#    url: /cv/
+
     
 #  - title: "Guide"
 #    url: /markdown/
