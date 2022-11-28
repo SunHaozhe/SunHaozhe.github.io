@@ -7,7 +7,7 @@
 
 # Site Settings
 locale                   : "en-US"
-title                    : "Haozhe Sun"
+title                    : "Haozhe Sun's homepage"
 title_separator          : "-"
 name                     : &name "Haozhe Sun"
 description              : &description "Ph.D. student at Paris-Saclay University"
