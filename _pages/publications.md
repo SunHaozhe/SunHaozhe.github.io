@@ -20,6 +20,13 @@ author_profile: true
   [[PDF](https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/38b3eff8baf56627478ec76a704e9b52-Abstract-round1.html)] [[Code](https://github.com/SunHaozhe/OmniPrint)] [[Talk](https://nips.cc/virtual/2021/poster/22719)]
 
 
+- **Modularity in deep learning: a survey**
+  <br>
+  **Haozhe Sun**, Isabelle Guyon
+  <br>
+  Springer series "Lecture Notes in Networks and Systems".
+
+
 - **Meta-album: Multi-domain meta-dataset for few-shot image classification**
   <br>
   Ihsan Ullah, Dustin Carrion, Sergio Escalera, Isabelle M. Guyon, Mike Huisman, Felix Mohr, Jan N. van Rijn, **Haozhe Sun**, Joaquin Vanschoren, Phan Anh Vu
