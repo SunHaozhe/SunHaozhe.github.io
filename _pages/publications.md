@@ -33,7 +33,7 @@ author_profile: true
   <br>
   **Haozhe Sun**, Isabelle Guyon
   <br>
-  Springer series "Lecture Notes in Networks and Systems".
+  Springer series "Lecture Notes in Networks and Systems" 2023.
 
 
 - **Meta-album: Multi-domain meta-dataset for few-shot image classification**
