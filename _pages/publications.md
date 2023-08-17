@@ -20,6 +20,15 @@ author_profile: true
   [[PDF](https://datasets-benchmarks-proceedings.neurips.cc/paper/2021/hash/38b3eff8baf56627478ec76a704e9b52-Abstract-round1.html)] [[Code](https://github.com/SunHaozhe/OmniPrint)] [[Talk](https://nips.cc/virtual/2021/poster/22719)]
 
 
+- **RRR-Net: Reusing, Reducing, and Recycling a Deep Backbone Network**
+  <br>
+  **Haozhe Sun**, Isabelle Guyon, Felix Mohr, Hedi Tabia
+  <br>
+  2023 International Joint Conference on Neural Networks. **IJCNN 2023**.
+  <br>
+  [[Paper](https://ieeexplore.ieee.org/abstract/document/10191770)] 
+
+
 - **Modularity in deep learning: a survey**
   <br>
   **Haozhe Sun**, Isabelle Guyon
