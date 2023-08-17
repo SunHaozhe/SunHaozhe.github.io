@@ -36,22 +36,13 @@ author_profile: true
   Springer series "Lecture Notes in Networks and Systems" 2023.
 
 
-- **Meta-album: Multi-domain meta-dataset for few-shot image classification**
+- **Meta-Album: Multi-domain meta-dataset for few-shot image classification**
   <br>
   Ihsan Ullah, Dustin Carrion, Sergio Escalera, Isabelle M. Guyon, Mike Huisman, Felix Mohr, Jan N. van Rijn, **Haozhe Sun**, Joaquin Vanschoren, Phan Anh Vu
   <br>
   36th Conference on Neural Information Processing Systems Datasets and Benchmarks Track. **NeurIPS 2022**.
   <br>
   [[PDF](https://openreview.net/forum?id=70_Wx-dON3q)] [[Homepage](https://meta-album.github.io/)] [[Code](https://github.com/ihsaan-ullah/meta-album)]
-
-
-- **LTU Attacker for Membership Inference**
-  <br>
-  Joseph Pedersen, Rafael Muñoz-Gómez, Jiangnan Huang, **Haozhe Sun**, Wei-Wei Tu, Isabelle Guyon
-  <br>
-  Algorithms 2022, 15, 254. https://doi.org/10.3390/a15070254. 
-  <br>
-  [[PDF](https://www.mdpi.com/1999-4893/15/7/254)] 
 
 
 - **Lessons learned from the NeurIPS 2021 MetaDL challenge: Backbone fine-tuning without episodic meta-learning dominates for few-shot learning image classification**
@@ -61,6 +52,15 @@ author_profile: true
   Proceedings of the NeurIPS 2021 competitions and demonstrations track. Proceedings of machine learning research. **PMLR**.
   <br>
   [[PDF](https://proceedings.mlr.press/v176/el-baz22a.html)] 
+
+
+- **LTU Attacker for Membership Inference**
+  <br>
+  Joseph Pedersen, Rafael Muñoz-Gómez, Jiangnan Huang, **Haozhe Sun**, Wei-Wei Tu, Isabelle Guyon
+  <br>
+  Algorithms 2022, 15, 254. https://doi.org/10.3390/a15070254. 
+  <br>
+  [[PDF](https://www.mdpi.com/1999-4893/15/7/254)] 
 
 
 
