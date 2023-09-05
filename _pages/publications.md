@@ -54,6 +54,15 @@ author_profile: true
   [[PDF](https://proceedings.mlr.press/v176/el-baz22a.html)] 
 
 
+- **NeurIPS’22 Cross-Domain MetaDL Challenge: Results and lessons learned**
+  <br>
+  Dustin Carrión-Ojeda, Mahbubul Alam, Sergio Escalera, Ahmed Farahat, Dipanjan Ghosh, Teresa Gonzalez Diaz, Chetan Gupta, Isabelle Guyon, Joël Roman Ky, Xian Yeow Lee, Xin Liu, Felix Mohr, Manh Hung Nguyen, Emmanuel Pintelas, Stefan Roth, Simone Schaub-Meyer, **Haozhe Sun**, Ihsan Ullah, Joaquin Vanschoren, Lasitha Vidyaratne, Jiamin Wu, Xiaotian Yin
+  <br>
+  Proceedings of the NeurIPS 2022 Competitions Track, PMLR 220:50-72, 2022. **PMLR**.
+  <br>
+  [[PDF](https://proceedings.mlr.press/v220/carrion-ojeda22a.html)] 
+
+
 - **LTU Attacker for Membership Inference**
   <br>
   Joseph Pedersen, Rafael Muñoz-Gómez, Jiangnan Huang, **Haozhe Sun**, Wei-Wei Tu, Isabelle Guyon
