@@ -29,11 +29,13 @@ author_profile: true
   [[Paper](https://ieeexplore.ieee.org/abstract/document/10191770)] 
 
 
-- **Modularity in deep learning: a survey**
+- **Modularity in Deep Learning: A Survey**
   <br>
   **Haozhe Sun**, Isabelle Guyon
   <br>
-  Springer series "Lecture Notes in Networks and Systems" 2023.
+  **Lecture Notes in Networks and Systems. Springer**. 2023.
+  <br>
+  [[Paper](https://link.springer.com/chapter/10.1007/978-3-031-37963-5_40#citeas)] 
 
 
 - **Meta-Album: Multi-domain meta-dataset for few-shot image classification**
