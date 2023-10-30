@@ -11,8 +11,8 @@ redirect_from:
 
 Education
 ======
-* Ph.D. in Deep Learning, Université Paris-Saclay, 2023 (Expected)
-* M.S. (Engineering Degree; Diplôme d’Ingénieur) in Data Science and Computer Science, Telecom ParisTech, 2019
+* Ph.D. in Deep Learning, Université Paris-Saclay, 2024 (Expected)
+* M.S. (Engineering Degree; Diplôme d’Ingénieur; Master) in Data Science and Computer Science, Telecom ParisTech, 2019
 * M.S. (Master 2) in Applied Mathematics / Computer Vision / Machine Learning (MVA), École Normale Supérieure Paris-Saclay, 2019
 
 
@@ -41,7 +41,7 @@ Work experience
 Skills
 ======
 * Programming:
-  * Python, Linux, Git, C++, Docker, etc.
+  * Python, Linux, Git, Docker, Bash, etc.
 * Language: 
   * French: full professional proficiency (CEFR C1, ETS TFI)
   * English: full professional proficiency (CEFR B2, ETS TOEFL ITP)
