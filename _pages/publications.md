@@ -38,6 +38,13 @@ author_profile: true
   [[Paper](https://link.springer.com/chapter/10.1007/978-3-031-37963-5_40#citeas)] 
 
 
+- **DARIO: Differentiable vision transformer pruning with low-cost proxies**
+  <br>
+  **Haozhe Sun**, Alexandre Heuillet, Isabelle Guyon, Felix Mohr, Hedi Tabia
+  <br>
+  Under review for IEEE Journal of Selected Topics on Signal Processing, 2023.
+
+
 - **Meta-Album: Multi-domain meta-dataset for few-shot image classification**
   <br>
   Ihsan Ullah, Dustin Carrion, Sergio Escalera, Isabelle M. Guyon, Mike Huisman, Felix Mohr, Jan N. van Rijn, **Haozhe Sun**, Joaquin Vanschoren, Phan Anh Vu
