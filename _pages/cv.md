@@ -12,41 +12,44 @@ redirect_from:
 Education
 ======
 * Ph.D. in Deep Learning, Université Paris-Saclay, 2024 (Expected)
-* M.S. (Engineering Degree; Diplôme d’Ingénieur; Master) in Data Science and Computer Science, Telecom ParisTech, 2019
-* M.S. (Master 2) in Applied Mathematics / Computer Vision / Machine Learning (MVA), École Normale Supérieure Paris-Saclay, 2019
+* M.Sc. (Engineer's degree; Diplôme d’Ingénieur; Master) in Data Science and Computer Science, Telecom Paris, 2019
+* M.Sc. (Master 2) MVA program, École Normale Supérieure Paris-Saclay, 2019
 
 
 Work experience
 ======
-* Consultant at ChaLearn, October 2020 - January 2021
-  * Developped a synthetic data generator of isolated characters.
-  * Developped a mini-competition on Black Box Optimization. 
+* Teaching assistant at Université Paris-Saclay, Febuary 2021 - May 2021
+  * Taught courses on machine learning, algorithms and python programming.
 
 
-* Data Scientist intern at Orange Labs (Modelling and Statistical Analysis team), April 2019 - September 2019
-  * Worked on an information control problem in double auction marketplaces.
-  * Contributed to the modeling of the marketplaces.
-  * Done a bibliographic search on Deep Reinforcement Learning algorithms and matching algorithms.
-  * Developed a Deep Reinforcement Learning library using Python (proximal policy optimization, cross-entropy method).
+* Data science consultant at ChaLearn, October 2020 - January 2021
+  * Designed a synthetic data generator, which is then recognized by the NeurIPS community.
+  * Designed a competition on black-box optimization.
 
 
-* Community service volunteer at Hotel Sunmi Club, July 2017 - August 2017
-  * Experienced various types of activities in a hotel in the context of Human Relationship & Personal Development training (stage de Formation Humaine).
+* Data scientist intern at Orange Labs (modelling and statistical analysis team), April 2019 - September 2019
+  * Modeled marketplace dynamics.
+  * Executed a literature review on deep reinforcement learning and matching algorithms.
+  * Developed a deep reinforcement learning library using python.
 
 
-* R&D intern at Montpellier Cell Biology Research Center - CNRS (Electronic department), April 2016 - June 2016
-  * Developed an instrument which measures the elasticity and the adhesion of cell membrane.
+* Personal development intern at Atami, Japan, July 2017 - August 2017
+  * Personal development internship (stage de Formation Humaine) is a multidisciplinary program in French institutions aimed at cultivating ethical, social, and communication competencies.
+
+
+* R&D intern at Montpellier Cell Biology Research Center - CNRS (electronic department), April 2016 - June 2016
+  * Developed an instrument to measure the elasticity and the adhesion of cell membrane.
 
 
 Skills
 ======
 * Programming:
-  * Python, Linux, Git, Docker, Bash, etc.
+  * Python, PyTorch, Linux, Git, Shell script, HuggingFace, Pandas, Docker, LaTeX, SQL, etc.
 * Language: 
   * French: full professional proficiency (CEFR C1, ETS TFI)
-  * English: full professional proficiency (CEFR B2, ETS TOEFL ITP)
+  * English: full professional proficiency (ETS TOEFL ITP)
   * Chinese
-  * Japanese: Elementary proficiency
+  * Japanese: elementary proficiency
 
 
 

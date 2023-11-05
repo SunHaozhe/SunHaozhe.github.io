@@ -7,7 +7,7 @@ author_profile: true
 
 {% include base_path %}
 
-- **Introduction to data science**
+- **Introduction to Data Science**
   <br>
   2020 - 2021, L1. Teaching Assistant.
   <br>
