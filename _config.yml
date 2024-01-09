@@ -10,7 +10,7 @@ locale                   : "en-US"
 title                    : "Haozhe Sun's homepage"
 title_separator          : "-"
 name                     : &name "Haozhe Sun"
-description              : &description "Ph.D. candidate at Paris-Saclay University"
+description              : &description "Ph.D. in AI at Paris-Saclay University"
 url                      : "https://sunhaozhe.github.io" # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : "" # the subpath of your site, e.g. "/blog"
 repository               : "sunhaozhe.github.io"
@@ -82,7 +82,7 @@ analytics:
 author:
   name             : "Haozhe Sun"
   avatar           : "professional_portrait_cropped.JPG" # "xila_zuozhe_touxiang.JPEG"
-  bio              : "Ph.D. candidate in Deep Learning at Paris-Saclay University"
+  bio              : "Ph.D. in Deep Learning at Paris-Saclay University"
   location         : "Paris, France"
   #employer         :
   #pubmed           : "https://www.ncbi.nlm.nih.gov/pubmed/?term=john+snow"
