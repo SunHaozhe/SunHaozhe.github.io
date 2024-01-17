@@ -69,7 +69,7 @@ author_profile: true
   <br>
   Proceedings of the NeurIPS 2022 Competitions Track, PMLR 220:50-72, 2022. **PMLR**.
   <br>
-  [[PDF](https://proceedings.mlr.press/v220/carrion-ojeda22a.html)] 
+  [[PDF](https://proceedings.mlr.press/v220/carrion-ojeda23a.html)] 
 
 
 - **LTU Attacker for Membership Inference**
