@@ -42,7 +42,7 @@ author_profile: true
   <br>
   **Haozhe Sun**, Alexandre Heuillet, Isabelle Guyon, Felix Mohr, Hedi Tabia
   <br>
-  Under review for IEEE Journal of Selected Topics on Signal Processing, 2023.
+  Under review for IEEE Journal of Selected Topics on Signal Processing.
 
 
 - **Meta-Album: Multi-domain meta-dataset for few-shot image classification**
