@@ -21,10 +21,13 @@ author_profile: true
 
 - : NeurIPS Competition Track 
 - : NeurIPS Datasets and Benchmarks Track
+- : JMLR (Journal of Machine Learning Research)
 - : BayLearn Symposium 
 
 
-
+```
+![I_review_JMLR.png](/assets/images/badges_JMLR_reviewer/I_review_JMLR.png)
+```
 
 
 
