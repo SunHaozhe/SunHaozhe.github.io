@@ -25,9 +25,9 @@ author_profile: true
 - : BayLearn Symposium 
 
 
-```
+
 ![I_review_JMLR.png](/assets/images/badges_JMLR_reviewer/I_review_JMLR.png)
-```
+
 
 
 
