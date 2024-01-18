@@ -40,9 +40,9 @@ author_profile: true
 
 - **DARIO: Differentiable vision transformer pruning with low-cost proxies**
   <br>
-  **Haozhe Sun**, Alexandre Heuillet, Isabelle Guyon, Felix Mohr, Hedi Tabia
+  **Haozhe Sun**, Alexandre Heuillet, Felix Mohr, Hedi Tabia
   <br>
-  Under review for IEEE Journal of Selected Topics on Signal Processing, 2023.
+  IEEE Journal of Selected Topics on Signal Processing. 2024.
 
 
 - **Meta-Album: Multi-domain meta-dataset for few-shot image classification**
